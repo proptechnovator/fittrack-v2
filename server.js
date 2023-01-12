@@ -9,7 +9,7 @@ const defineCurrentUser = require('./middleware/defineCurrentUser');
 
 //middleware
 var corsOptions ={
-    origin: "http://localhost:3000",
+    origin: `http://localhost:${process.env.PORT}`,
     credentials: true
 }
 app.use(cors(corsOptions))
