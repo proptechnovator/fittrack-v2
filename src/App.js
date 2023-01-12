@@ -6,7 +6,7 @@ import Signup from './pages/Signup';
 import Profile from './pages/Profile';
 import Workouts from './pages/WorkoutLog';
 import Error404 from './pages/Error404';
-import Navbar from './components/Navbar';
+
 import CurrentUserProvider from './context/CurrentUser';
 import MealLog from './pages/MealLog';
 import UserDataForm from './components/UserDataForm';
