@@ -13,8 +13,9 @@ import UserDataForm from './components/UserDataForm';
 
 function App() {
   return (
+    
     <CurrentUserProvider>
-    <Navbar/>
+      <Navbar />
         <Routes>
           <Route exact path='/' element={<Home/>}/>
           <Route exact path='/login' element={<Login/>}/>

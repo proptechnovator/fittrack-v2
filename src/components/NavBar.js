@@ -1,4 +1,4 @@
-import React, { /*useEffect,*/ useContext } from 'react';
+import { /*useEffect,*/ useContext } from 'react';
 import { CurrentUser } from '../context/CurrentUser'; 
 import LogoutBtn from './LogoutBtn';
 
