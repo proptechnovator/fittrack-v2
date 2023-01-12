@@ -32,10 +32,10 @@ The interface will be resizable to view on different size screens. <br/>
 
 ### Home
 
-![alt Profile-Snapshot](frontend/public/fittrack-home-snapshot.png/) 
+![alt Profile-Snapshot](public/fittrack-home-snapshot.png/) 
 
 ### Profile
-![alt Profile-Snapshot](frontend/public/fittrack-profile-snapshot.png/) 
+![alt Profile-Snapshot](public/fittrack-profile-snapshot.png/) 
 
 <br/>
 
