@@ -31,7 +31,6 @@ connection will be on the backen */
 //     console.log(`unable to connect to PG: ${err}`)
 // }
 
-
 //Controllers
 app.options('*',cors())
 app.use('/authentication',require('./controllers/authentication'))
