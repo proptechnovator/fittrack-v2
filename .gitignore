@@ -1,11 +1,11 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-
+.env
 # dependencies
 /node_modules
 /.pnp
 .pnp.js
 /config/config.js
-.env
+
 
 # testing
 /coverage
@@ -19,6 +19,7 @@
 .env.development.local
 .env.test.local
 .env.production.local
+.env.dup
 
 npm-debug.log*
 yarn-debug.log*
