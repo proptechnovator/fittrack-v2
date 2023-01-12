@@ -1,103 +1,111 @@
-const express = require('express');
-const mealsRouter = express.Router();
+const UserDataRouter = require('express').Router()
 const db = require('../models');
-const { Op } = require('sequelize');
 
+const {UserData} = db
 
-// get all meals for the specified user and date
-mealsRouter.get('/', async (req, res) => {
+UserDataRouter.post('/', async(req,res) => {
     try {
-        // get the user id and date from the query string
-        const { meal_user_id, meal_date } = req.query;
+     // recieve user data from request body
+    const {
+        data_start_date,
+        data_current_date,
+        data_start_weight, 
+        data_current_weight, 
+        data_start_waist, 
+        data_current_waist,
+        data_start_chest, 
+        data_current_chest, 
+        data_start_shoulders, 
+        data_current_shoulders, 
+        data_start_biceps, 
+        data_current_biceps, 
+        data_start_thighs, 
+        data_current_thighs, 
+        data_start_calves, 
+        data_current_calves 
+    } = req.body;
+ 
+     // create new user data 
+     const newUserData = await UserData.create({
+        data_start_date,
+        data_current_date,
+        data_start_weight, 
+        data_current_weight, 
+        data_start_waist, 
+        data_current_waist,
+        data_start_chest, 
+        data_current_chest, 
+        data_start_shoulders, 
+        data_current_shoulders, 
+        data_start_biceps, 
+        data_current_biceps, 
+        data_start_thighs, 
+        data_current_thighs, 
+        data_start_calves, 
+        data_current_calves
+     });
+     //send new workout data as a response
+     res.send(newUserData);
+     } catch (error){
+     res.status(500).json({ message: 'An error occured'});
+     }
+});
+
+UserDataRouter.put('/:id', async(req,res) =>{
+    try{
+        //get userdata id from params
+        const {id} = req.params;
         
-        // Convert the meal_date string to a Date object
-        const startDate = new Date(meal_date);
-    
-        // Set the day of the month for the end date to be the day after the start date
-        const endDate = new Date(startDate);
-        endDate.setDate(endDate.getDate() + 1);
-    
-        // find all meals that match the user id and date
-        const meals = await db.Meals.findAll({
-            where: {
-            meal_user_id: meal_user_id,
-            meal_date: {
-                [Op.between]: [startDate, endDate]
-            }
-            }
-        });
+        // get updated data from the request body
+        const {
+            data_current_date,
+            data_current_weight,
+            data_current_waist,
+            data_current_chest,
+            data_current_shoulders,
+            data_current_biceps,
+            data_current_thighs,
+            data_current_calves} =req.body;
         
-        // send the meals data as a response
-        res.json(meals);
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: 'An error occurred' });
-    }
+        // find the userdata with a matching id
+    const userdata = await UserData.findOne({
+        where: {id: id}
+    });
+        // update the userdata with new data
+    await userdata.update({ 
+        data_current_date,
+        data_current_weight,
+        data_current_waist,
+        data_current_chest,
+        data_current_shoulders,
+        data_current_biceps,
+        data_current_thighs,
+        data_current_calves });
+
+        //send update user data as a response
+    res.json(userdata)
+        } catch (error) {
+            res.status(500).json({ message: 'A funny error occurred'});
+        }
 });
-  
-mealsRouter.post('/', async (req, res) => {
+
+UserDataRouter.delete('/:id', async (req,res) => {
     try {
-        // get the meal data from the request body
-        const {meal_user_id, meal_description, meal_calories, protein, fat, carbs, meal_date} = req.body;
-        // create a new meal using the data
-        const newMeal = await db.Meals.create({
-            meal_user_id,
-            meal_description,
-            meal_calories,
-            protein,
-            fat,
-            carbs,
-            meal_date
-        });
+        // get workout id from params
+    const {id} = req.params;
         
-        // send the new meal data as a response
-        res.json(newMeal);
+        // find workout with a matching id
+    const userdata = await UserData.findByPk(id);
+
+        // delete the workout
+    await userdata.destroy();
+
+        // send a response indicating that the workout data was deleted successfully
+    res.sendStatus(200);
     } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: 'An error occurred' });
+    console.error(error);
+    res.status(500).json({ message: 'An error occurred'});
     }
 });
 
-mealsRouter.put('/:id', async (req, res) => {
-    try {
-        // get the meal id from the request params
-        const { id } = req.params;
-    
-        // get the updated data from the request body
-        const { meal_description, meal_calories, protein, fat, carbs } = req.body;
-    
-        // find the meal with the matching id
-        const meal = await db.Meals.findByPk(id);
-    
-        // update the meal with the new data
-        await meal.update({ meal_description, meal_calories, protein, fat, carbs });
-    
-        // send the updated meal data as a response
-        res.json(meal);
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: 'An error occurred' });
-    }
-});
-  
-mealsRouter.delete('/:id', async (req, res) => {
-    try {
-        // get the meal id from the request params
-        const { id } = req.params;
-
-        // find the meal with the matching id
-        const meal = await db.Meals.findByPk(id);
-
-        // delete the meal
-        await meal.destroy();
-
-        // send a response indicating that the meal was successfully deleted
-        res.sendStatus(200);
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: 'An error occurred' });
-    }
-});
-
-module.exports = mealsRouter
-
+module.exports = UserDataRouter

@@ -1,92 +1,100 @@
-import React, {useContext} from 'react';
-import { CurrentUser } from '../context/CurrentUser';
-import LogoutProfile from '../components/LogoutProfile';
-import IconUserNav from '../components/IconUserNav';
+import { useState } from 'react';
+import {useNavigate} from 'react-router-dom'
 
-const Profile = () => {
-    const {currentUser} =useContext(CurrentUser)   
-    const startDate= currentUser?.userdata.data_start_date.substr(0,10)
+function Signup() {
+    const navigate= useNavigate()
+
+    const [user, setUser] = useState({
+        user_f_name: '',
+        user_l_name:'',
+        user_email: '',
+        user_password: '',
+    });
+
+    const[error, setError] =useState(null)
+
+    // Declare a state variable for the checkbox and set its initial value to false
+    const [showPassword, setShowPassword] = useState(false);   
+
+    async function handleSubmit(e){
+        e.preventDefault();
+        
+        // Make a request to the server to create a new user
+        const response = await fetch(`http://localhost:5500/users/`, {
+
+            method: 'POST',
+            headers: {
+            'Content-Type': 'application/json'
+            },
+            body:JSON.stringify(user)
+        })
+        await response.json()
+        if(response.status===200){
+            navigate(`/`);
+        } else {
+            setError('This email is already linked to an account, proceed to login')
+        }
+    }
+      
     return (
-        <main className='w-100 mt-3 px-2'>
-            { currentUser && currentUser.userdata ? (
-                <div>
-                    <h1 id='greet' className='fw-bold'>Welcome, {currentUser?.user.user_f_name}!</h1>
-                    <h4 id='greet' className='fw-bold'>{`Let's get FIT!!`}</h4>
-                    <div className='profile'>
-                        <div>
-                            <img src={currentUser.user.user_avatar_url} alt='profile pic'/>
-                            <br />
-
-                            <p><b>{currentUser?.user.user_f_name} {currentUser?.user.user_l_name}</b></p>
-                            <p><b>USERID:{currentUser?.user.user_id}</b></p>
-                            <LogoutProfile/>    
-                        </div>
-                    </div>    
-                    <div className="table-responsive">
-                        <table className ="table">
-                            <thead>
-                                <tr>
-                                    <th colSpan='7' fontSize='18px'>User Details:</th>   
-                                </tr>
-                                <tr>
-                                    <th scope="col">Start Date</th>
-                                    <th scope="col">Start Weight</th>
-                                    <th scope="col">Start Waist</th>
-                                    <th scope="col">Start Chest</th>
-                                    <th scope="col">Start Biceps</th>
-                                    <th scope="col">Start Thighs</th>
-                                    <th scope="col">Start Calves</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>{startDate}</td>
-                                    <td>{currentUser?.userdata.data_start_weight}</td>
-                                    <td>{currentUser?.userdata.data_start_waist}</td>
-                                    <td>{currentUser?.userdata.data_start_chest}</td>
-                                    <td>{currentUser?.userdata.data_start_biceps}</td>
-                                    <td>{currentUser?.userdata.data_start_thighs}</td>
-                                    <td>{currentUser?.userdata.data_start_calves}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>    
-                <div style={{textAlign:'center', marginBottom:'50px'}}>
-                    <a href={`./currentData`}><button className='btn btn-secondary'>Enter Current Measurements</button></a>
-                </div>
-                <div  className='w-100 mt-3 px-2'>     
-                    <IconUserNav />
-                </div> 
-           </div>
-            ): currentUser ? (
-                // add code to navigate to create userData Form
-                <div>
-                    <h1 id='greet' className='fw-bold'>Welcome, {currentUser?.user.user_f_name}!</h1>
-                    <h4 id='greet' className='fw-bold'>Let's get FIT!!</h4>
-                    <div className='profile'>
-                        <img src={`${currentUser?.user.user_avatar_url}`} alt='profile pic'/><br />
-                        <p><b>{currentUser?.user.user_f_name} {currentUser?.user.user_l_name}</b></p>
-                        <p><b>USERID:{currentUser?.user.user_id}</b></p>    
-                    </div>
-                    <h3> No User Details Yet!</h3>
-                    <div style={{textAlign:'center', marginBottom:'50px'}}>
-                    <a href={`./newdata`}><button className='btn btn-secondary'>Enter Your Starting Measurements</button></a>
-                </div>
-                </div>
-            ) : (
-                // code to navigate to login
-                <div>
-                    <h3 id='loading'>Loading...</h3>
-                    {// potentially can be changed to something else, or extend time in case its just taking a while to load?
-                    setTimeout(() => {
-                        return (
-                            <a className='btn btn-secondary' href='/login'>Login?</a>
-                        )
-                    }, 5000)}
-                </div>
-            )}
-        </main>
+        <form className='add-form w-50 mt-4' onSubmit={handleSubmit}>
+            <h1> Sign Up </h1>
+            {error && <div>{error}  <a href="/login"><button type='button'>Login</button></a></div>}   
+            <div className='input-hold w-50 mt-3'>
+                <input
+                    className='w-100 input_'
+                    placeholder=' '
+                    type="text"
+                    name="user_f_name"
+                    id="user_f_name"
+                    onChange={e=>setUser({...user,user_f_name:e.target.value})}
+                />
+                <label className='fw-bold _label' htmlFor="user_f_name">First Name:</label>
+            </div>
+            <br />
+            <div className='input-hold w-50 mt-3'>
+                <input
+                    className='w-100 input_'
+                    placeholder=' '
+                    type="text"
+                    name="user_l_name"
+                    id="user_l_name"
+                    onChange={e=>setUser({...user,user_l_name:e.target.value})}
+                />
+                <label className='fw-bold _label' htmlFor="user_l_name">Last Name:</label>
+            </div>
+            <br />
+            <div className='input-hold w-50 mt-3'>
+                <input
+                    className='w-100 input_'
+                    placeholder=' '
+                    type="text"
+                    name="user_email"
+                    id="user_email"
+                    onChange={e=>setUser({...user,user_email:e.target.value})}
+                />
+                <label className='fw-bold _label' htmlFor="user_email">Email:</label>
+            </div>
+            <br />
+            <div className='input-hold w-50 mt-3'>
+                <input
+                    className='w-100 input_'
+                    placeholder=' '
+                    type={showPassword ? "text" : "password"} 
+                    name="user_password"
+                    id="user_password"
+                    onChange={e=>setUser({...user,user_password:e.target.value})}
+                />
+                <label className='fw-bold _label' htmlFor="user_password">Password:</label>
+            </div>
+            {/* Add a checkbox input field and bind it to the showPassword state variable */}
+            <div className='show-pw w-50 mt-1'>
+                <input type="checkbox" id='show-pw' checked={showPassword} onChange={e => setShowPassword(e.target.checked)} />
+                <label htmlFor='show-pw' className='px-2'>Show Password</label>
+            </div>
+            <button className='btn btn-secondary mt-5 w-50 fw-bold' type="submit">Sign up</button>
+        </form>
     );
 };
 
-export default Profile;
+export default Signup;

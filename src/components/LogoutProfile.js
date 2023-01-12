@@ -1,7 +1,7 @@
 import {useContext} from "react";
 import { CurrentUser } from "../context/CurrentUser";
 
-const LogoutBtn = () => {
+const LogoutProfile = () => {
     const { setCurrentUser } = useContext(CurrentUser)
 
     function logout(){
@@ -11,8 +11,9 @@ const LogoutBtn = () => {
     }
 
     return (
-        <li><a className="dropdown-item" onClick={logout} href="/">Log Out</a></li>
+        
+        <a onClick={logout} href="/"><button className="btn btn-secondary" >Logout</button></a>
     )
 }
 
-export default LogoutBtn
+export default LogoutProfile

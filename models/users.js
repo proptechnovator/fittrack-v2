@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class UserData extends Model {
+  class Users extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -13,83 +13,43 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  UserData.init({
-    data_user_id:{ 
-      type:DataTypes.INTEGER,
-      primaryKey:true,
-      references:{model:'users',key: 'user_id'},
-      allowNull:false
+  Users.init({
+    user_id: {
+        type:DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement:true
     },
-    data_start_date: {
-      type:DataTypes.DATE,
-      allowNull:true
+    user_f_name:{
+        type: DataTypes.STRING,
+        allowNull: false
     },
-    data_current_date:{
-      type:DataTypes.DATE,
-      allowNull:true
+    user_l_name:{
+        type: DataTypes.STRING,
+        allowNull: false
     },
-    data_start_weight: {
-      type:DataTypes.DECIMAL(5,2),
-      allowNull:true
+    user_email: {
+        type: DataTypes.STRING,
+        allowNull: false
     },
-    data_current_weight:  {
-      type:DataTypes.DECIMAL(5,2),
-      allowNull:true
+    user_password: {
+        type: DataTypes.STRING,
+        allowNull: false
     },
-    data_start_waist: {
-      type:DataTypes.DECIMAL(5,2),
-      allowNull:true
+    user_create_date: {
+        type: DataTypes.DATE,
+        allowNull: false,
+        defaultValue: new Date()
     },
-    data_current_waist:  {
-      type:DataTypes.DECIMAL(5,2),
-      allowNull:true
+    user_avatar_url: {
+      type: 'string',
+      allowNull: true,
+      defaultValue: './profile-photo-icon.jpg'
     },
-    data_start_chest: {
-      type:DataTypes.DECIMAL(5,2),
-      allowNull:true
-    },
-    data_current_chest:  {
-      type:DataTypes.DECIMAL(5,2),
-      allowNull:true
-    },
-    data_start_shoulders:  {
-      type:DataTypes.DECIMAL(5,2),
-      allowNull:true
-    },
-    data_current_shoulders:  {
-      type:DataTypes.DECIMAL(5,2),
-      allowNull:true
-    },
-    data_start_biceps: {
-      type:DataTypes.DECIMAL(5,2),
-      allowNull:true
-    },
-    data_current_biceps: {
-      type:DataTypes.DECIMAL(5,2),
-      allowNull:true
-    },
-    data_start_thighs:  {
-      type:DataTypes.DECIMAL(5,2),
-      allowNull:true
-    },
-    data_current_thighs:  {
-      type:DataTypes.DECIMAL(5,2),
-      allowNull:true
-    },
-    data_start_calves:  {
-      type:DataTypes.DECIMAL(5,2),
-      allowNull:true
-    },
-    id:  {
-      type:DataTypes.INTEGER,
-      allowNull:true
-    }
-
   }, {
     sequelize,
-    modelName: 'UserData',
-    tableName: 'userdata',
-    timestamps:false
+    modelName: 'Users',
+    tableName: 'users',
+    timestamps: false
   });
-  return UserData;
+  return Users;
 };

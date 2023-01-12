@@ -23,7 +23,6 @@ function App() {
           <Route exact path='/meals' element={<MealLog/>}/>
           <Route exact path='/workouts' element={<Workouts/>}/>
           <Route exact path='/userdata' element={<UserDataForm/>}/>
-          
           <Route path='/*' element={<Error404 />} />
         </Routes>
     </CurrentUserProvider>
