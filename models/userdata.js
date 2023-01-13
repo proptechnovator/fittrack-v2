@@ -14,6 +14,12 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   UserData.init({
+    data_id:  {
+      type:DataTypes.INTEGER,
+      primaryKey:true,
+      autoIncrement:true,
+      allowNull:false
+    },
     data_user_id:{ 
       type:DataTypes.INTEGER,
       primaryKey:true,
@@ -78,10 +84,6 @@ module.exports = (sequelize, DataTypes) => {
     },
     data_start_calves:  {
       type:DataTypes.DECIMAL(5,2),
-      allowNull:true
-    },
-    id:  {
-      type:DataTypes.INTEGER,
       allowNull:true
     }
 

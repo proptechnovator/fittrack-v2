@@ -27,7 +27,6 @@ async function defineCurrentUser(req, res, next){
                 }
             })
             // Set the currentUser property of the request object to the user
-            console.log(user)
             req.currentUser = {user,userdata}
         }
         next()

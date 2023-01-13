@@ -7,6 +7,7 @@ UserDataRouter.post('/', async(req,res) => {
     try {
      // recieve user data from request body
     const {
+        data_user_id,
         data_start_date,
         data_current_date,
         data_start_weight, 
@@ -27,6 +28,7 @@ UserDataRouter.post('/', async(req,res) => {
  
      // create new user data 
      const newUserData = await UserData.create({
+        data_user_id,
         data_start_date,
         data_current_date,
         data_start_weight, 
@@ -47,7 +49,7 @@ UserDataRouter.post('/', async(req,res) => {
      //send new workout data as a response
      res.send(newUserData);
      } catch (error){
-     res.status(500).json({ message: 'An error occured'});
+     res.status(500).json({ message: 'Could not create New User'});
      }
 });
 
@@ -69,7 +71,7 @@ UserDataRouter.put('/:id', async(req,res) =>{
         
         // find the userdata with a matching id
     const userdata = await UserData.findOne({
-        where: {id: id}
+        where: {data_user_id: id}
     });
         // update the userdata with new data
     await userdata.update({ 
@@ -95,7 +97,11 @@ UserDataRouter.delete('/:id', async (req,res) => {
     const {id} = req.params;
         
         // find workout with a matching id
-    const userdata = await UserData.findByPk(id);
+    const userdata = await UserData.findOne({
+        where:{
+            data_user_id:id
+        }
+    });
 
         // delete the workout
     await userdata.destroy();

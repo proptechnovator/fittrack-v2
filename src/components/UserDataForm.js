@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 function UserDataForm() {
     // refactored the useState for the variables
     const [newUserData,setNewUserData] = useState({
+        data_id:null,
         data_user_id: 8,
         data_start_date: null,
         data_current_date: null,
@@ -19,8 +20,7 @@ function UserDataForm() {
         data_start_thighs: null,
         data_current_thighs: null,
         data_start_calves: null,
-        data_current_calves: null,
-        id:null
+        data_current_calves: null
         });
     //Handle form submission
     const handleSubmit = (event) => {
