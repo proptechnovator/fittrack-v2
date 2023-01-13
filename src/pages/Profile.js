@@ -14,6 +14,7 @@ const Profile = () => {
                     <h4 id='greet' className='fw-bold'>{`Let's get FIT!!`}</h4>
                     <div className='profile'>
                         <div>
+                            
                             <img src={currentUser.user.user_avatar_url} alt='profile pic'/>
                             <br />
 
@@ -77,6 +78,7 @@ const Profile = () => {
                 // code to navigate to login
                 <div>
                     <h3 id='loading'>Loading...</h3>
+                    <img src='../public/fitness=icon.png' alt='test'></img>
                     {// potentially can be changed to something else, or extend time in case its just taking a while to load?
                     setTimeout(() => {
                         return (

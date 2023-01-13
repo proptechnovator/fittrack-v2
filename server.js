@@ -1,7 +1,6 @@
 require('dotenv').config()
 const express = require('express');
-const bodyParser = require('body-parser');
-//const cors = require('cors');
+const cors = require('cors');
 const app = express()
 const {Sequelize} = require('sequelize')
 const defineCurrentUser = require('./middleware/defineCurrentUser');
@@ -9,11 +8,12 @@ const defineCurrentUser = require('./middleware/defineCurrentUser');
 
 //middleware
 var corsOptions ={
-    origin: `http://localhost:${process.env.PORT}` ,
+    origin: `http://localhost:5001` ,
+    methods:"GET,PUT,POST,DELETE,PATCH",
     changeOrigin:true,
     credentials: true
 }
-//app.use(cors())
+app.use(cors(corsOptions))
 app.use(express.static('public'))
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())

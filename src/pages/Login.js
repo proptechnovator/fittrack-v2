@@ -43,7 +43,7 @@ function Login() {
             setCurrentUser(data.user);
             localStorage.setItem('token',data.token)
             // navigate to the home page if login was successful
-           navigate(`/`);
+           navigate(`/profile`);
 
         } else {
             // display an error message if login failed
