@@ -21,29 +21,50 @@ function UserDataForm(props) {
         data_current_thighs: null,
         data_start_calves: null,
         data_current_calves: null
-        });
+    });
+    
+    // responsive variables
+    const [viewportWidth, setViewPortWidth] = useState(window.innerWidth);
+    let timeout;
+
+    // Add an event listener for the 'resize' event on the window object
+    window.addEventListener('resize', () => {
+    // Clear any existing timeout
+    clearTimeout(timeout);
+
+    // Set a new timeout to run the function after a short delay
+    timeout = setTimeout(() => {
+        // Get the current viewport width
+        setViewPortWidth(window.innerWidth)
+    }, 250); // The function will run 250ms after the user finishes resizing the window
+    });
+
     
     //Handle form submission
     async function handleSubmit(event) {
         event.preventDefault();
-        
-        //send the new userdata object to the server
-        const response= await fetch('http://localhost:5000/addData', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(newUserData),
-    });
-    const data = await response.json();
-        if(response.status===200){
-            window.location.reload()
+            
+        try {
+            //send the new userdata object to the server
+            const response = await fetch('http://localhost:5000/addData', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(newUserData),
+            });
+            // reload page after
+            if(response.status === 200) {
+                window.location.reload();
+            }
+        } catch (error) {
+            console.error(error);
+            // Display an error message to the user
         }
-    // reload the page after
-
     }
+    
 
     return (
-        <div className="modal-body w-100">
-                        <form className="add-form w-50" onSubmit={handleSubmit}>
+        <div className="w-100">
+                        <form className={ viewportWidth >= 720 ? "add-form w-50" : viewportWidth >= 480 ? "add-form w-75" : "add-form w-100"} onSubmit={handleSubmit}>
                             <div className='w-100 input-hold'>
                                 <input
                                     placeholder=' '
@@ -128,7 +149,7 @@ function UserDataForm(props) {
                                 <label className="fw-bold _label" htmlFor="data_start_calves">Calve size (cm):</label>
                             </div>
                             <br />
-                            <button type="submit" className='btn btn-secondary'>Add My Measurements</button>
+                            <button type="submit" className='btn btn-secondary fw-bold'>Add My Measurements</button>
                         </form>
                     </div>
     )

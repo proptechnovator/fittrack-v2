@@ -52,8 +52,6 @@ body #nav #user-menu {
 body #nav #user-menu img {
   height: 50px;
   width: auto;
-  background-color: transparent;
-  background-image: none;
 }
 @media (max-width: 720px) {
   body #nav #user-menu img {
@@ -318,6 +316,18 @@ body .add-form .input-hold ._label {
     font-size: 14px;
   }
 }
+body .add-form .input-hold .input_:not(:-moz-placeholder-shown).input_:not(:focus) ~ ._label {
+  top: -0.6rem;
+  font-size: 0.8rem;
+  left: 0.6rem;
+  background-color: #ffffff;
+}
+body .add-form .input-hold .input_:not(:-ms-input-placeholder).input_:not(:focus) ~ ._label {
+  top: -0.6rem;
+  font-size: 0.8rem;
+  left: 0.6rem;
+  background-color: #ffffff;
+}
 body .add-form .input-hold .input_:focus ~ ._label,
 body .add-form .input-hold .input_:not(:placeholder-shown).input_:not(:focus) ~ ._label {
   top: -0.6rem;
@@ -418,7 +428,5 @@ body main .links h2 {
 .img-rounded {
   width: 65px;
   height: 65px;
-  border-radius: 32px;
-}
-
-/*# sourceMappingURL=index.css.map */
+  border-radius: 50%;
+}/*# sourceMappingURL=index.css.map */

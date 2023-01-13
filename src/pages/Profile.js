@@ -72,16 +72,14 @@ const Profile = () => {
                       </div> 
                     </div>
                     <div style={{textAlign:'center', marginBottom:'50px'}}>
-                    <h3 style={{marginBottom:'20px'}}> No User Details Yet!</h3>
                     <h4 style={{marginBottom:'20px'}}> Please enter your starting measurements</h4>   
                     <UserDataForm user_id={currentUser?.user.user_id}/>
                     </div>
                 </div>
             ) : (
                 // code to navigate to login
-                <div>
-                    <h3 id='loading'>Loading...</h3>
-                    <img src='../public/fitness=icon.png' alt='test'></img>
+                <div className='profile'>
+                    <img style={{width:'400px', height:'auto'}} src='../gains-loading.jpg' alt='test'></img>
                     {// potentially can be changed to something else, or extend time in case its just taking a while to load?
                     setTimeout(() => {
                         return (
