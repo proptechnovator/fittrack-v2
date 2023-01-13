@@ -23,8 +23,6 @@ app.use(defineCurrentUser)
 connection will be on the backen */
 
 // const sequelize = new Sequelize(process.env.PG_URI)
-
-
 // try {
 //     sequelize.authenticate()
 //     console.log(`Connect to SQL DB at ${process.env.PG_URI}`)
@@ -33,7 +31,8 @@ connection will be on the backen */
 // }
 
 //Controllers
-//app.options('*',cors())
+
+app.options('*',cors())
 app.use('/authentication',require('./controllers/authentication'))
 app.use('/users',require('./controllers/users'))
 app.use('/meals',require('./controllers/meals'))

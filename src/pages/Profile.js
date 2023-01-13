@@ -2,22 +2,20 @@ import React, {useContext} from 'react';
 import { CurrentUser } from '../context/CurrentUser';
 import LogoutProfile from '../components/LogoutProfile';
 import IconUserNav from '../components/IconUserNav';
+import UserDataForm from '../components/UserDataForm';
 
 const Profile = () => {
     const {currentUser} =useContext(CurrentUser)   
-    const startDate= currentUser?.userdata.data_start_date.substr(0,10)
     return (
         <main className='w-100 mt-3 px-2'>
-            { currentUser && currentUser.userdata ? (
+            { currentUser && currentUser.userdata!==null ? (
                 <div>
                     <h1 id='greet' className='fw-bold'>Welcome, {currentUser?.user.user_f_name}!</h1>
                     <h4 id='greet' className='fw-bold'>{`Let's get FIT!!`}</h4>
                     <div className='profile'>
                         <div>
-                            
                             <img src={currentUser.user.user_avatar_url} alt='profile pic'/>
                             <br />
-
                             <p><b>{currentUser?.user.user_f_name} {currentUser?.user.user_l_name}</b></p>
                             <p><b>USERID:{currentUser?.user.user_id}</b></p>
                             <LogoutProfile/>    
@@ -41,7 +39,7 @@ const Profile = () => {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>{startDate}</td>
+                                    <td>{currentUser?.userdata.data_start_date.substr(0,10)}</td>
                                     <td>{currentUser?.userdata.data_start_weight}</td>
                                     <td>{currentUser?.userdata.data_start_waist}</td>
                                     <td>{currentUser?.userdata.data_start_chest}</td>
@@ -64,15 +62,20 @@ const Profile = () => {
                 <div>
                     <h1 id='greet' className='fw-bold'>Welcome, {currentUser?.user.user_f_name}!</h1>
                     <h4 id='greet' className='fw-bold'>Let's get FIT!!</h4>
+
                     <div className='profile'>
+                      <div> 
                         <img src={`${currentUser?.user.user_avatar_url}`} alt='profile pic'/><br />
                         <p><b>{currentUser?.user.user_f_name} {currentUser?.user.user_l_name}</b></p>
-                        <p><b>USERID:{currentUser?.user.user_id}</b></p>    
+                        <p><b>USERID:{currentUser?.user.user_id}</b></p>
+                        <LogoutProfile/>   
+                      </div> 
                     </div>
-                    <h3> No User Details Yet!</h3>
                     <div style={{textAlign:'center', marginBottom:'50px'}}>
-                    <a href={`./newdata`}><button className='btn btn-secondary'>Enter Your Starting Measurements</button></a>
-                </div>
+                    <h3 style={{marginBottom:'20px'}}> No User Details Yet!</h3>
+                    <h4 style={{marginBottom:'20px'}}> Please enter your starting measurements</h4>   
+                    <UserDataForm user_id={currentUser?.user.user_id}/>
+                    </div>
                 </div>
             ) : (
                 // code to navigate to login

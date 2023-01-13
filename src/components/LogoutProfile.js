@@ -12,7 +12,7 @@ const LogoutProfile = () => {
 
     return (
         
-        <a onClick={logout} href="/"><button className="btn btn-secondary" >Logout</button></a>
+        <a onClick={logout} href="/"><button className="btn btn-danger" >Logout</button></a>
     )
 }
 

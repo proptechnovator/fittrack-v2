@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 
-function UserDataForm() {
+function UserDataForm(props) {
     // refactored the useState for the variables
     const [newUserData,setNewUserData] = useState({
         data_id:null,
-        data_user_id: 8,
-        data_start_date: null,
+        data_user_id: props.user_id,
+        data_start_date: new Date(),
         data_current_date: null,
         data_start_weight: null,
         data_current_weight: null,
@@ -22,17 +22,21 @@ function UserDataForm() {
         data_start_calves: null,
         data_current_calves: null
         });
+    
     //Handle form submission
-    const handleSubmit = (event) => {
+    async function handleSubmit(event) {
         event.preventDefault();
-        console.log(newUserData)
+        
         //send the new userdata object to the server
-        fetch('http://localhost:5000/addData', {
+        const response= await fetch('http://localhost:5000/addData', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newUserData),
     });
-
+    const data = await response.json();
+        if(response.status===200){
+            window.location.reload()
+        }
     // reload the page after
 
     }
@@ -49,7 +53,7 @@ function UserDataForm() {
                                     className="w-100 input_"
                                     onChange={e => setNewUserData({...newUserData,data_start_weight:e.target.value})}
                                 />
-                                <label className="fw-bold _label" htmlFor="data_start_weight">CurrentWeight (lb):</label>
+                                <label className="fw-bold _label" htmlFor="data_start_weight">CurrentWeight (lbs):</label>
                             </div>
                             <br />
                             <div className='w-100 input-hold'>

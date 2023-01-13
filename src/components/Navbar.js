@@ -15,6 +15,7 @@ const Navbar = () => {
             </div>
             {currentUser ? (
                 <div id='user-menu' className='btn-group'>
+                    <p style={{color:'white'}}>Logged in As: {currentUser.user.user_f_name} {currentUser.user.user_l_name}</p>
                     <img className='px-2 img-rounded' style={{height:'auto',width:'60px'}} src={currentUser.user.user_avatar_url} alt='profile pic'/>
                     <button type="button" id='dropdown' className="btn btn-sm btn-secondary px-2 dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
                         <span className="visually-hidden">Toggle Dropdown</span>
@@ -24,7 +25,7 @@ const Navbar = () => {
                         <li><a className="dropdown-item" href="/profile">Profile</a></li>
                         <li><a className="dropdown-item" href="/workouts">Workout Log</a></li>
                         <li><a className="dropdown-item" href="/meals">Food Log</a></li>
-                        <li><a className="dropdown-item" href="/">Calculators</a></li> {/* to implement later */}
+                        {/*<li><a className="dropdown-item" href="/">Calculators</a></li> */}
                         <LogoutBtn/>
                     </ul>
                 </div>
