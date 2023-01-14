@@ -44,18 +44,6 @@ function UserDataForm(props) {
     //Handle form submission
     async function handleSubmit(event) {
         event.preventDefault();
-<<<<<<< HEAD
-        
-        //send the new userdata object to the server
-        const response= await fetch(`/addData`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(newUserData),
-    });
-    const data = await response.json();
-        if(response.status===200){
-            window.location.reload()
-=======
             
         try {
             //send the new userdata object to the server
@@ -71,7 +59,6 @@ function UserDataForm(props) {
         } catch (error) {
             console.error(error);
             // Display an error message to the user
->>>>>>> main
         }
     }
     

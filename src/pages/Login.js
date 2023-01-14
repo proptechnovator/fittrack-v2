@@ -30,11 +30,7 @@ function Login() {
     async function handleSubmit(e) {
         e.preventDefault();
                 // send a request to the server to verify the email and password
-<<<<<<< HEAD
-        const response = await fetch(`/authentication`, { // to be changed to server route.
-=======
         const response = await fetch('http://localhost:5500/authentication', { // to be changed to server route.
->>>>>>> main
             method: 'POST',
             credentials: 'include',
             headers: {
