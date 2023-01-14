@@ -50,6 +50,32 @@ const Profile = () => {
                             </tbody>
                         </table>
                     </div>    
+                    <div className="table-responsive">
+                        <table className ="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Last Update</th>
+                                    <th scope="col">Current Weight</th>
+                                    <th scope="col">Current Waist</th>
+                                    <th scope="col">Current Chest</th>
+                                    <th scope="col">Current Biceps</th>
+                                    <th scope="col">Current Thighs</th>
+                                    <th scope="col">Current Calves</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>{currentUser?.userdata?.data_current_date?.substr(0,10) || 'N/A'}</td>
+                                    <td>{currentUser?.userdata?.data_current_weight || 'N/A'}</td>
+                                    <td>{currentUser?.userdata?.data_current_waist || 'N/A'}</td>
+                                    <td>{currentUser?.userdata?.data_current_chest || 'N/A'}</td>
+                                    <td>{currentUser?.userdata?.data_current_biceps || 'N/A'}</td>
+                                    <td>{currentUser?.userdata?.data_current_thighs || 'N/A'}</td>
+                                    <td>{currentUser?.userdata?.data_current_calves || 'N/A'}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>   
                 <div style={{textAlign:'center', marginBottom:'50px'}}>
                     <a href={`/currentdata`}><button className='btn btn-secondary'>Enter Current Measurements</button></a>
                 </div>

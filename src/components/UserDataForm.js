@@ -47,7 +47,7 @@ function UserDataForm(props) {
             
         try {
             //send the new userdata object to the server
-            const response = await fetch('http://localhost:5000/addData', {
+            const response = await fetch('http://localhost:5500/addData', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(newUserData),
