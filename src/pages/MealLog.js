@@ -60,6 +60,13 @@ function MealLog() {
     // Use the selected date to filter the data being displayed
     const displayedMeals = groupedMeals[selectedDate] || [];
 
+    const totalCalories = displayedMeals.reduce((acc, meal) => {
+        if(meal.meal_calories && !isNaN(meal.meal_calories)) {
+            acc += meal.meal_calories;
+        }
+        return acc;
+    }, 0);
+
     const displayForm = (meal) => {
         setEditingMealId(meal);
         (display) ? setDisplay(false) : setDisplay(true)
@@ -97,7 +104,8 @@ function MealLog() {
                     {editingMealId === meal.meal_id && display ? <MealEdit meal={meal} /> : null}
                 </div>
             ))}
-            { !addDisplay && currentUser ? <button className='btn btn-secondary mt-4 fw-bold' data-bs-toggle="modal" data-bs-target="#form-modal"> Add Meal </button>: currentUser ? <button onClick={() => displayAddForm()} className='btn btn-secondary mt-4'>-</button> : null}
+            <p className='fw-bold mt-3'>Total Calories: {totalCalories}</p>
+            { !addDisplay && currentUser ? <button className='btn btn-secondary mt-2 fw-bold' data-bs-toggle="modal" data-bs-target="#form-modal"> Add Meal </button>: currentUser ? <button onClick={() => displayAddForm()} className='btn btn-secondary mt-4'>-</button> : null}
             { currentUser ? <MealForm user_id = {currentUser.user.user_id} selectedDate = {selectedDate}/> : null}
         </div>
     );
