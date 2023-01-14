@@ -103,6 +103,9 @@ When running npm start from the root folder, it tries to run on PORT 5000, but t
 The npm start says there is already an app running on port 5000, and sets the default port to run on port 5001
 The app launches fine, but then runs into a CORS issue
 <pre><b>Resolution:</b>
+We discovered that on the monorepo we needed to launch two separate termials.
+We start the server first with Nodemon server.js
+and then launch the frontend with NPM Start and click Y to assign a new port
 </pre>
 
 ### CORS Access Errors
@@ -110,6 +113,9 @@ When running the app, we check to see if the CurrentUser is logged in which is d
 This returns an error on the console on the local client because the origin header shows port: 5001 and does not match the server port:5001.<br/><br/>
 On the deployment version, it is trying to hit the path LocalHost:5000, and that doesn't exist on the web server.
 <pre><b>Resolution:</b>
+On the local machine, we needed to add the methods allowed when using credentials set to true.
+Added the origin port to point to 5001
+Added the allowed methods to the CORS Options and it cleared all the CORS errors on preflight.
 </pre>
 
 ### Setting FETCH Path

@@ -43,7 +43,7 @@ function WorkoutForm(props) {
         workout_date: date
     };
     //send the new workout object to the server with a Post request 
-    fetch(`http://localhost:5000/workouts`, {
+    fetch(`${process.env.HEROKU_HOST_URI}/workouts`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newWorkout),

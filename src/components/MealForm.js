@@ -44,7 +44,7 @@ function MealForm(props) {
         };
 
         // Send the new meal object to the server using a POST request
-        fetch('http://localhost:5000/meals', {
+        fetch(`${process.env.HEROKU_HOST_URI}/meals`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(newMeal),

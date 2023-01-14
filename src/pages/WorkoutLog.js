@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { CurrentUser } from '../context/CurrentUser';
 import WorkoutEdit from '../components/WorkoutEdit';
 import WorkoutForm from '../components/WorkoutForm';
+require('dotenv').config()
 
 function WorkoutLog() {
     // Declare state variables to store the selected date and the workout data
@@ -18,7 +19,7 @@ function WorkoutLog() {
         if(currentUser) {
             // Fetch the workout data from the server and store it in the state
             async function fetchData() {
-                const response = await fetch(`http://localhost:5000/workouts?workout_user_id=${currentUser.user.user_id}&workout_date=${selectedDate}`); // route subject to change depending on server route
+                const response = await fetch(`${process.env.HEROKU_HOST_URI}/workouts?workout_user_id=${currentUser.user.user_id}&workout_date=${selectedDate}`); // route subject to change depending on server route
                 const data = await response.json();
                 setworkout(data);
                 
@@ -30,7 +31,7 @@ function WorkoutLog() {
      //Workout Delete request
      async function deleteWorkout(workoutId) {
         try {
-            await fetch(`http://localhost:5000/workouts/${workoutId}`, {
+            await fetch(`${process.env.HEROKU_HOST_URI}/workouts/${workoutId}`, {
                 method: 'DELETE',
             });
             // After the Delete request is complete, reload page
