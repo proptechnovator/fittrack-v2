@@ -151,6 +151,5 @@ function CurrentDataForm() {
                         </form>
                     </div>
     )
-
 }
 export default CurrentDataForm
