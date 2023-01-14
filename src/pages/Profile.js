@@ -51,7 +51,7 @@ const Profile = () => {
                         </table>
                     </div>    
                 <div style={{textAlign:'center', marginBottom:'50px'}}>
-                    <a href={`./currentData`}><button className='btn btn-secondary'>Enter Current Measurements</button></a>
+                    <a href={`/currentdata`}><button className='btn btn-secondary'>Enter Current Measurements</button></a>
                 </div>
                 <div  className='w-100 mt-3 px-2'>     
                     <IconUserNav />

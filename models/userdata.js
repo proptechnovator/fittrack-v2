@@ -86,6 +86,10 @@ module.exports = (sequelize, DataTypes) => {
     data_start_calves:  {
       type:DataTypes.DECIMAL(5,2),
       allowNull:true
+    },
+    data_current_calves:  {
+      type:DataTypes.DECIMAL(5,2),
+      allowNull:true
     }
 
   }, {

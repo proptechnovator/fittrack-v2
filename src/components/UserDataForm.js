@@ -150,7 +150,7 @@ function UserDataForm(props) {
                                 <label className="fw-bold _label" htmlFor="data_start_calves">Calve size (cm):</label>
                             </div>
                             <br />
-                            <button type="submit" className='btn btn-secondary fw-bold'>Add My Measurements</button>
+                            <button type="submit" className='btn btn-secondary fw-bold mb-4'>Add My Measurements</button>
                         </form>
                     </div>
     )
