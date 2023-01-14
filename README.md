@@ -82,6 +82,11 @@ Exercises (3rd Party API) <br>
 
 ## Issues Encountered
 
+### In Application
+Date Selector Input causes crash when attempting to input values with keyboard. 
+<br/><br/>
+Possible Solution: change method to select date? maybe utilizing a package?
+
 ### Deployment
 Initially, we attempted to deploy our App using AWS Amplify but due to the app file structure, the build failed.<br/><br/>
 Initially, we attempted to deploy our App using AWS Beanstalk but due to the app file structure, the build failed.<br/><br/>
@@ -116,6 +121,13 @@ On the deployment version, it is trying to hit the path LocalHost:5000, and that
 We set the fetch request to a static path  https://localhost:5000, and the creates an issue with the deployment server.
 <pre><b>Resolution:</b>
 </pre>
+
+## Future Updates
+* Connect with 3rd Party API and display search results for specified exercises.
+* Implement calculators and routes for each of them. (e.g. Resting-heart-rate, One-rep-max, Macros, Target-heart-rate, BMI, BMR, etc.)
+* Connect with 3rd Party API to display Motivational quotes in different routes within app.
+* Implement challenges route to give users potential goals to achieve.
+* Display graph of progress within profile page.
 
 ## Contributors
 

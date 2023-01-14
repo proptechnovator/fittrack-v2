@@ -30,7 +30,7 @@ function Login() {
     async function handleSubmit(e) {
         e.preventDefault();
                 // send a request to the server to verify the email and password
-        const response = await fetch('http://localhost:5000/authentication', { // to be changed to server route.
+        const response = await fetch('http://localhost:5500/authentication', { // to be changed to server route.
             method: 'POST',
             credentials: 'include',
             headers: {
@@ -43,7 +43,7 @@ function Login() {
             setCurrentUser(data.user);
             localStorage.setItem('token',data.token)
             // navigate to the home page if login was successful
-           navigate(`/profile`);
+            navigate(`/profile`);
 
         } else {
             // display an error message if login failed
