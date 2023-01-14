@@ -50,8 +50,9 @@ auth.get('/profile', async (req, res) => {
             res.json({user, userdata})
         }
     } catch{
-        res.json({})
-    }
+        res.status(404).json({ 
+            message: `Error fetching profile data` 
+    })}
 })
 
 module.exports= auth
