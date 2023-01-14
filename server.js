@@ -9,11 +9,7 @@ const { paste } = require('@testing-library/user-event/dist/paste');
 
 //middleware
 var corsOptions ={
-<<<<<<< HEAD
-    origin: `https://fittrack-v2.herokuapp.com` ,
-=======
-    origin: `http://localhost:5501` ,
->>>>>>> main
+    origin: `*` ,
     methods:"GET,PUT,POST,DELETE,PATCH",
     changeOrigin:true,
     credentials: true
