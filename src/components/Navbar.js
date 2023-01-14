@@ -13,7 +13,7 @@ const Navbar = () => {
                 <a className="navbar-brand fw-bold" href="/"><i>FitTrack</i></a>
                 <img id='heart' className='px-2' alt='heart and pulse' src='../../heart-beat-icon.png'></img>
             </div>
-            {currentUser ? (
+            {currentUser?.user ? (
                 <div id='user-menu' className='btn-group'>
                     <p className='m-auto' style={{color:'white'}}>Logged in As: {currentUser.user.user_f_name} {currentUser.user.user_l_name}</p>
                     <img className='px-2 img-rounded' src={currentUser.user.user_avatar_url} alt='profile pic'/>
