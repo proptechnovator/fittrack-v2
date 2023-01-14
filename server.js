@@ -8,7 +8,7 @@ const defineCurrentUser = require('./middleware/defineCurrentUser');
 
 //middleware
 var corsOptions ={
-    origin: `http://localhost:5001` ,
+    origin: `https://fittrack-v2.herokuapp.com` ,
     methods:"GET,PUT,POST,DELETE,PATCH",
     changeOrigin:true,
     credentials: true
