@@ -5,16 +5,14 @@ import LogoutProfile from './LogoutProfile';
 function CurrentDataForm() {
     // refactored the useState for the variables
     const params= new URLSearchParams(window.location.search)
+    const dataId = params.get('dataid')
     const userId = params.get('userid')
     const userFName = params.get('userfname')
     const userLName = params.get('userlname')
     const userAvatar = params.get('useravatar')
-    
-
-
 
     const [currentUserData,setCurrentUserData] = useState({
-        data_id:null,
+        data_id:dataId,
         data_user_id: userId,
         data_start_date: null,
         data_current_date: new Date(),
@@ -39,17 +37,15 @@ function CurrentDataForm() {
         event.preventDefault();
         
         //send the current userdata object to the server
-        const response= await fetch('http://localhost:5000/currendata', {
-        method: 'POST',
+        const response= await fetch(`http://localhost:5000/addData/${userId}`, {
+        method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(currentUserData),
     });
-        await response.json();
+        await response.json()
         if(response.status===200){
             navigate('/profile')
         }
-    // reload the page after
-
     }
 
     return (            

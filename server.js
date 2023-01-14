@@ -38,7 +38,7 @@ app.use('/users',require('./controllers/users'))
 app.use('/meals',require('./controllers/meals'))
 app.use('/workouts',require('./controllers/workouts'))
 app.use('/addData',require('./controllers/userData'))
-app.use('/currentdata',require('./controllers/userData'))
+
 //Listen
 app.listen(process.env.PORT,()=>{
     console.log(`App running on port ${process.env.PORT}`)
