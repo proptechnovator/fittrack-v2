@@ -50,7 +50,7 @@ function CurrentDataForm() {
         event.preventDefault();
         
         //send the current userdata object to the server
-        const response= await fetch(`http://localhost:5500/addData/${userId}`, {
+        const response= await fetch(`/addData/${userId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(currentUserData),

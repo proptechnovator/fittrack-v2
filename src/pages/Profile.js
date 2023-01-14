@@ -49,11 +49,6 @@ const Profile = () => {
                                 </tr>
                             </tbody>
                         </table>
-<<<<<<< HEAD
-                    </div> 
-                    <div style={{textAlign:'center', marginBottom:'50px'}}>
-                    <a href={`./currentdata?dataid=${currentUser.userdata.data_id}&userid=${currentUser.user.user_id}&userfname=${currentUser.user.user_f_name}&userlname=${currentUser.user.user_l_name}&useravatar=${currentUser.user.user_avatar_url}`}><button className='btn btn-secondary'>Enter Current Measurements</button></a>
-=======
                     </div>    
                     <div className="table-responsive">
                         <table className ="table">
@@ -83,7 +78,6 @@ const Profile = () => {
                     </div>   
                 <div style={{textAlign:'center', marginBottom:'50px'}}>
                     <a href={`/currentdata`}><button className='btn btn-secondary'>Enter Current Measurements</button></a>
->>>>>>> main
                 </div>
                 <div  className='w-100 mt-3 px-2'>     
                     <IconUserNav />
