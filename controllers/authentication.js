@@ -29,7 +29,7 @@ auth.post('/', async (req, res) => {
 
 
 auth.get('/profile', async (req, res) => {
-
+    console.log("hit the profile controller route")
     try{
         const [authenticationMethod,token] = req.headers.authorization.split(' ')
         if (authenticationMethod == 'Bearer') {
@@ -49,7 +49,7 @@ auth.get('/profile', async (req, res) => {
             res.json({user, userdata})
         }
     } catch{
-        res.json(null)
+        res.json({})
     }
 })
 
