@@ -29,7 +29,7 @@ function UserDataForm(props) {
         event.preventDefault();
         
         //send the new userdata object to the server
-        const response= await fetch(`${process.env.HEROKU_HOST_URI}/addData`, {
+        const response= await fetch(`/addData`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newUserData),

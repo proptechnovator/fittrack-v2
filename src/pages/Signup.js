@@ -20,7 +20,7 @@ function Signup() {
         e.preventDefault();
         
         // Make a request to the server to create a new user
-        const response = await fetch(`${process.env.HEROKU_HOST_URI}/users/`, {
+        const response = await fetch(`/users/`, {
 
             method: 'POST',
             headers: {

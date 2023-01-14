@@ -37,7 +37,7 @@ function CurrentDataForm() {
         event.preventDefault();
         
         //send the current userdata object to the server
-        const response= await fetch(`${process.env.HEROKU_HOST_URI}/addData/${userId}`, {
+        const response= await fetch(`/addData/${userId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(currentUserData),

@@ -24,7 +24,7 @@ function MealEdit({ meal }) {
 
         // Send the new meal object to the server using a POST request
 
-        fetch(`${process.env.HEROKU_HOST_URI}/meals/${meal.meal_id}`, {
+        fetch(`/meals/${meal.meal_id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(newMealData),
