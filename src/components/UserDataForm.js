@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 
 function UserDataForm(props) {
     // refactored the useState for the variables
+
     const [newUserData,setNewUserData] = useState({
         data_id:null,
         data_user_id: props.user_id,
