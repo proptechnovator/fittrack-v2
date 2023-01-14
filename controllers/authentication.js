@@ -7,7 +7,6 @@ const {Users, UserData} = db
 
 
 auth.post('/', async (req, res) => {
-    console.log(req.body)
     // Find a user in the database with a matching email
     let user = await Users.findOne({
         where: { user_email: req.body.user_email }

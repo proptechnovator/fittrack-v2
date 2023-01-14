@@ -54,7 +54,30 @@ UserDataRouter.post('/', async(req,res) => {
 });
 
 UserDataRouter.put('/:id', async(req,res) =>{
-    if (req.body!== null){  
+    try {
+        // get user id from params
+    const {id} = req.params;
+        
+    const { data_current_date, data_current_weight, data_current_waist, data_current_chest, data_current_shoulders, data_current_biceps, data_current_thighs, data_current_calves} = req.body;
+
+        // find data with matching user id
+    const userdata = await UserData.findOne({
+        where:{
+            data_user_id:id
+        }
+    });
+
+        // update data
+    await userdata.update({ data_current_date, data_current_weight, data_current_waist, data_current_chest, data_current_shoulders, data_current_biceps, data_current_thighs, data_current_calves});
+
+    // send updated data as response
+    res.json(userdata);
+    } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'An error occurred'});
+    }
+
+/*    if (req.body!== null){  
         
   //update the userdata with new data
         const response = await UserData.update({ 
@@ -73,7 +96,7 @@ UserDataRouter.put('/:id', async(req,res) =>{
         } else {
          res.json({status:500})   
         }
-
+        */
 });
 
 UserDataRouter.delete('/:id', async (req,res) => {

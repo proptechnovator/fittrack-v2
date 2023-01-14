@@ -24,7 +24,11 @@ function WorkoutEdit({ workout }) {
     };
 
     //send the new workout object to the server with a Post request 
+<<<<<<< HEAD
     fetch(`/workouts/${workout.workout_id}`, {
+=======
+    fetch(`http://localhost:5500/workouts/${workout.workout_id}`, {
+>>>>>>> main
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newWorkoutData),

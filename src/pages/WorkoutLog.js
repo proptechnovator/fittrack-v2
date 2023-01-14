@@ -18,7 +18,11 @@ function WorkoutLog() {
         if(currentUser) {
             // Fetch the workout data from the server and store it in the state
             async function fetchData() {
+<<<<<<< HEAD
                 const response = await fetch(`/workouts?workout_user_id=${currentUser.user.user_id}&workout_date=${selectedDate}`); // route subject to change depending on server route
+=======
+                const response = await fetch(`http://localhost:5500/workouts?workout_user_id=${currentUser.user.user_id}&workout_date=${selectedDate}`); // route subject to change depending on server route
+>>>>>>> main
                 const data = await response.json();
                 setworkout(data);
                 
@@ -30,7 +34,11 @@ function WorkoutLog() {
      //Workout Delete request
      async function deleteWorkout(workoutId) {
         try {
+<<<<<<< HEAD
             await fetch(`/workouts/${workoutId}`, {
+=======
+            await fetch(`http://localhost:5500/workouts/${workoutId}`, {
+>>>>>>> main
                 method: 'DELETE',
             });
             // After the Delete request is complete, reload page

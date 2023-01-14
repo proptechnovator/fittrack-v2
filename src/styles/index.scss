@@ -62,8 +62,6 @@ body {
             img{
                 height: 50px;
                 width: auto;
-                background-color: transparent;
-                background-image: none;
 
                 @media (max-width: 720px) {
                     height: 35px; //for viewports <= 720px
@@ -450,5 +448,5 @@ body {
 .img-rounded{
     width: 65px;
         height: 65px;
-    border-radius: 32px;
+    border-radius: 50%;
 }
