@@ -4,7 +4,8 @@ const cors = require('cors');
 const app = express()
 const {Sequelize} = require('sequelize')
 const defineCurrentUser = require('./middleware/defineCurrentUser');
-
+const path = require('path');
+const { paste } = require('@testing-library/user-event/dist/paste');
 
 //middleware
 var corsOptions ={
@@ -31,7 +32,6 @@ connection will be on the backen */
 // }
 
 //Controllers
-
 app.options('*',cors())
 app.use('/authentication',require('./controllers/authentication'))
 app.use('/users',require('./controllers/users'))
@@ -39,5 +39,14 @@ app.use('/meals',require('./controllers/meals'))
 app.use('/workouts',require('./controllers/workouts'))
 app.use('/addData',require('./controllers/userData'))
 
+// relative path
+app.get ('/', (req,res)=>{
+    res.render('./src/index.js')
+})
+
+app.get ('*', (req,res)=>{
+    res.render('./src/pages/Error404.js')
+})
+
 //Listen
-app.listen(process.env.PORT)
+app.listen(process.env.PORT || 8080)
