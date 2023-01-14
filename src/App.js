@@ -10,6 +10,7 @@ import Navbar from './components/Navbar';
 import CurrentUserProvider from './context/CurrentUser';
 import MealLog from './pages/MealLog';
 import UserDataForm from './components/UserDataForm';
+import CurrentDataForm from './components/CurrentDataForm';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route exact path='/meals' element={<MealLog/>}/>
           <Route exact path='/workouts' element={<Workouts/>}/>
           <Route exact path='/userdata' element={<UserDataForm/>}/>
+          <Route exact path='/currentdata' element={<CurrentDataForm/>}/>
           <Route path='/*' element={<Error404 />} />
         </Routes>
     </CurrentUserProvider>

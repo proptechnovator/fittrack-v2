@@ -54,41 +54,26 @@ UserDataRouter.post('/', async(req,res) => {
 });
 
 UserDataRouter.put('/:id', async(req,res) =>{
-    try{
-        //get userdata id from params
-        const {id} = req.params;
+    if (req.body!== null){  
         
-        // get updated data from the request body
-        const {
-            data_current_date,
-            data_current_weight,
-            data_current_waist,
-            data_current_chest,
-            data_current_shoulders,
-            data_current_biceps,
-            data_current_thighs,
-            data_current_calves} =req.body;
-        
-        // find the userdata with a matching id
-    const userdata = await UserData.findOne({
-        where: {data_user_id: id}
-    });
-        // update the userdata with new data
-    await userdata.update({ 
-        data_current_date,
-        data_current_weight,
-        data_current_waist,
-        data_current_chest,
-        data_current_shoulders,
-        data_current_biceps,
-        data_current_thighs,
-        data_current_calves });
-
-        //send update user data as a response
-    res.json(userdata)
-        } catch (error) {
-            res.status(500).json({ message: 'A funny error occurred'});
+  //update the userdata with new data
+        const response = await UserData.update({ 
+        data_current_date:req.body.data_current_date,
+        data_current_weight:req.body.data_current_weight,
+        data_current_waist:req.body.data_current_waist,
+        data_current_chest:req.body.data_current_chest,
+        data_current_shoulders:req.body.data_current_shoulders,
+        data_current_biceps:req.body.data_current_biceps,
+        data_current_thighs:req.body.data_current_thighs,
+        data_current_calves:req.body.data_current_calves },
+        {
+        where:{data_id:req.body.data_id,data_user_id:req.body.data_user_id}
+        });
+        res.json({status:200})
+        } else {
+         res.json({status:500})   
         }
+
 });
 
 UserDataRouter.delete('/:id', async (req,res) => {

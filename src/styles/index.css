@@ -420,9 +420,9 @@ body main .links h2 {
   margin: 20px 0px;
 }
 .profile img {
-  width: 150px;
-  height: 150px;
-  border-radius: 75px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
 }
 
 .img-rounded {
