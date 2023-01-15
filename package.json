@@ -1,9 +1,11 @@
 {
-  "name": "fittrack-v2",
+  "name": "fittrack-heroku",
   "version": "0.1.0",
-  "private": true,
+  "description": "fitrack fitness log app",
+  "main": "server.js",
   "engines": {
-    "node": "14.9.0"
+    "node": "18.x",
+    "npm":"9.2.0"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
