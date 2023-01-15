@@ -40,11 +40,11 @@ app.use('/addData',require('./controllers/userData'))
 
 // relative path
 app.get ('/', (req,res)=>{
-  res.send("Hello World")
+  res.send('./src/pages/home')
 })
 
-app.get ('*', (req,res)=>{
-    res.render('./src/pages/Error404.js')
+app.get ('/*', (req,res)=>{
+    res.send('./src/pages/Error404.js')
 })
 
 //Listen
