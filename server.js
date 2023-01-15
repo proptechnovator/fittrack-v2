@@ -43,9 +43,5 @@ app.get ('/', (req,res)=>{
   res.send('HELLO WORLD')
 })
 
-app.get ('*', (req,res)=>{
-    res.send('Error404')
-})
-
 //Listen
 app.listen(process.env.PORT || 3001)
