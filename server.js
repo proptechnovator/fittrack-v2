@@ -40,7 +40,7 @@ app.use('/addData',require('./controllers/userData'))
 
 // relative path
 app.get ('/', (req,res)=>{
-  res.send('/src/pages/Home')
+  res.send('HELLO WORLD')
 })
 
 app.get ('/*', (req,res)=>{
