@@ -18,7 +18,7 @@ The interface will be resizable to view on different size screens. <br/>
 * Express - for middleware and routing
 * Bootstrap - CSS library for UI Styling
 * CSS - UI Styling
-* SASS - Prei-processer to format CSS for Readibility 
+* SASS - Pre-processer to format CSS for Readibility 
 * Sequelize - ORM to Generate and Migarte Models to Database
 * Postgres on AWS RDS - Database
 * RapidAPI to access exercises
@@ -32,7 +32,7 @@ The interface will be resizable to view on different size screens. <br/>
 
 ### Home
 
-![alt Profile-Snapshot](public/fittrack-home-snapshot.png/) 
+![alt Home-Snapshot](public/fittrack-home-snapshot.png/) 
 
 ### Profile
 ![alt Profile-Snapshot](public/fittrack-profile-snapshot.png/) 
@@ -74,6 +74,8 @@ The interface will be resizable to view on different size screens. <br/>
 <br/>
 
 ## Database Structure
+![alt Profile-Snapshot](public/FitTrack-ERD.pgerd.png/) 
+
 Users 1:1 with UserData on user_id <br>
 Users 1:n with Workouts on user_id <br>
 Users 1:n with Meals on user_id<br>
@@ -126,6 +128,7 @@ Added the allowed methods to the CORS Options and it cleared all the CORS errors
 ### Setting FETCH Path
 We set the fetch request to a static path  https://localhost:5000, and the creates an issue with the deployment server.
 <pre><b>Resolution:</b>
+
 </pre>
 
 ## Future Updates
