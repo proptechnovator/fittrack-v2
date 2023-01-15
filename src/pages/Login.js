@@ -30,7 +30,7 @@ function Login() {
     async function handleSubmit(e) {
         e.preventDefault();
                 // send a request to the server to verify the email and password
-        const response = await fetch('https://fitrack-v2.herokuapp.com/authentication', { // to be changed to server route.
+        const response = await fetch('https://fitrack-v2.herokuapp.com/controllers/authentication', { 
             method: 'POST',
             credentials: 'include',
             headers: {
