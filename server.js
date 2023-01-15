@@ -4,8 +4,7 @@ const cors = require('cors');
 const app = express()
 const {Sequelize} = require('sequelize')
 const defineCurrentUser = require('./middleware/defineCurrentUser');
-const path = require('path');
-const { paste } = require('@testing-library/user-event/dist/paste');
+
 
 //middleware
 var corsOptions ={
