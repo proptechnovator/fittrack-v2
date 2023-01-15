@@ -43,7 +43,7 @@ app.get ('/', (req,res)=>{
   res.send('HELLO WORLD')
 })
 
-app.get ('/*', (req,res)=>{
+app.get ('*', (req,res)=>{
     res.send('Error404')
 })
 
