@@ -39,9 +39,6 @@ app.use('/workouts',require('./controllers/workouts'))
 app.use('/addData',require('./controllers/userData'))
 
 // relative path
-app.get ('/', (req,res)=>{
-  res.send('HELLO WORLD')
-})
 
 //Listen
 app.listen(process.env.PORT || 3001)
