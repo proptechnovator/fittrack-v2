@@ -44,7 +44,7 @@ app.get ('/', (req,res)=>{
 })
 
 app.get ('/*', (req,res)=>{
-    res.send('/src/pages/Error404')
+    res.send('Error404')
 })
 
 //Listen
