@@ -50,7 +50,7 @@ function CurrentDataForm() {
         event.preventDefault();
         
         //send the current userdata object to the server
-        const response= await fetch(`/addData/${userId}`, {
+        const response= await fetch(`https://fitrack-v2.herokuapp.com/addData/${userId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(currentUserData),

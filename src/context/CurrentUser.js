@@ -7,7 +7,7 @@ function CurrentUserProvider({ children }){
     const [currentUser, setCurrentUser] = useState(null)
     useEffect(() => {
         const getLoggedInUser = async () => {
-            let response = await fetch('/authentication/profile', {
+            let response = await fetch('https://fitrack-v2.herokuapp.com/authentication/profile', {
                 credentials: 'include', 
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`,

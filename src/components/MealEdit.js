@@ -24,7 +24,7 @@ function MealEdit({ meal }) {
 
         // Send the new meal object to the server using a POST request
 
-        fetch(`/meals/${meal.meal_id}`, {
+        fetch(`https://fitrack-v2.herokuapp.com/meals/${meal.meal_id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(newMealData),

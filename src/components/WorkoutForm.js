@@ -43,7 +43,7 @@ function WorkoutForm(props) {
         workout_date: date
     };
     //send the new workout object to the server with a Post request 
-    fetch(`/workouts`, {
+    fetch(`https://fitrack-v2.herokuapp.com/workouts`, {
 
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
