@@ -24,7 +24,7 @@ function WorkoutEdit({ workout }) {
     };
 
     //send the new workout object to the server with a Post request 
-    fetch(`/workouts/${workout.workout_id}`, {
+    fetch(`https://fitrack-v2.herokuapp.com/workouts/${workout.workout_id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newWorkoutData),

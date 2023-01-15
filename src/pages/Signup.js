@@ -20,7 +20,7 @@ function Signup() {
         e.preventDefault();
         
         // Make a request to the server to create a new user
-        const response = await fetch(`/users/`, {
+        const response = await fetch(`https://fitrack-v2.herokuapp.com/users/`, {
 
             method: 'POST',
             headers: {

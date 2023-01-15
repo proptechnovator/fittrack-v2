@@ -47,7 +47,7 @@ function UserDataForm(props) {
             
         try {
             //send the new userdata object to the server
-            const response = await fetch('/addData', {
+            const response = await fetch('https://fitrack-v2.herokuapp.com/addData', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(newUserData),

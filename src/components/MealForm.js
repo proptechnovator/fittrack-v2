@@ -44,7 +44,7 @@ function MealForm(props) {
         };
 
         // Send the new meal object to the server using a POST request
-        fetch('/meals', {
+        fetch('https://fitrack-v2.herokuapp.com/meals', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(newMeal),
