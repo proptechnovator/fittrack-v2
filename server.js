@@ -39,6 +39,9 @@ app.use('/meals',require('./controllers/meals'))
 app.use('/workouts',require('./controllers/workouts'))
 app.use('/addData',require('./controllers/userData'))
 
+app.get('/',(req,res)=>{
+    res.send(`Server running on port ${process.env.PORT}`)
+})
 //Listen
 app.listen(process.env.PORT,()=>{
     console.log(`App running on port ${process.env.PORT}`)
