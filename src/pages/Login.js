@@ -47,7 +47,7 @@ function Login() {
     async function handleSubmit(e) {
         e.preventDefault();
                 // send a request to the server to verify the email and password
-        const response = await fetch('http://localhost:5500/authentication', { // to be changed to server route.
+        const response = await fetch('https://fittrack-apiv3.herokuapp.com/authentication', { // to be changed to server route.
             method: 'POST',
             credentials: 'include',
             headers: {

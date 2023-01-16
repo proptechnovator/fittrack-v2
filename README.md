@@ -40,6 +40,7 @@ The interface will be resizable to view on different size screens. <br/>
 <br/>
 
 ## API - Controllers
+https://fittrack-apiv3.herokuapp.com/
 
 ### Register and Login Authentication
 | Method | Path | Purpose |

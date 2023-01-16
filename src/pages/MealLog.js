@@ -35,7 +35,7 @@ function MealLog() {
         if(currentUser) {
             // Fetch the meals data from the server and store it in the state
             async function fetchData() {
-                const response = await fetch(`http://localhost:5500/meals?meal_user_id=${currentUser.user.user_id}&meal_date=${selectedDate}`); // route subject to change depending on server route
+                const response = await fetch(`https://fittrack-apiv3.herokuapp.com/meals?meal_user_id=${currentUser.user.user_id}&meal_date=${selectedDate}`); // route subject to change depending on server route
                 const data = await response.json();
                 setMeals(data);
             }
@@ -46,7 +46,7 @@ function MealLog() {
     // Meal delete request 
     async function deleteMeal(mealId) {
         try {
-            await fetch(`http://localhost:5500/meals/${mealId}`, {
+            await fetch(`https://fittrack-apiv3.herokuapp.com/meals/${mealId}`, {
                 method: 'DELETE',
             });
             // After the DELETE request is completed, reload page
