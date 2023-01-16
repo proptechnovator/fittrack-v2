@@ -77,12 +77,12 @@ function WorkoutLog() {
             { currentUser ? <input className="px-2 fw-bold" type="date" value={selectedDate} onChange={(event) => setSelectedDate(event.target.value)} /> : null}
             {/* display the workout entries */}
             <div className="w-100 mt-2" id="list-titles">
-                <ul className="list-group list-group-horizontal justify-content-center w-100 mt-2">
+                <ul className="list-group list-group-horizontal justify-content-center w-75 mt-2 mx-auto">
                     <li className="list-group-item w-100 fw-bold titles text-nowrap px-1">Muscle</li>
-                    <li className="list-group-item w-50 fw-bold titles text-nowrap px-1">Exercise</li>
-                    <li className="list-group-item w-50 fw-bold titles text-nowrap px-1">Sets</li>
-                    <li className="list-group-item w-50 fw-bold titles text-nowrap px-1">Reps</li>
-                    <li className="list-group-item w-50 fw-bold titles text-nowrap px-1">Weight</li>
+                    <li className="list-group-item w-100 fw-bold titles text-nowrap px-1">Exercise</li>
+                    <li className="list-group-item w-100 fw-bold titles text-nowrap px-1">Sets</li>
+                    <li className="list-group-item w-100 fw-bold titles text-nowrap px-1">Reps</li>
+                    <li className="list-group-item w-100 fw-bold titles text-nowrap px-1">Weight</li>
                     <li className="list-group-item w-100 fw-bold titles text-nowrap px-1">Duration</li>
                 </ul>
             </div>
