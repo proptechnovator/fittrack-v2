@@ -129,7 +129,7 @@ function WorkoutForm(props) {
                                 <label className="fw-bold _label" htmlFor="duration">Duration:</label>
                             </div>
                             <br />
-                            <button type="submit" className='btn btn-secondary'>Add Workout</button>
+                            <button type="submit" className='btn btn-secondary fw-bold'>Add Workout</button>
                         </form>
                     </div>
                 </div>

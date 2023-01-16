@@ -76,7 +76,7 @@ function WorkoutLog() {
             {/* Date picker to allow the user to select the date */}
             { currentUser ? <input className="px-2 fw-bold" type="date" value={selectedDate} onChange={(event) => setSelectedDate(event.target.value)} /> : null}
             {/* display the workout entries */}
-            <div className="w-100 mt-2" id="list">
+            <div className="w-100 mt-2" id="list-titles">
                 <ul className="list-group list-group-horizontal justify-content-center w-100 mt-2">
                     <li className="list-group-item w-100 fw-bold titles text-nowrap px-1">Muscle</li>
                     <li className="list-group-item w-50 fw-bold titles text-nowrap px-1">Exercise</li>
@@ -101,7 +101,7 @@ function WorkoutLog() {
                     {editingWorkoutId === workout.workout_id && display ? <WorkoutEdit workout={workout} /> : null}
                 </div>
             ))}
-            { !addDisplay && currentUser ? <button className='btn btn-secondary mt-4 fw-bold' data-bs-toggle="modal" data-bs-target="#form-modal"> Add Workout </button>: currentUser ? <button onClick={() => displayAddForm()} className='btn btn-secondary mt-4'>-</button> : null}
+            { !addDisplay && currentUser ? <button className='btn btn-secondary my-2 fw-bold' id='add' data-bs-toggle="modal" data-bs-target="#form-modal"> Add Workout </button>: currentUser ? <button onClick={() => displayAddForm()} className='btn btn-secondary mt-4'>-</button> : null}
             { currentUser ? <WorkoutForm user_id = {currentUser.user.user_id} selectedDate = {selectedDate}/> : null}
         </div>
     );

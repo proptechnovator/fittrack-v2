@@ -12,6 +12,21 @@ function Login() {
     const navigate = useNavigate();
     // Declare a state variable for the checkbox and set its initial value to false
     const [showPassword, setShowPassword] = useState(false);   
+    // responsive variables
+    const [viewportWidth, setViewPortWidth] = useState(window.innerWidth);
+    let timeout;
+
+    // Add an event listener for the 'resize' event on the window object
+    window.addEventListener('resize', () => {
+    // Clear any existing timeout
+    clearTimeout(timeout);
+
+    // Set a new timeout to run the function after a short delay
+    timeout = setTimeout(() => {
+        // Get the current viewport width
+        setViewPortWidth(window.innerWidth)
+    }, 250); // The function will run 250ms after the user finishes resizing the window
+    });
 
     useEffect(() => {
         const input = document.querySelector('input');
@@ -58,9 +73,9 @@ function Login() {
     }, [credentials.user_email, credentials.user_password]);
 
     return (
-        <form className='add-form w-50 mt-4'>
+        <form className={ viewportWidth >= 720 ? "add-form w-50" : viewportWidth >= 480 ? "add-form w-75" : "add-form w-100"}>
             <h1> Login </h1>
-            <div className='input-hold w-50 mt-3'> 
+            <div className='input-hold w-75 mt-3'> 
             {error && <p>{error}</p>}
                 <input
                 className='w-100 input_'
@@ -76,7 +91,7 @@ function Login() {
             </div>
             
             <br />
-            <div className='input-hold w-50'>
+            <div className='input-hold w-75'>
             <input 
                 className='w-100 input_'
                 type={showPassword ? "text" : "password"} 
@@ -91,9 +106,9 @@ function Login() {
             </div>
             <br />
             {/* Add a checkbox input field and bind it to the showPassword state variable */}
-            <div className='show-pw w-50'>
+            <div className='show-pw w-75'>
                 <input type="checkbox" id='show-pw' checked={showPassword} onChange={e => setShowPassword(e.target.checked)} />
-                <label htmlFor='show-pw' className='px-2'>Show Password</label>
+                <label id='pw' htmlFor='show-pw' className='px-2 fw-bold'>Show Password</label>
                 <a className='sign-up fw-bold' href='/signup'>Sign Up?</a>
             </div>
             

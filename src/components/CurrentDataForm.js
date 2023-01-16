@@ -63,7 +63,7 @@ function CurrentDataForm() {
 
     return (            
 
-        <div className="modal-body w-100">
+        <div className="modal-body px-2 w-100">
             <div className='profile'>
                 <div style={{marginBottom:'25px'}}>
                   <img src={userAvatar} alt='profile pic'/>
@@ -74,8 +74,8 @@ function CurrentDataForm() {
                 </div>              
             </div>
                 
-            <form className={ viewportWidth >= 720 ? "add-form w-50" : viewportWidth >= 480 ? "add-form w-75" : "add-form w-100"} onSubmit={handleSubmit}>
-                <h4 style={{marginBottom:'25px'}}>Current Measurements</h4> 
+            <form className={ viewportWidth >= 720 ? "add-form w-50 mt-3" : viewportWidth >= 480 ? "add-form w-75 mt-3" : "add-form w-100 mt-3"} onSubmit={handleSubmit}>
+                <h4 id='greet' style={{marginBottom:'25px'}}>Current Measurements</h4> 
                 <div className='w-100 input-hold'>
                      <input
                         placeholder=' '
@@ -160,7 +160,7 @@ function CurrentDataForm() {
                     <label className="fw-bold _label" htmlFor="data_current_calves">Calve size (cm):</label>
                 </div>
                 <br />
-                <button type="submit" className='btn btn-secondary mb-4'>Add My Measurements</button>
+                <button type="submit" className='btn btn-secondary fw-bold mb-4'>Add My Measurements</button>
             </form>
         </div>
     )
