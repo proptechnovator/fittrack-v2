@@ -336,7 +336,6 @@ body {
 
         @media (max-width: 480px) {
             font-size: 14px; // font size for viewports <= 480px
-            margin-top: 10px;
         }
 
         @media (max-width: 370px) {
@@ -344,7 +343,7 @@ body {
         }
     }
 
-    h2, th, td, b, p, #pw {
+    h2, th, td, b, p, #pw, h4 {
         color: #000000;
     }
 
@@ -615,6 +614,10 @@ body {
 ::-webkit-scrollbar {
     width: 15px;
     height: 10px;
+
+    @media (max-width: 480px) {
+        width: 10px;
+    }
 }
 
 /* Track */

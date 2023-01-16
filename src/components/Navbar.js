@@ -38,7 +38,7 @@ const Navbar = () => {
             </div>
             {currentUser?.user ? (
                 <div id='user-menu' className='btn-group'>
-                    <p className='m-auto' style={{color:'white'}}>{viewportWidth > 490 ? `Logged in As: ${currentUser.user.user_f_name} ${currentUser.user.user_l_name}` : viewportWidth > 350 ? `${currentUser.user.user_f_name} ${currentUser.user.user_l_name}` : null}</p>
+                    <p className='m-auto' id='greet' style={{color:'white'}}>{viewportWidth > 550 ? `Logged in As: ${currentUser.user.user_f_name} ${currentUser.user.user_l_name}` : viewportWidth > 420 ? `${currentUser.user.user_f_name} ${currentUser.user.user_l_name}` : null}</p>
                     <img className='px-2 img-rounded' src={currentUser.user.user_avatar_url} alt='profile pic'/>
                     <button type="button" id='dropdown' className="btn btn-sm btn-secondary px-2 dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
                         <span className="visually-hidden">Toggle Dropdown</span>
