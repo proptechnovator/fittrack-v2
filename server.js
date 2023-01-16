@@ -43,13 +43,10 @@ app.use('/workouts',require('./controllers/workouts'))
 app.use('/addData',require('./controllers/userData'))
 
 // relative path
-app.get('/',(req,res)=>{
-  res.render('Home')
-})
+app.get('/', function(req,res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
-app.get('*',(req,res)=>{
-  res.render('Error404')
-})
 
 //Listen
 app.listen(process.env.PORT || 3001)
