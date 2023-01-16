@@ -18,7 +18,7 @@ The interface will be resizable to view on different size screens. <br/>
 * Express - for middleware and routing
 * Bootstrap - CSS library for UI Styling
 * CSS - UI Styling
-* SASS - Prei-processer to format CSS for Readibility 
+* SASS - Pre-processer to format CSS for Readibility 
 * Sequelize - ORM to Generate and Migarte Models to Database
 * Postgres on AWS RDS - Database
 * RapidAPI to access exercises
@@ -32,7 +32,7 @@ The interface will be resizable to view on different size screens. <br/>
 
 ### Home
 
-![alt Profile-Snapshot](public/fittrack-home-snapshot.png/) 
+![alt Home-Snapshot](public/fittrack-home-snapshot.png/) 
 
 ### Profile
 ![alt Profile-Snapshot](public/fittrack-profile-snapshot.png/) 
@@ -74,6 +74,8 @@ The interface will be resizable to view on different size screens. <br/>
 <br/>
 
 ## Database Structure
+![alt Profile-Snapshot](public/FitTrack-ERD.pgerd.png/) 
+
 Users 1:1 with UserData on user_id <br>
 Users 1:n with Workouts on user_id <br>
 Users 1:n with Meals on user_id<br>
@@ -108,6 +110,9 @@ When running npm start from the root folder, it tries to run on PORT 5000, but t
 The npm start says there is already an app running on port 5000, and sets the default port to run on port 5001
 The app launches fine, but then runs into a CORS issue
 <pre><b>Resolution:</b>
+We discovered that on the monorepo we needed to launch two separate termials.
+We start the server first with Nodemon server.js
+and then launch the frontend with NPM Start and click Y to assign a new port
 </pre>
 
 ### CORS Access Errors
@@ -115,11 +120,15 @@ When running the app, we check to see if the CurrentUser is logged in which is d
 This returns an error on the console on the local client because the origin header shows port: 5001 and does not match the server port:5001.<br/><br/>
 On the deployment version, it is trying to hit the path LocalHost:5000, and that doesn't exist on the web server.
 <pre><b>Resolution:</b>
+On the local machine, we needed to add the methods allowed when using credentials set to true.
+Added the origin port to point to 5001
+Added the allowed methods to the CORS Options and it cleared all the CORS errors on preflight.
 </pre>
 
 ### Setting FETCH Path
 We set the fetch request to a static path  https://localhost:5000, and the creates an issue with the deployment server.
 <pre><b>Resolution:</b>
+
 </pre>
 
 ## Future Updates
