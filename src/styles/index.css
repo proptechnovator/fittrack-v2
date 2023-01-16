@@ -326,7 +326,6 @@ body #greet {
 @media (max-width: 480px) {
   body #greet {
     font-size: 14px;
-    margin-top: 10px;
   }
 }
 @media (max-width: 370px) {
@@ -334,7 +333,7 @@ body #greet {
     font-size: 12px;
   }
 }
-body h2, body th, body td, body b, body p, body #pw {
+body h2, body th, body td, body b, body p, body #pw, body h4 {
   color: #000000;
 }
 @media (max-width: 720px) {
@@ -639,6 +638,11 @@ body .load img {
 ::-webkit-scrollbar {
   width: 15px;
   height: 10px;
+}
+@media (max-width: 480px) {
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
 }
 
 /* Track */
