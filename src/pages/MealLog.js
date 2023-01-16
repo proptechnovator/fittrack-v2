@@ -14,6 +14,23 @@ function MealLog() {
     // user context
     const {currentUser} = useContext(CurrentUser)
 
+    // responsive variables
+    const [viewportWidth, setViewPortWidth] = useState(window.innerWidth);
+    let timeout;
+
+    // Add an event listener for the 'resize' event on the window object
+    window.addEventListener('resize', () => {
+    // Clear any existing timeout
+    clearTimeout(timeout);
+
+    // Set a new timeout to run the function after a short delay
+    timeout = setTimeout(() => {
+        // Get the current viewport width
+        setViewPortWidth(window.innerWidth)
+    }, 250); // The function will run 250ms after the user finishes resizing the window
+    });
+ 
+
     useEffect(() => {
         if(currentUser) {
             // Fetch the meals data from the server and store it in the state
@@ -77,12 +94,12 @@ function MealLog() {
     }
 
     return (
-        <div id="meal-log" className='w-100 px-2 mt-3'>
+        <div id="meal-log" className='w-100 p-2 mt-3'>
             {/* Date picker to allow the user to select the date */}
             { currentUser ? <input className="px-2 fw-bold" type="date" value={selectedDate} onChange={(event) => setSelectedDate(event.target.value)} /> : null}
             {/* display the meal entries */}
-            <div className="w-75 mt-2" id="list">
-                <ul className="list-group list-group-horizontal justify-content-center w-100 mt-2">
+            <div className="w-100 mt-2" id="list-titles">
+                <ul className="list-group w-75 list-group-horizontal justify-content-center mx-auto">
                     <li className="list-group-item w-100 fw-bold titles text-nowrap px-1">Meal</li>
                     <li className="list-group-item w-100 fw-bold titles text-nowrap px-1">Calories</li>
                     <li className="list-group-item w-100 fw-bold titles text-nowrap px-1">Protein</li>
@@ -100,12 +117,12 @@ function MealLog() {
                         <li className='list-group-item w-100 text-nowrap px-1'>{meal.fat} (g)</li>
                         <li className='list-group-item w-100 text-nowrap px-1'>{meal.carbs} (g)</li>
                     </ul>
-                    <button onClick={() => deleteMeal(meal.meal_id)} className='btn btn-danger fw-bold'>Delete</button>
+                    <button onClick={() => deleteMeal(meal.meal_id)} className='btn btn-danger fw-bold'>{viewportWidth > 560 ? 'Delete' : 'Del'}</button>
                     {editingMealId === meal.meal_id && display ? <MealEdit meal={meal} /> : null}
                 </div>
             ))}
-            <p className='fw-bold mt-3'>Total Calories: {totalCalories}</p>
-            { !addDisplay && currentUser ? <button className='btn btn-secondary mt-2 fw-bold' data-bs-toggle="modal" data-bs-target="#form-modal"> Add Meal </button>: currentUser ? <button onClick={() => displayAddForm()} className='btn btn-secondary mt-4'>-</button> : null}
+            <p className='fw-bold mt-3' id='total'>Total Calories: {totalCalories}</p>
+            { !addDisplay && currentUser ? <button className='btn btn-secondary mb-2 fw-bold' id='add' data-bs-toggle="modal" data-bs-target="#form-modal"> Add Meal </button>: currentUser ? <button onClick={() => displayAddForm()} className='btn btn-secondary mt-4'>-</button> : null}
             { currentUser ? <MealForm user_id = {currentUser.user.user_id} selectedDate = {selectedDate}/> : null}
         </div>
     );
