@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { CurrentUser } from '../context/CurrentUser';
 import WorkoutEdit from '../components/WorkoutEdit';
 import WorkoutForm from '../components/WorkoutForm';
+require('dotenv').config()
 
 function WorkoutLog() {
     // Declare state variables to store the selected date and the workout data
