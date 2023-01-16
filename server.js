@@ -19,6 +19,10 @@ app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 app.use(defineCurrentUser)
 
+app.set("views", __dirname + "/src/pages");
+app.set('view engine','jsx') 
+app.engine('jsx',require('express-react-views').createEngine())
+
 /* This code was used to test the connection. 
 connection will be on the backen */
 
