@@ -10,8 +10,10 @@ function Login() {
     })
     const [error, setError] = useState(null);
     const navigate = useNavigate();
+    
     // Declare a state variable for the checkbox and set its initial value to false
     const [showPassword, setShowPassword] = useState(false);   
+
     // responsive variables
     const [viewportWidth, setViewPortWidth] = useState(window.innerWidth);
     let timeout;
