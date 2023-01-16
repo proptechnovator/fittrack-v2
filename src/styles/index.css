@@ -1,11 +1,31 @@
+/* Define the animation */
+@-webkit-keyframes background-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+@keyframes background-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
 body {
   line-height: 1.5;
+  background: linear-gradient(90deg, rgb(9, 9, 121) 0%, rgb(0, 212, 255) 50%, rgb(9, 9, 121) 100%);
+  background-size: 200% auto;
+  -webkit-animation: background-animation 4s ease;
+          animation: background-animation 4s ease;
 }
 body #nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #6d757d;
 }
 body #nav #logo {
   display: flex;
@@ -31,7 +51,7 @@ body #nav #logo a {
   color: #000000;
 }
 body #nav #logo a:hover {
-  color: #1cd4ff;
+  color: #ffffff;
   background-color: transparent;
 }
 @media (max-width: 720px) {
@@ -66,12 +86,16 @@ body #nav #user-menu img {
 body #nav #user-menu #dropdown {
   overflow: hidden;
   flex: none;
+  background-color: #ffffff;
 }
 body #nav #user-menu #dropdown::after {
   color: #000000;
 }
+body #nav #user-menu #dropdown:hover {
+  background-color: #000000;
+}
 body #nav #user-menu #dropdown:hover::after {
-  color: #1cd4ff;
+  color: #ffffff;
 }
 body #nav #user-menu ul {
   left: auto;
@@ -102,27 +126,24 @@ body #meal-log {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  overflow-x: scroll;
 }
-@media (max-width: 480px) {
+@media (max-width: 910px) {
   body #meal-log {
-    justify-content: left;
+    overflow-x: scroll;
   }
 }
 body #meal-log .titles {
   background-color: #dadada;
   text-align: center;
   font-size: 16;
-  overflow-x: scroll;
 }
 @media (max-width: 720px) {
   body #meal-log .titles {
     font-size: 14px;
   }
 }
-@media (max-width: 640px) {
+@media (max-width: 610px) {
   body #meal-log .titles {
-    text-align: left;
     padding-left: 0.4rem;
   }
 }
@@ -137,32 +158,58 @@ body #meal-log .titles {
     font-size: 10px;
   }
 }
-body #meal-log input[type=date i] {
+body #meal-log #total {
+  color: #ffffff;
+}
+body #meal-log input[type=date i], body #meal-log #total, body #meal-log #add {
+  border-radius: 5px;
   border: none;
 }
 @media (max-width: 720px) {
-  body #meal-log input[type=date i] {
+  body #meal-log input[type=date i], body #meal-log #total, body #meal-log #add {
     font-size: 14px;
   }
 }
-@media (max-width: 480px) {
-  body #meal-log input[type=date i] {
-    font-size: 12px;
+@media (max-width: 610px) {
+  body #meal-log input[type=date i], body #meal-log #total, body #meal-log #add {
     align-self: flex-start;
   }
 }
+@media (max-width: 480px) {
+  body #meal-log input[type=date i], body #meal-log #total, body #meal-log #add {
+    font-size: 12px;
+  }
+}
 @media (max-width: 370px) {
-  body #meal-log input[type=date i] {
+  body #meal-log input[type=date i], body #meal-log #total, body #meal-log #add {
     font-size: 10px;
+  }
+}
+body #meal-log #list-titles, body #meal-log #list {
+  align-self: flex-start;
+  min-width: 894px;
+}
+@media (max-width: 720px) {
+  body #meal-log #list-titles, body #meal-log #list {
+    min-width: 780px;
+  }
+}
+@media (max-width: 480px) {
+  body #meal-log #list-titles, body #meal-log #list {
+    min-width: 700px;
+  }
+}
+@media (max-width: 370px) {
+  body #meal-log #list-titles, body #meal-log #list {
+    min-width: 600px;
   }
 }
 body #meal-log #list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-}
-body #meal-log #list .list-group-item {
-  overflow-x: scroll;
+  border-radius: 10px;
+  background-color: #ffffff;
 }
 @media (max-width: 720px) {
   body #meal-log #list .list-group-item {
@@ -185,17 +232,9 @@ body #meal-log #list .btn-danger, body #meal-log #list .btn-warning {
 body #meal-log #list .btn-danger:hover, body #meal-log #list .btn-warning:hover {
   color: #1cd4ff;
 }
-@media (max-width: 480px) {
-  body #meal-log #list .btn-danger, body #meal-log #list .btn-warning {
-    text-align: left;
-  }
-}
 body #meal-log #list .edit-box {
   display: flex;
   flex-wrap: nowrap;
-}
-body #meal-log #list .edit-box .list-group-item {
-  overflow: auto;
 }
 body #meal-log #list .edit-box .list-group-item input {
   border: none;
@@ -236,7 +275,7 @@ body #meal-log #save-btn, body #meal-log .btn-danger, body #meal-log .btn-warnin
     font-size: 14px;
   }
 }
-@media (max-width: 520px) {
+@media (max-width: 420px) {
   body #meal-log #save-btn, body #meal-log .btn-danger, body #meal-log .btn-warning {
     font-size: 12px;
     padding-left: 0.5rem;
@@ -250,13 +289,13 @@ body #meal-log #save-btn, body #meal-log .btn-danger, body #meal-log .btn-warnin
 }
 body .btn-secondary {
   border: none;
-  background-color: #dadada;
+  background-color: #ffffff;
   color: #000000;
 }
 body .btn-secondary:hover {
   color: #1cd4ff;
-  background-color: #6d757d;
-  color: #000000;
+  background-color: #000000;
+  color: #ffffff;
 }
 @media (max-width: 720px) {
   body .btn-secondary {
@@ -277,6 +316,40 @@ body #greet {
   font-size: 18px;
   text-align: center;
   margin-top: 20px;
+  color: #000000;
+}
+@media (max-width: 720px) {
+  body #greet {
+    font-size: 16px;
+  }
+}
+@media (max-width: 480px) {
+  body #greet {
+    font-size: 14px;
+  }
+}
+@media (max-width: 370px) {
+  body #greet {
+    font-size: 12px;
+  }
+}
+body h2, body th, body td, body b, body p, body #pw, body h4 {
+  color: #000000;
+}
+@media (max-width: 720px) {
+  body th, body td, body b, body #total, body .sign-up, body #pw {
+    font-size: 14px;
+  }
+}
+@media (max-width: 480px) {
+  body th, body td, body b, body #total, body .sign-up, body #pw {
+    font-size: 12px;
+  }
+}
+@media (max-width: 370px) {
+  body th, body td, body b, body #total, body .sign-up, body #pw {
+    font-size: 10px;
+  }
 }
 body .add-form {
   display: flex;
@@ -298,13 +371,30 @@ body .add-form .input-hold input {
   text-align: left;
   cursor: text;
 }
+@media (max-width: 720px) {
+  body .add-form .input-hold input {
+    padding: 0.45rem;
+  }
+}
+@media (max-width: 480px) {
+  body .add-form .input-hold input {
+    padding: 0.35rem;
+  }
+}
+@media (max-width: 370px) {
+  body .add-form .input-hold input {
+    padding: 0.25rem;
+  }
+}
 body .add-form .input-hold input:hover {
   border-color: #1cd4ff;
   cursor: text;
 }
 body .add-form .input-hold ._label {
   position: absolute;
+  color: #000000;
   background-color: #ffffff;
+  border-radius: 5px;
   padding: 0 0.25rem;
   left: 1rem;
   top: 0.7rem;
@@ -314,6 +404,16 @@ body .add-form .input-hold ._label {
 @media (max-width: 720px) {
   body .add-form .input-hold ._label {
     font-size: 14px;
+  }
+}
+@media (max-width: 480px) {
+  body .add-form .input-hold ._label {
+    font-size: 12px;
+  }
+}
+@media (max-width: 370px) {
+  body .add-form .input-hold ._label {
+    font-size: 10px;
   }
 }
 body .add-form .input-hold .input_:not(:-moz-placeholder-shown).input_:not(:focus) ~ ._label {
@@ -335,6 +435,42 @@ body .add-form .input-hold .input_:not(:placeholder-shown).input_:not(:focus) ~ 
   left: 0.6rem;
   background-color: #ffffff;
 }
+@media (max-width: 720px) {
+  body .add-form .input-hold .input_:not(:-moz-placeholder-shown).input_:not(:focus) ~ ._label {
+    font-size: 14px;
+  }
+  body .add-form .input-hold .input_:not(:-ms-input-placeholder).input_:not(:focus) ~ ._label {
+    font-size: 14px;
+  }
+  body .add-form .input-hold .input_:focus ~ ._label,
+body .add-form .input-hold .input_:not(:placeholder-shown).input_:not(:focus) ~ ._label {
+    font-size: 14px;
+  }
+}
+@media (max-width: 480px) {
+  body .add-form .input-hold .input_:not(:-moz-placeholder-shown).input_:not(:focus) ~ ._label {
+    font-size: 12px;
+  }
+  body .add-form .input-hold .input_:not(:-ms-input-placeholder).input_:not(:focus) ~ ._label {
+    font-size: 12px;
+  }
+  body .add-form .input-hold .input_:focus ~ ._label,
+body .add-form .input-hold .input_:not(:placeholder-shown).input_:not(:focus) ~ ._label {
+    font-size: 12px;
+  }
+}
+@media (max-width: 370px) {
+  body .add-form .input-hold .input_:not(:-moz-placeholder-shown).input_:not(:focus) ~ ._label {
+    font-size: 10px;
+  }
+  body .add-form .input-hold .input_:not(:-ms-input-placeholder).input_:not(:focus) ~ ._label {
+    font-size: 10px;
+  }
+  body .add-form .input-hold .input_:focus ~ ._label,
+body .add-form .input-hold .input_:not(:placeholder-shown).input_:not(:focus) ~ ._label {
+    font-size: 10px;
+  }
+}
 body .add-form .input-hold .search {
   position: absolute;
   width: 20px;
@@ -343,6 +479,16 @@ body .add-form .input-hold .search {
   right: 0.7rem;
   cursor: pointer;
   background-color: #ffffff;
+}
+@media (max-width: 480px) {
+  body .add-form .input-hold .search {
+    width: 15px;
+  }
+}
+@media (max-width: 370px) {
+  body .add-form .input-hold .search {
+    width: 12px;
+  }
 }
 body .add-form .show-pw {
   display: flex;
@@ -360,22 +506,23 @@ body .add-form .show-pw .sign-up {
 body .add-form .show-pw .sign-up:hover {
   color: #1cd4ff;
 }
-body main h1 {
+body h1 {
   text-align: center;
+  color: #000000;
   margin-top: 20px;
 }
 @media (max-width: 720px) {
-  body main h1 {
+  body h1 {
     font-size: 26px;
   }
 }
 @media (max-width: 480px) {
-  body main h1 {
+  body h1 {
     font-size: 20px;
   }
 }
 @media (max-width: 370px) {
-  body main h1 {
+  body h1 {
     font-size: 18px;
   }
 }
@@ -409,7 +556,28 @@ body main .links h2 {
 }
 @media (max-width: 370px) {
   body main .links h2 {
-    font-size: 12px;
+    font-size: 10px;
+  }
+}
+body .load {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+body .load img {
+  width: 200px;
+  height: auto;
+  border-radius: 10px;
+}
+@media (max-width: 720px) {
+  body .load img {
+    width: 150px;
+  }
+}
+@media (max-width: 360px) {
+  body .load img {
+    width: 100px;
   }
 }
 
@@ -419,14 +587,77 @@ body main .links h2 {
   text-align: center;
   margin: 20px 0px;
 }
+@media (max-width: 720px) {
+  .profile {
+    margin: 10px 0px;
+  }
+}
 .profile img {
-  width: 100px;
+  width: auto;
   height: 100px;
   border-radius: 50px;
+}
+@media (max-width: 720px) {
+  .profile img {
+    height: 75px;
+  }
+}
+@media (max-width: 360px) {
+  .profile img {
+    height: 50px;
+  }
+}
+@media (max-width: 720px) {
+  .profile #save-btn, .profile .btn-danger, .profile .btn-warning {
+    font-size: 16px;
+  }
+}
+@media (max-width: 480px) {
+  .profile #save-btn, .profile .btn-danger, .profile .btn-warning {
+    font-size: 14px;
+  }
+}
+@media (max-width: 370px) {
+  .profile #save-btn, .profile .btn-danger, .profile .btn-warning {
+    font-size: 12px;
+  }
+}
+
+#tables {
+  background-color: #ffffff;
+  border-radius: 10px;
 }
 
 .img-rounded {
   width: 65px;
   height: 65px;
   border-radius: 50%;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 15px;
+  height: 10px;
+}
+@media (max-width: 480px) {
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: none;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #000000;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #1cd4ff;
 }/*# sourceMappingURL=index.css.map */
