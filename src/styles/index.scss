@@ -141,7 +141,7 @@ body {
 
         .titles {
             background-color: $color-primary;
-            color: #ffffff;
+            color: #fff;
             text-align: center;
             font-size: 16;
 
@@ -188,7 +188,7 @@ body {
             }
         }
         #list-titles{
-            color: #ffffff;
+            color: $color-secondary;
         }
         #list-titles, #list {
             align-self: flex-start;
@@ -659,11 +659,17 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 80%;
+    width:100%;
     text-align: center;
     background-color: #ffffff;
-    margin-top: 25px;
-    
+    margin: 25px;
+    @media (max-width: 720px) {
+        margin: 20px; //for viewports <= 720px
+
+    }
+    @media (max-width: 360px) {
+        margin: 15px; // font size for viewports <= 370px
+    }
    div{
         display: inline-flex;
         align-items: center;
@@ -671,14 +677,35 @@ body {
         margin: 10px;
         img{
             padding: 10px;
+            display: inline;
             border-color: #ff6c2c;
             border: 2px;
-
+            width: 150px;
+            height: 150px;
+            @media (max-width: 720px) {
+                width: 100px; //for viewports <= 720px
+                height: 100px;
+            }
+    
+            @media (max-width: 360px) {
+                width: 60px; // font size for viewports <= 370px
+                height: 60px;
+            }
         }
         h2{
             text-align: center;
-            color: $color-secondary
-
+            color: $color-secondary;
+            font-size: 26px;
+            @media (max-width: 720px) {
+               font-size: 22px; //for viewports <= 720px
+               
+            }
+    
+            @media (max-width: 360px) {
+                font-size: 18px; // font size for viewports <= 370px
+        
+            }
+            
         };
    }
 }
@@ -686,8 +713,8 @@ body {
         display: flex;
         justify-content: space-around;
         text-align: center;
-        margin: 20px 0px;
-        background-color: rgb(221, 221, 221);
+        margin: auto;
+        background-color: rgb(236, 236, 236);
         border-radius: 8PX;
         border: none;
         padding: 25px;
@@ -765,7 +792,8 @@ body {
     color: #ffffff;
     border:none;
     border-radius: 8px;
-    padding: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
     a{
         a:hover{
             background-color: #ffffff;

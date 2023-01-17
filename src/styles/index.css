@@ -123,7 +123,7 @@ body #meal-log {
 }
 body #meal-log .titles {
   background-color: #ff6c2c;
-  color: #ffffff;
+  color: #fff;
   text-align: center;
   font-size: 16;
 }
@@ -176,7 +176,7 @@ body #meal-log input[type=date i], body #meal-log #total, body #meal-log #add {
   }
 }
 body #meal-log #list-titles {
-  color: #ffffff;
+  color: #00AAFF;
 }
 body #meal-log #list-titles, body #meal-log #list {
   align-self: flex-start;
@@ -657,10 +657,20 @@ body .load img {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 80%;
+  width: 100%;
   text-align: center;
   background-color: #ffffff;
-  margin-top: 25px;
+  margin: 25px;
+}
+@media (max-width: 720px) {
+  .iconNav {
+    margin: 20px;
+  }
+}
+@media (max-width: 360px) {
+  .iconNav {
+    margin: 15px;
+  }
 }
 .iconNav div {
   display: inline-flex;
@@ -670,20 +680,46 @@ body .load img {
 }
 .iconNav div img {
   padding: 10px;
+  display: inline;
   border-color: #ff6c2c;
   border: 2px;
+  width: 150px;
+  height: 150px;
+}
+@media (max-width: 720px) {
+  .iconNav div img {
+    width: 100px;
+    height: 100px;
+  }
+}
+@media (max-width: 360px) {
+  .iconNav div img {
+    width: 60px;
+    height: 60px;
+  }
 }
 .iconNav div h2 {
   text-align: center;
   color: #00AAFF;
+  font-size: 26px;
+}
+@media (max-width: 720px) {
+  .iconNav div h2 {
+    font-size: 22px;
+  }
+}
+@media (max-width: 360px) {
+  .iconNav div h2 {
+    font-size: 18px;
+  }
 }
 
 .profile {
   display: flex;
   justify-content: space-around;
   text-align: center;
-  margin: 20px 0px;
-  background-color: rgb(221, 221, 221);
+  margin: auto;
+  background-color: rgb(236, 236, 236);
   border-radius: 8PX;
   border: none;
   padding: 25px;
@@ -771,7 +807,8 @@ body .load img {
   color: #ffffff;
   border: none;
   border-radius: 8px;
-  padding: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
 }
 .btn-logout a a:hover {
   background-color: #ffffff;
