@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {useNavigate} from 'react-router'
 
 function MealForm(props) {
     
@@ -10,6 +11,8 @@ function MealForm(props) {
     const [carbs, setCarbs] = useState(0);
     const date = new Date(props.selectedDate)
     date.setMinutes(30)
+
+    const navigate = useNavigate()
 
     // responsive variables
     const [viewportWidth, setViewPortWidth] = useState(window.innerWidth);
@@ -29,7 +32,7 @@ function MealForm(props) {
 
 
     // Handle form submission
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
 
         // Create a new meal object
@@ -43,15 +46,21 @@ function MealForm(props) {
             meal_date: date,
         };
 
-        // Send the new meal object to the server using a POST request
-        fetch('http://localhost:5500/meals', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(newMeal),
-        });
+        try {
+            // Send the new meal object to the server using a POST request
+            const response = await fetch('http://localhost:5500/meals', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(newMeal),
+            });
+            await response.json()
+            if(response.status===200){
+                navigate('/meals')
+            }
 
-        // reload page after
-        window.location.reload()
+        } catch (error) {
+            console.error(error);
+        }
     };
 
     return (
@@ -119,7 +128,7 @@ function MealForm(props) {
                             <label htmlFor="carbs" className="fw-bold _label">Carbs (g):</label>
                         </div>
                         <br />
-                        <button type="submit" className='btn btn-secondary fw-bold'>Add Meal</button>
+                        <button type="submit" data-bs-dismiss="modal" className='btn btn-secondary fw-bold'>Add Meal</button>
                     </form>
                 </div>
             </div>

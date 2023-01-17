@@ -46,11 +46,12 @@ function MealLog() {
     // Meal delete request 
     async function deleteMeal(mealId) {
         try {
-            await fetch(`http://localhost:5500/meals/${mealId}`, {
+            const response = await fetch(`http://localhost:5500/meals/${mealId}`, {
                 method: 'DELETE',
             });
-            // After the DELETE request is completed, reload page
-            window.location.reload()
+
+            await response.json()
+            
         } catch (error) {
             console.error(error);
         }
