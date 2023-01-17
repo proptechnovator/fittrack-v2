@@ -40,7 +40,7 @@ body #nav #logo a {
   color: #ff6c2c;
 }
 body #nav #logo a:hover {
-  color: #6d757d;
+  color: #00AAFF;
   background-color: transparent;
 }
 @media (max-width: 720px) {
@@ -78,10 +78,10 @@ body #nav #user-menu #dropdown {
   background-color: #ffffff;
 }
 body #nav #user-menu #dropdown::after {
-  color: #000000;
+  color: #ff6c2c;
 }
 body #nav #user-menu #dropdown:hover {
-  background-color: #000000;
+  background-color: #ff6c2c;
 }
 body #nav #user-menu #dropdown:hover::after {
   color: #ffffff;
@@ -254,7 +254,7 @@ body #meal-log #list .edit-box #save-btn:hover {
   color: #ff6c2c;
 }
 body #meal-log #save-btn, body #meal-log .btn-danger, body #meal-log .btn-warning {
-  color: #000000;
+  color: #00AAFF;
   border: none;
   background-color: transparent;
   cursor: pointer;
@@ -279,11 +279,11 @@ body #meal-log #save-btn, body #meal-log .btn-danger, body #meal-log .btn-warnin
 body .btn-secondary {
   border: none;
   background-color: #ffffff;
-  color: #000000;
+  color: #00AAFF;
 }
 body .btn-secondary:hover {
   color: #ff6c2c;
-  background-color: #000000;
+  background-color: #00AAFF;
   color: #ffffff;
 }
 @media (max-width: 720px) {
@@ -305,7 +305,7 @@ body #greet {
   font-size: 18px;
   text-align: center;
   margin-top: 20px;
-  color: #000000;
+  color: #00AAFF;
 }
 @media (max-width: 720px) {
   body #greet {
@@ -322,8 +322,8 @@ body #greet {
     font-size: 12px;
   }
 }
-body h2, body th, body td, body b, body p, body #pw, body h4 {
-  color: #000000;
+body h1, body h2, body th, body td, body b, body p, body #pw, body h4 {
+  color: #00AAFF;
 }
 @media (max-width: 720px) {
   body th, body td, body b, body #total, body .sign-up, body #pw {
@@ -381,7 +381,7 @@ body .add-form .input-hold input:hover {
 }
 body .add-form .input-hold ._label {
   position: absolute;
-  color: #000000;
+  color: #ff6c2c;
   background-color: #ffffff;
   border-radius: 5px;
   padding: 0 0.25rem;
@@ -456,7 +456,7 @@ body .add-form .show-pw {
   position: relative;
 }
 body .add-form .show-pw .sign-up {
-  color: #000000;
+  color: #00AAFF;
   position: absolute;
   text-decoration: none;
   right: 0;
@@ -497,7 +497,7 @@ body section {
   vertical-align: middle;
   background-color: #ff6c2c;
   border-radius: 20px;
-  border-radius: grey;
+  border-radius: rgb(182, 182, 182);
   border-width: 1px;
 }
 @media (max-width: 720px) {
@@ -764,7 +764,7 @@ body .load img {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #000000;
+  background: #00AAFF;
   border-radius: 10px;
 }
 

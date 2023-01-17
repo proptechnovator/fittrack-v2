@@ -42,8 +42,8 @@ const Home = () => {
                         name = 'search'
                         id='search'
                     />
-                    <label className='fw-bold _label' htmlFor='search'> Search </label> 
-                    <img className='search' alt='search-icon' src='./search-icon.png'/> {/* To add functionality to create a search request to the api when button clicked... */}
+                    <label className='fw-bold _label' htmlFor='search' style={{color: '#ff6c2c'}}> Search </label> 
+                    <img className='search' alt='search-icon' src='./search-icon-blue.png'/> {/* To add functionality to create a search request to the api when button clicked... */}
                 </div>
             </div>
         </main>

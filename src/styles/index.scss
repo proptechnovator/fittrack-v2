@@ -6,7 +6,7 @@ $heading-font-size: 32px;
 $color-primary: #ff6c2c;
 $color-secondary: #00AAFF;
 $color-tritary: #00BAC6;
-$boder-color: grey;
+$boder-color: rgb(182, 182, 182);
 
 /* Define the animation */
 @keyframes background-animation {
@@ -51,10 +51,10 @@ body {
             a {
                 font-size: $heading-font-size;
                 line-height: $line-height;
-                color: #ff6c2c;
+                color: $color-primary;
 
                 &:hover {
-                    color: #6d757d;
+                    color: $color-secondary;
                     background-color: transparent;
                 }
 
@@ -92,11 +92,11 @@ body {
                 background-color: #ffffff;
 
                 &::after {
-                    color: #000000;
+                    color: $color-primary;
                 }
 
                 &:hover {
-                    background-color: #000000;
+                    background-color: $color-primary;
 
                     &::after {
                         color: #ffffff;
@@ -276,7 +276,7 @@ body {
         }
 
         #save-btn, .btn-danger, .btn-warning {
-            color: #000000;
+            color: $color-secondary;
             border: none;
             background-color: transparent;
             cursor: pointer;
@@ -301,11 +301,11 @@ body {
     .btn-secondary {
         border: none;
         background-color: #ffffff;
-        color: #000000;
+        color: $color-secondary;
 
         &:hover {
             color: $color-primary;
-            background-color: #000000;
+            background-color: $color-secondary;
             color: #ffffff;
         }
 
@@ -326,7 +326,7 @@ body {
         font-size: $font-size;
         text-align: center;
         margin-top: 20px;
-        color: #000000;
+        color: $color-secondary;
 
         @media (max-width: 720px) {
             font-size: 16px; // font size for viewports <= 720px
@@ -341,8 +341,8 @@ body {
         }
     }
 
-    h2, th, td, b, p, #pw, h4 {
-        color: #000000;
+    h1,h2, th, td, b, p, #pw, h4 {
+        color: $color-secondary;
     }
 
     th, td, b, #total, .sign-up, #pw {
@@ -399,7 +399,7 @@ body {
 
             ._label {
                 position: absolute;
-                color: #000000;
+                color: $color-primary;
                 background-color: #ffffff;
                 border-radius: 5px;
                 padding: 0 0.25rem;
@@ -469,7 +469,7 @@ body {
             position: relative;
 
             .sign-up {
-                color: #000000;
+                color: $color-secondary;
                 position: absolute;
                 text-decoration: none;
                 right: 0;
@@ -758,7 +758,7 @@ body {
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #000000; 
+    background: $color-secondary; 
     border-radius: 10px;
 }
 
