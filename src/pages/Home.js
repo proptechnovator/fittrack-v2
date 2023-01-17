@@ -1,5 +1,6 @@
 import IconUserNav from '../components/IconUserNav';
 import { useState } from 'react';
+import { useNavigate } from 'react-router';
 
 const Home = () => {
     const [viewportWidth, setViewPortWidth] = useState(window.innerWidth);
@@ -24,7 +25,7 @@ const Home = () => {
                 <div>
                     <h2>Sweat, Smile and Repeat</h2>
                     <h3>Track your Meals, Workouts and Calculate your BMI</h3>
-                    <button type='submit' className='btn-signup' action='./signup'>Create Your Free Account</button>   
+                    <button className='btn btn-signup' onClick={()=>{useNavigate('./signup')}}>Create Your Free Account</button>   
                 </div>
                 <div className='divimage'>
                     <img src='../hero-bodybuilder_50.png' alt='bodybuilder' />
