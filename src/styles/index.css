@@ -1,12 +1,4 @@
 /* Define the animation */
-@-webkit-keyframes background-animation {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 200% 50%;
-  }
-}
 @keyframes background-animation {
   0% {
     background-position: 0% 50%;
@@ -19,8 +11,7 @@ body {
   line-height: 1.5;
   background: linear-gradient(90deg, rgb(9, 9, 121) 0%, rgb(0, 212, 255) 50%, rgb(9, 9, 121) 100%);
   background-size: 200% auto;
-  -webkit-animation: background-animation 4s ease;
-          animation: background-animation 4s ease;
+  animation: background-animation 4s ease;
 }
 body #nav {
   display: flex;
@@ -416,18 +407,6 @@ body .add-form .input-hold ._label {
     font-size: 10px;
   }
 }
-body .add-form .input-hold .input_:not(:-moz-placeholder-shown).input_:not(:focus) ~ ._label {
-  top: -0.6rem;
-  font-size: 0.8rem;
-  left: 0.6rem;
-  background-color: #ffffff;
-}
-body .add-form .input-hold .input_:not(:-ms-input-placeholder).input_:not(:focus) ~ ._label {
-  top: -0.6rem;
-  font-size: 0.8rem;
-  left: 0.6rem;
-  background-color: #ffffff;
-}
 body .add-form .input-hold .input_:focus ~ ._label,
 body .add-form .input-hold .input_:not(:placeholder-shown).input_:not(:focus) ~ ._label {
   top: -0.6rem;
@@ -436,38 +415,20 @@ body .add-form .input-hold .input_:not(:placeholder-shown).input_:not(:focus) ~ 
   background-color: #ffffff;
 }
 @media (max-width: 720px) {
-  body .add-form .input-hold .input_:not(:-moz-placeholder-shown).input_:not(:focus) ~ ._label {
-    font-size: 14px;
-  }
-  body .add-form .input-hold .input_:not(:-ms-input-placeholder).input_:not(:focus) ~ ._label {
-    font-size: 14px;
-  }
   body .add-form .input-hold .input_:focus ~ ._label,
-body .add-form .input-hold .input_:not(:placeholder-shown).input_:not(:focus) ~ ._label {
+  body .add-form .input-hold .input_:not(:placeholder-shown).input_:not(:focus) ~ ._label {
     font-size: 14px;
   }
 }
 @media (max-width: 480px) {
-  body .add-form .input-hold .input_:not(:-moz-placeholder-shown).input_:not(:focus) ~ ._label {
-    font-size: 12px;
-  }
-  body .add-form .input-hold .input_:not(:-ms-input-placeholder).input_:not(:focus) ~ ._label {
-    font-size: 12px;
-  }
   body .add-form .input-hold .input_:focus ~ ._label,
-body .add-form .input-hold .input_:not(:placeholder-shown).input_:not(:focus) ~ ._label {
+  body .add-form .input-hold .input_:not(:placeholder-shown).input_:not(:focus) ~ ._label {
     font-size: 12px;
   }
 }
 @media (max-width: 370px) {
-  body .add-form .input-hold .input_:not(:-moz-placeholder-shown).input_:not(:focus) ~ ._label {
-    font-size: 10px;
-  }
-  body .add-form .input-hold .input_:not(:-ms-input-placeholder).input_:not(:focus) ~ ._label {
-    font-size: 10px;
-  }
   body .add-form .input-hold .input_:focus ~ ._label,
-body .add-form .input-hold .input_:not(:placeholder-shown).input_:not(:focus) ~ ._label {
+  body .add-form .input-hold .input_:not(:placeholder-shown).input_:not(:focus) ~ ._label {
     font-size: 10px;
   }
 }
@@ -593,7 +554,7 @@ body .load img {
   }
 }
 .profile img {
-  width: auto;
+  width: 100px;
   height: 100px;
   border-radius: 50px;
 }
@@ -660,4 +621,6 @@ body .load img {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #1cd4ff;
-}/*# sourceMappingURL=index.css.map */
+}
+
+/*# sourceMappingURL=index.css.map */
