@@ -345,7 +345,6 @@ body {
             font-size: 10px; // font size for viewports <= 370px
         }
     }
-   
 
     .add-form {
         display: flex;
@@ -555,14 +554,12 @@ body {
                 }
         
             }
-            button{
+            .btn-signup{
                 appearance: none;
                 background-color: $color-secondary;
                 border-radius: 8px;
                 border:none;
                 color: #fff;
-                box-shadow: #6d757d 1px;
-                box-sizing: border-box;
                 font-size: 18px;
                 font-weight: 600;
                 line-height: 20px;
