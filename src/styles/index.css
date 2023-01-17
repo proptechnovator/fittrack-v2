@@ -122,8 +122,8 @@ body #meal-log {
   }
 }
 body #meal-log .titles {
-  background-color: #d6d6d6;
-  color: #ff6c2c;
+  background-color: #ff6c2c;
+  color: #ffffff;
   text-align: center;
   font-size: 16;
 }
@@ -176,7 +176,6 @@ body #meal-log input[type=date i], body #meal-log #total, body #meal-log #add {
   }
 }
 body #meal-log #list-titles {
-  background-color: #ff6c2c;
   color: #ffffff;
 }
 body #meal-log #list-titles, body #meal-log #list {
@@ -688,11 +687,27 @@ body .load img {
   border-radius: 8PX;
   border: none;
   padding: 25px;
-  width: 400px;
+  width: 350px;
 }
 @media (max-width: 720px) {
   .profile {
     margin: 10px 0px;
+    padding: 20px;
+    width: 350px;
+  }
+}
+@media (max-width: 480px) {
+  .profile {
+    margin: 10px 0px;
+    padding: 15px;
+    width: 300px;
+  }
+}
+@media (max-width: 370px) {
+  .profile {
+    margin: 10px 0px;
+    padding: 15px;
+    width: 300px;
   }
 }
 .profile div #greet {
@@ -725,12 +740,14 @@ body .load img {
   .profile img {
     height: 75px;
     width: 75x;
+    border-radius: 37px;
   }
 }
 @media (max-width: 360px) {
   .profile img {
     height: 50px;
     height: 50px;
+    border-radius: 25px;
   }
 }
 @media (max-width: 720px) {
