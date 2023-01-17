@@ -322,7 +322,7 @@ body {
         }
     }
 
-    h1,h2, th, td, b, p, #pw, h4 {
+    h2, th, td, b, p, #pw {
         color: $color-secondary;
     }
 
@@ -338,6 +338,10 @@ body {
         @media (max-width: 370px) {
             font-size: 10px; // font size for viewports <= 370px
         }
+    }
+    th{
+        background-color: #ff6c2c;
+        color: #ffffff;
     }
 
     .add-form {

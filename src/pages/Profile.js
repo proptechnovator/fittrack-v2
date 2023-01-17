@@ -10,9 +10,9 @@ const Profile = () => {
         <main className='w-100 mt-3 px-2'>
             { currentUser?.user && currentUser?.userdata ? (
                 <div>
+                    <div className='profile'>
                     <h1 id='greet' className='fw-bold'>Welcome, {currentUser?.user.user_f_name}!</h1>
                     <h4 id='greet' className='fw-bold'>{`Let's get FIT!!`}</h4>
-                    <div className='profile'>
                         <div>
                             <img src={currentUser.user.user_avatar_url} alt='profile pic'/>
                             <p className='mt-3'><b>{currentUser?.user.user_f_name} {currentUser?.user.user_l_name}</b></p>

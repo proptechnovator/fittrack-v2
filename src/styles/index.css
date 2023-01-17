@@ -301,7 +301,7 @@ body .btn-secondary:hover {
     font-size: 10px;
   }
 }
-body h1, body h2, body th, body td, body b, body p, body #pw, body h4 {
+body h2, body th, body td, body b, body p, body #pw {
   color: #00AAFF;
 }
 @media (max-width: 720px) {
@@ -318,6 +318,10 @@ body h1, body h2, body th, body td, body b, body p, body #pw, body h4 {
   body th, body td, body b, body #total, body .sign-up, body #pw {
     font-size: 10px;
   }
+}
+body th {
+  background-color: #ff6c2c;
+  color: #ffffff;
 }
 body .add-form {
   display: flex;
