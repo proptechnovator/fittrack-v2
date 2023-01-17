@@ -301,7 +301,7 @@ body .btn-secondary:hover {
     font-size: 10px;
   }
 }
-body h2, body th, body td, body b, body p, body #pw {
+body h2, body th, body td, body b, body p, body #pw, body h4 {
   color: #00AAFF;
 }
 @media (max-width: 720px) {
@@ -318,10 +318,6 @@ body h2, body th, body td, body b, body p, body #pw {
   body th, body td, body b, body #total, body .sign-up, body #pw {
     font-size: 10px;
   }
-}
-body th {
-  background-color: #ff6c2c;
-  color: #ffffff;
 }
 body .add-form {
   display: flex;
@@ -757,6 +753,11 @@ body .load img {
 #tables {
   background-color: #ffffff;
   border-radius: 10px;
+}
+
+.columnNames th {
+  background-color: #ff6c2c;
+  color: #ffffff;
 }
 
 .img-rounded {

@@ -322,7 +322,7 @@ body {
         }
     }
 
-    h2, th, td, b, p, #pw {
+    h2, th, td, b, p, #pw,h4 {
         color: $color-secondary;
     }
 
@@ -339,10 +339,7 @@ body {
             font-size: 10px; // font size for viewports <= 370px
         }
     }
-    th{
-        background-color: #ff6c2c;
-        color: #ffffff;
-    }
+   
 
     .add-form {
         display: flex;
@@ -755,6 +752,12 @@ body {
 #tables {
     background-color: #ffffff;
     border-radius: 10px;
+}
+.columnNames{
+    th{
+        background-color: #ff6c2c;
+        color: #ffffff;
+    }
 }
 .img-rounded{
     width: 65px;
