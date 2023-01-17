@@ -140,7 +140,8 @@ body {
         }
 
         .titles {
-            background-color: #dadada;
+            background-color: #d6d6d6;
+            color: $color-primary;
             text-align: center;
             font-size: 16;
 
@@ -186,7 +187,10 @@ body {
                 font-size: 10px; // font size for viewports <= 370px
             }
         }
-
+        #list-titles{
+            background-color: $color-primary;
+            color: #ffffff;
+        }
         #list-titles, #list {
             align-self: flex-start;
             min-width: 894px;
@@ -684,11 +688,14 @@ body {
         justify-content: space-around;
         text-align: center;
         margin: 20px 0px;
-        background-color: lightgray;
+        background-color: rgb(221, 221, 221);
         border-radius: 8PX;
         border: none;
+        padding: 25px;
+        width: 400px;
         @media (max-width: 720px) {
             margin: 10px 0px;
+            
         }
         div{
         #greet {
@@ -717,10 +724,13 @@ body {
 
         @media (max-width: 720px) {
             height: 75px; //for viewports <= 720px
+            width: 75x;
         }
 
         @media (max-width: 360px) {
-            height: 50px; // font size for viewports <= 370px
+            height: 50px; // for viewports <= 370px
+            height: 50px
+
         }
     }     
 
