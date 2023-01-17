@@ -10,29 +10,32 @@ function WorkoutEdit({ workout }) {
     const [Duration, setDuration] = useState(workout.workout_duration);
     
     //Handle form submission
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
 
-    // create a new workout objects
-    const newWorkoutData = {
-        workout_muscle_group: MuscleGroup,
-        workout_exercise: Exercise,
-        workout_sets: Sets,
-        workout_reps: Reps,
-        workout_weight: Weight,
-        workout_duration: Duration,
+        // create a new workout objects
+        const newWorkoutData = {
+            workout_muscle_group: MuscleGroup,
+            workout_exercise: Exercise,
+            workout_sets: Sets,
+            workout_reps: Reps,
+            workout_weight: Weight,
+            workout_duration: Duration,
+        };
+
+        try {
+            //send the new workout object to the server with a Post request 
+            const response = await fetch(`http://localhost:5500/workouts/${workout.workout_id}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(newWorkoutData),
+            });
+
+            await response.json()
+        } catch (error) {
+            console.error(error);
+        }
     };
-
-    //send the new workout object to the server with a Post request 
-    fetch(`http://localhost:5500/workouts/${workout.workout_id}`, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(newWorkoutData),
-    });
-
-    // reload page after
-    window.location.reload()
-};
 
         return(
             <div className='w-100 edit-box mt-2'>

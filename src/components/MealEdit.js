@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {useNavigate} from 'react-router'
 
 function MealEdit({ meal }) {
 
@@ -9,8 +10,10 @@ function MealEdit({ meal }) {
     const [fat, setFat] = useState(meal.fat);
     const [carbs, setCarbs] = useState(meal.carbs);
 
+    const navigate = useNavigate()
+
     // Handle form submission
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
 
         // Create a new meal object
@@ -22,16 +25,20 @@ function MealEdit({ meal }) {
             carbs: carbs,
         };
 
-        // Send the new meal object to the server using a POST request
-
-        fetch(`http://localhost:5500/meals/${meal.meal_id}`, {
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(newMealData),
-        });
-
-        // reload page after
-        window.location.reload()
+        try {
+            // Send the new meal object to the server using a POST request
+            const response = await fetch(`http://localhost:5500/meals/${meal.meal_id}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(newMealData),
+            });
+            await response.json()
+            if(response.status===200){
+                navigate('/meals')
+            }
+        } catch (error) {
+            console.error(error);
+        }
     };
 
 

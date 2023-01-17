@@ -30,11 +30,10 @@ function WorkoutLog() {
      //Workout Delete request
      async function deleteWorkout(workoutId) {
         try {
-            await fetch(`http://localhost:5500/workouts/${workoutId}`, {
+            const response = await fetch(`http://localhost:5500/workouts/${workoutId}`, {
                 method: 'DELETE',
             });
-            // After the Delete request is complete, reload page
-            window.location.reload()
+            await response.json()
         } catch (error) {
             console.error(error);
         }
