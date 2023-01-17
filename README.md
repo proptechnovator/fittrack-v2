@@ -12,6 +12,7 @@ They will also able to log their workouts and meals to track their calorie consu
 They will be able to select different exercises to target specific muscle groups.<br/>
 The interface will be resizable to view on different size screens. <br/>
 <br/>
+
 ## Technology
 * React - Frontend UI development
 * NodeJS  - Backend API development and Testing
@@ -43,6 +44,7 @@ The interface will be resizable to view on different size screens. <br/>
 * Local:  http://localhost:5500
 * Deployment: https://fittrack-apiv3.herokuapp.com/
 <br/>
+
 ### Register and Login Authentication
 | Method | Path | Purpose |
 |--------|------|---------| 
