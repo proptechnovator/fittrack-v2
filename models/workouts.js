@@ -27,7 +27,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     workout_date: {
       type:DataTypes.DATE,
-      allowNull:true
+      allowNull:true,
+      defaultValue: new Date()
     },
     workout_muscle_group:{
       type:DataTypes.STRING,
