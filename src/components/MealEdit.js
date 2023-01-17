@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import {useNavigate} from 'react-router'
 
-function MealEdit({ meal }) {
+function MealEdit({ meal, setDisplay }) {
 
     // Declare state variables to store the form data
     const [description, setDescription] = useState(meal.meal_description);
@@ -9,8 +8,6 @@ function MealEdit({ meal }) {
     const [protein, setProtein] = useState(meal.protein);
     const [fat, setFat] = useState(meal.fat);
     const [carbs, setCarbs] = useState(meal.carbs);
-
-    const navigate = useNavigate()
 
     // Handle form submission
     const handleSubmit = async (event) => {
@@ -34,7 +31,7 @@ function MealEdit({ meal }) {
             });
             await response.json()
             if(response.status===200){
-                navigate('/meals')
+                setDisplay(meal)
             }
         } catch (error) {
             console.error(error);
