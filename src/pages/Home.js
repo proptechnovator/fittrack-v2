@@ -30,7 +30,7 @@ const Home = () => {
                     <img src='../hero-bodybuilder_50.png' alt='bodybuilder' />
                 </div>
            </section> 
-            
+           
             <IconUserNav/>
             
             <div className={ viewportWidth >= 720 ? 'add-form w-50 mt-4' : 'add-form w-100 mt-4'}>

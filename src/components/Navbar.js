@@ -34,7 +34,7 @@ const Navbar = () => {
         <nav className="navbar navbar-expand-lg px-2 w-100" id='nav'>
             <div id='logo' className='px-3'>
                 <a className="navbar-brand fw-bold" href="/"><i>{word.slice(0, index)}</i></a>
-                <img id='heart' className='px-2' alt='heart and pulse' src='../../heart-beat-icon.png'></img>
+                <img id='heart' className='px-2' alt='heart and pulse' src='../../heart-beat-icon-blue.png'></img>
             </div>
             {currentUser?.user ? (
                 <div id='user-menu' className='btn-group'>

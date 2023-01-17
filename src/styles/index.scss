@@ -598,6 +598,20 @@ body {
             .divimg{
                 padding: 25px;
                 height: 80%;
+                @media (max-width: 720px) {
+                    height: 50%; // font size for viewports <= 720px
+                    width: 50%;
+                }
+        
+                @media (max-width: 480px) {
+                    height: 40%; // font size for viewports <= 720px
+                    width: 40%;
+                }
+        
+                @media (max-width: 370px) {
+                    height: 20%; // font size for viewports <= 370px
+                    width: 20%;
+                }
             }
         }
         .links {
@@ -656,7 +670,29 @@ body {
         }
     }
 }
+.iconNav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    text-align: center;
+    background-color: #ffffff;
+    margin-top: 25px;
+    
+   div{
+        display: inline-flex;
+        align-items: center;
+        text-align: center;
+        img{
+            padding: 10px;
+        }
+        h2{
+            text-align: center;
+            color: $color-secondary
 
+        };
+   }
+}
 .profile {
         display: flex;
         justify-content: space-around;
