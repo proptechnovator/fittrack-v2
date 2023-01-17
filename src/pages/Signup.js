@@ -53,7 +53,7 @@ function Signup() {
       
     return (
         <form className={ viewportWidth >= 720 ? "add-form w-50" : viewportWidth >= 480 ? "add-form w-75" : "add-form w-100"} onSubmit={handleSubmit}>
-            <h1> Sign Up </h1>
+            <h1 style={{color:'00AAFF'}}> Sign Up </h1>
             {error && <div>{error}  <a href="/login"><button type='button'>Login</button></a></div>}   
             <div className='input-hold w-75 mt-2'>
                 <input

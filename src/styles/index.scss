@@ -560,7 +560,7 @@ body {
                 appearance: none;
                 background-color: $color-secondary;
                 border-radius: 8px;
-                border:none;
+                border:$color-secondary;
                 color: #fff;
                 font-size: 18px;
                 font-weight: 600;
@@ -822,7 +822,7 @@ body {
         height: 65px;
     border-radius: 50%;
 }
-.form{
+.form {
     h1{
         color:$color-secondary
     }
