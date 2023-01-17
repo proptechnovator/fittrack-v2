@@ -25,7 +25,7 @@ const Home = () => {
                     <h2>Sweat, Smile and Repeat</h2>
                     <h3>Track your Meals, Workouts and Calculate your BMI</h3>
                     <a href='./signup'>
-                    <button className='btn btn-signup'>Create Your Free Account</button>
+                    <button className='btn-signup'>Create Your Free Account</button>
                     </a>   
                 </div>
                 <div className='divimage'>

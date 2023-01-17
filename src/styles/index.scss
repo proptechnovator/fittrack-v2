@@ -554,6 +554,8 @@ body {
                 }
         
             }
+            a{
+                text-decoration: none;
             .btn-signup{
                 appearance: none;
                 background-color: $color-secondary;
@@ -566,7 +568,7 @@ body {
                 padding: 16px 16px;
                 position: relative;
                 text-align: center;
-                text-decoration: none;
+                
                 vertical-align: middle;
                 @media (max-width: 720px) {
                     font-size: 18px; // font size for viewports <= 720px
@@ -581,6 +583,7 @@ body {
                 }
                 
             }
+        }
             .divimg{
                 padding: 25px;
                 height: 80%;
