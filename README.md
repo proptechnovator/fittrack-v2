@@ -40,7 +40,7 @@ The interface will be resizable to view on different size screens. <br/>
 <br/>
 
 ## API - Controllers
-https://fittrack-apiv3.herokuapp.com/
+* Endpoint: https://fittrack-apiv3.herokuapp.com/
 
 ### Register and Login Authentication
 | Method | Path | Purpose |
@@ -129,7 +129,8 @@ Added the allowed methods to the CORS Options and it cleared all the CORS errors
 ### Setting FETCH Path
 We set the fetch request to a static path  https://localhost:5000, and the creates an issue with the deployment server.
 <pre><b>Resolution:</b>
-
+In order for the app to work on deployment, we needed to create an API and update all the fetch paths to this API
+We deployed a separate frontend to access to consume the API
 </pre>
 
 ## Future Updates
