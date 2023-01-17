@@ -322,25 +322,6 @@ body {
         }
     }
 
-    #greet {
-        font-size: $font-size;
-        text-align: center;
-        margin-top: 20px;
-        color: $color-secondary;
-
-        @media (max-width: 720px) {
-            font-size: 16px; // font size for viewports <= 720px
-        }
-
-        @media (max-width: 480px) {
-            font-size: 14px; // font size for viewports <= 480px
-        }
-
-        @media (max-width: 370px) {
-            font-size: 12px; // font size for viewports <= 370px
-        }
-    }
-
     h1,h2, th, td, b, p, #pw, h4 {
         color: $color-secondary;
     }
@@ -683,8 +664,12 @@ body {
         display: inline-flex;
         align-items: center;
         text-align: center;
+        margin: 10px;
         img{
             padding: 10px;
+            border-color: #ff6c2c;
+            border: 2px;
+
         }
         h2{
             text-align: center;
@@ -698,11 +683,27 @@ body {
         justify-content: space-around;
         text-align: center;
         margin: 20px 0px;
-
         @media (max-width: 720px) {
             margin: 10px 0px;
         }
-
+        #greet {
+            font-size: $font-size;
+            text-align: center;
+            margin-top: 20px;
+            color: $color-primary;
+    
+            @media (max-width: 720px) {
+                font-size: 16px; // font size for viewports <= 720px
+            }
+    
+            @media (max-width: 480px) {
+                font-size: 14px; // font size for viewports <= 480px
+            }
+    
+            @media (max-width: 370px) {
+                font-size: 12px; // font size for viewports <= 370px
+            }
+        }
     img {
         width: 100px;
         height: 100px;
@@ -717,7 +718,7 @@ body {
         }
     }     
 
-    #save-btn, .btn-danger, .btn-warning {
+    #save-btn, .btn-danger, .btn-warning, .btn-logout {
         @media (max-width: 720px) {
             font-size: 16px; // font size for viewports <= 720px
         }
@@ -728,6 +729,16 @@ body {
 
         @media (max-width: 370px) {
             font-size: 12px; // font size for viewports <= 370px
+        }
+    }
+}
+.btn-logout{
+    background-color: #ff6c2c;
+    color: #ffffff;
+    a{
+        a:hover{
+            background-color: #ffffff;
+            color: #ff6c2c;
         }
     }
 }

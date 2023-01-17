@@ -301,27 +301,6 @@ body .btn-secondary:hover {
     font-size: 10px;
   }
 }
-body #greet {
-  font-size: 18px;
-  text-align: center;
-  margin-top: 20px;
-  color: #00AAFF;
-}
-@media (max-width: 720px) {
-  body #greet {
-    font-size: 16px;
-  }
-}
-@media (max-width: 480px) {
-  body #greet {
-    font-size: 14px;
-  }
-}
-@media (max-width: 370px) {
-  body #greet {
-    font-size: 12px;
-  }
-}
 body h1, body h2, body th, body td, body b, body p, body #pw, body h4 {
   color: #00AAFF;
 }
@@ -683,9 +662,12 @@ body .load img {
   display: inline-flex;
   align-items: center;
   text-align: center;
+  margin: 10px;
 }
 .iconNav div img {
   padding: 10px;
+  border-color: #ff6c2c;
+  border: 2px;
 }
 .iconNav div h2 {
   text-align: center;
@@ -701,6 +683,27 @@ body .load img {
 @media (max-width: 720px) {
   .profile {
     margin: 10px 0px;
+  }
+}
+.profile #greet {
+  font-size: 18px;
+  text-align: center;
+  margin-top: 20px;
+  color: #ff6c2c;
+}
+@media (max-width: 720px) {
+  .profile #greet {
+    font-size: 16px;
+  }
+}
+@media (max-width: 480px) {
+  .profile #greet {
+    font-size: 14px;
+  }
+}
+@media (max-width: 370px) {
+  .profile #greet {
+    font-size: 12px;
   }
 }
 .profile img {
@@ -719,19 +722,28 @@ body .load img {
   }
 }
 @media (max-width: 720px) {
-  .profile #save-btn, .profile .btn-danger, .profile .btn-warning {
+  .profile #save-btn, .profile .btn-danger, .profile .btn-warning, .profile .btn-logout {
     font-size: 16px;
   }
 }
 @media (max-width: 480px) {
-  .profile #save-btn, .profile .btn-danger, .profile .btn-warning {
+  .profile #save-btn, .profile .btn-danger, .profile .btn-warning, .profile .btn-logout {
     font-size: 14px;
   }
 }
 @media (max-width: 370px) {
-  .profile #save-btn, .profile .btn-danger, .profile .btn-warning {
+  .profile #save-btn, .profile .btn-danger, .profile .btn-warning, .profile .btn-logout {
     font-size: 12px;
   }
+}
+
+.btn-logout {
+  background-color: #ff6c2c;
+  color: #ffffff;
+}
+.btn-logout a a:hover {
+  background-color: #ffffff;
+  color: #ff6c2c;
 }
 
 #tables {
