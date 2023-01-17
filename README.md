@@ -40,7 +40,9 @@ The interface will be resizable to view on different size screens. <br/>
 <br/>
 
 ## API - Controllers
-
+* Local:  http://localhost:5500
+* Deployment: https://fittrack-apiv3.herokuapp.com/
+<br/>
 ### Register and Login Authentication
 | Method | Path | Purpose |
 |--------|------|---------| 
@@ -106,8 +108,8 @@ Ran the app and it works great, but ran into the issue of the server running on 
 </pre>
 
 ### Running the APP - not running port 3000
-When running npm start from the root folder, it tries to run on PORT 5000, but that is for the server.<br/><br/>
-The npm start says there is already an app running on port 5000, and sets the default port to run on port 5001
+When running npm start from the root folder, it tries to run on PORT 5500, but that is for the server.<br/><br/>
+The npm start says there is already an app running on port 5500, and sets the default port to run on port 5501
 The app launches fine, but then runs into a CORS issue
 <pre><b>Resolution:</b>
 We discovered that on the monorepo we needed to launch two separate termials.
@@ -117,18 +119,19 @@ and then launch the frontend with NPM Start and click Y to assign a new port
 
 ### CORS Access Errors
 When running the app, we check to see if the CurrentUser is logged in which is done with a fetch request.<br/><br/>
-This returns an error on the console on the local client because the origin header shows port: 5001 and does not match the server port:5001.<br/><br/>
-On the deployment version, it is trying to hit the path LocalHost:5000, and that doesn't exist on the web server.
+This returns an error on the console on the local client because the origin header shows port: 5001 and does not match the server port:5501.<br/><br/>
+On the deployment version, it is trying to hit the path LocalHost:5500, and that doesn't exist on the web server.
 <pre><b>Resolution:</b>
 On the local machine, we needed to add the methods allowed when using credentials set to true.
-Added the origin port to point to 5001
+Added the origin port to point to 5501
 Added the allowed methods to the CORS Options and it cleared all the CORS errors on preflight.
 </pre>
 
 ### Setting FETCH Path
 We set the fetch request to a static path  https://localhost:5000, and the creates an issue with the deployment server.
 <pre><b>Resolution:</b>
-
+In order for the app to work on deployment, we needed to create an API and update all the fetch paths to this API
+We deployed a separate frontend to access to consume the API
 </pre>
 
 ## Future Updates
