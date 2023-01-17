@@ -47,7 +47,7 @@ const Navbar = () => {
                         {/* following href routes to be changed later to respective routes*/}
                         <li><a className="dropdown-item" href="/profile">Profile</a></li>
                         <li><a className="dropdown-item" href="/workouts">Workout Log</a></li>
-                        <li><a className="dropdown-item" href="/meals">Food Log</a></li>
+                        <li><a className="dropdown-item" href="/meals">Meal Log</a></li>
                         {/*<li><a className="dropdown-item" href="/">Calculators</a></li> */}
                         <LogoutBtn/>
                     </ul>

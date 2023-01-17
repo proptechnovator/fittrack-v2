@@ -25,7 +25,8 @@ module.exports = (sequelize, DataTypes) => {
     },
     meal_date:{ 
       type:DataTypes.DATE,
-      allowNull:true
+      allowNull:true,
+      defaultValue: new Date()
     },
     meal_description:{
       type: DataTypes.STRING,
