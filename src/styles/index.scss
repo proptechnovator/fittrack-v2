@@ -686,22 +686,24 @@ body {
         @media (max-width: 720px) {
             margin: 10px 0px;
         }
+        div{
         #greet {
-            font-size: $font-size;
-            text-align: center;
-            margin-top: 20px;
-            color: $color-primary;
-    
-            @media (max-width: 720px) {
-                font-size: 16px; // font size for viewports <= 720px
-            }
-    
-            @media (max-width: 480px) {
-                font-size: 14px; // font size for viewports <= 480px
-            }
-    
-            @media (max-width: 370px) {
-                font-size: 12px; // font size for viewports <= 370px
+                font-size: $font-size;
+                text-align: center;
+                margin-top: 20px;
+                color: $color-primary;
+        
+                @media (max-width: 720px) {
+                    font-size: 16px; // font size for viewports <= 720px
+                }
+        
+                @media (max-width: 480px) {
+                    font-size: 14px; // font size for viewports <= 480px
+                }
+        
+                @media (max-width: 370px) {
+                    font-size: 12px; // font size for viewports <= 370px
+                }
             }
         }
     img {
@@ -735,10 +737,14 @@ body {
 .btn-logout{
     background-color: #ff6c2c;
     color: #ffffff;
+    border:none;
+    border-radius: 8px;
+    padding: 10px;
     a{
         a:hover{
             background-color: #ffffff;
-            color: #ff6c2c;
+            color: $color-primary;
+            border:#ff6c2c
         }
     }
 }
