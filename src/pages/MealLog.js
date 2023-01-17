@@ -119,7 +119,7 @@ function MealLog() {
                         <li className='list-group-item w-100 text-nowrap px-1'>{meal.carbs} (g)</li>
                     </ul>
                     <button onClick={() => deleteMeal(meal.meal_id)} className='btn btn-danger fw-bold'>{viewportWidth > 560 ? 'Delete' : 'Del'}</button>
-                    {editingMealId === meal.meal_id && display ? <MealEdit meal={meal} /> : null}
+                    {editingMealId === meal.meal_id && display ? <MealEdit meal={meal} setDisplay={displayForm}/> : null}
                 </div>
             ))}
             <p className='fw-bold mt-3' id='total'>Total Calories: {totalCalories}</p>

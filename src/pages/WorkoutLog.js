@@ -97,7 +97,7 @@ function WorkoutLog() {
                         <li className='list-group-item w-100 text-nowrap px-1'>{workout.workout_duration}</li>
                     </ul>
                     <button onClick={() => deleteWorkout(workout.workout_id)} className='btn btn-danger fw-bold'>Delete</button>
-                    {editingWorkoutId === workout.workout_id && display ? <WorkoutEdit workout={workout} /> : null}
+                    {editingWorkoutId === workout.workout_id && display ? <WorkoutEdit workout={workout} setDisplay={displayForm} /> : null}
                 </div>
             ))}
             { !addDisplay && currentUser ? <button className='btn btn-secondary my-2 fw-bold' id='add' data-bs-toggle="modal" data-bs-target="#form-modal"> Add Workout </button>: currentUser ? <button onClick={() => displayAddForm()} className='btn btn-secondary mt-4'>-</button> : null}
