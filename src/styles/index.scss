@@ -303,13 +303,16 @@ body {
 
     .btn-secondary {
         border: none;
-        background-color: #ffffff;
-        color: $color-secondary;
+        background-color: $color-secondary;
+        color: #ffffff;
+        border-radius: 8px;
 
         &:hover {
-            color: $color-primary;
-            background-color: $color-secondary;
-            color: #ffffff;
+            background-color: #ffffff;
+            color: $color-secondary;
+            border-color: $color-secondary;
+            border-style: solid;
+            border: 1px;
         }
 
         @media (max-width: 720px) {
@@ -556,6 +559,7 @@ body {
                 appearance: none;
                 background-color: $color-secondary;
                 border-radius: 8px;
+                border:none;
                 color: #fff;
                 box-shadow: #6d757d 1px;
                 box-sizing: border-box;

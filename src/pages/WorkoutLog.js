@@ -74,7 +74,7 @@ function WorkoutLog() {
     return (
         <div id="meal-log" className='w-100 px-2 mt-3'>
             {/* Date picker to allow the user to select the date */}
-            { currentUser ? <input className="px-2 fw-bold" type="date" value={selectedDate} onChange={(event) => setSelectedDate(event.target.value)} /> : null}
+            { currentUser ? <input className="px-2 fw-bold" style={{color:'#00AAFF'}} type="date" value={selectedDate} onChange={(event) => setSelectedDate(event.target.value)} /> : null}
             {/* display the workout entries */}
             <div className="w-100 mt-2" id="list-titles">
                 <ul className="list-group list-group-horizontal justify-content-center w-75 mt-2 mx-auto">

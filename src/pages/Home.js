@@ -23,7 +23,7 @@ const Home = () => {
            <section>
                 <div>
                     <h2>Sweat, Smile and Repeat</h2>
-                    <h3>Track your Meal, Logs and Calculate your BMI</h3>
+                    <h3>Track your Meals, Workouts and Calculate your BMI</h3>
                     <button action='./signup'>Create Your Free Account</button>   
                 </div>
                 <div className='divimage'>

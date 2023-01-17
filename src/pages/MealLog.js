@@ -3,6 +3,7 @@ import MealEdit from '../components/MealEdit';
 import MealForm from '../components/MealForm';
 import { CurrentUser } from '../context/CurrentUser';
 
+
 function MealLog() {
     // Declare state variables to store the selected date and the meals data
     const [selectedDate, setSelectedDate] = useState(new Date().toISOString().split('T')[0]);
@@ -96,7 +97,7 @@ function MealLog() {
     return (
         <div id="meal-log" className='w-100 p-2 mt-3'>
             {/* Date picker to allow the user to select the date */}
-            { currentUser ? <input className="px-2 fw-bold" type="date" value={selectedDate} onChange={(event) => setSelectedDate(event.target.value)} /> : null}
+            { currentUser ? <input className="px-2 fw-bold" style={{color:'#00AAFF'}} type="date" value={selectedDate} onChange={(event) => setSelectedDate(event.target.value)} /> : null}
             {/* display the meal entries */}
             <div className="w-100 mt-2" id="list-titles">
                 <ul className="list-group w-75 list-group-horizontal justify-content-center mx-auto">
