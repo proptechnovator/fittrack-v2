@@ -684,12 +684,15 @@ body {
         justify-content: space-around;
         text-align: center;
         margin: 20px 0px;
+        background-color: lightgray;
+        border-radius: 8PX;
+        border: none;
         @media (max-width: 720px) {
             margin: 10px 0px;
         }
         div{
         #greet {
-                font-size: $font-size;
+                font-size: 18PX;
                 text-align: center;
                 margin-top: 20px;
                 color: $color-primary;

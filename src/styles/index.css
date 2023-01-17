@@ -679,6 +679,9 @@ body .load img {
   justify-content: space-around;
   text-align: center;
   margin: 20px 0px;
+  background-color: lightgray;
+  border-radius: 8PX;
+  border: none;
 }
 @media (max-width: 720px) {
   .profile {
@@ -686,7 +689,7 @@ body .load img {
   }
 }
 .profile div #greet {
-  font-size: 18px;
+  font-size: 18PX;
   text-align: center;
   margin-top: 20px;
   color: #ff6c2c;
