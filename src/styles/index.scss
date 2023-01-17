@@ -3,7 +3,10 @@ $font-family: 'Open Sans', sans-serif;
 $font-weight: 400;
 $line-height: 1.5;
 $heading-font-size: 32px;
-$color-primary: #1cd4ff;
+$color-primary: #ff6c2c;
+$color-secondary: #00AAFF;
+$color-tritary: #00BAC6;
+$boder-color: grey;
 
 /* Define the animation */
 @keyframes background-animation {
@@ -16,15 +19,10 @@ $color-primary: #1cd4ff;
     }
 }
   
-  
-  
-
 
 body {
     line-height: $line-height;
-    background: linear-gradient(90deg, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 50%, rgba(9,9,121,1) 100%);
-    background-size: 200% auto;
-    animation: background-animation 4s ease;
+    background-size: auto;
 
     #nav{
 
@@ -53,10 +51,10 @@ body {
             a {
                 font-size: $heading-font-size;
                 line-height: $line-height;
-                color: #000000;
+                color: #ff6c2c;
 
                 &:hover {
-                    color: #ffffff;
+                    color: #6d757d;
                     background-color: transparent;
                 }
 
@@ -483,29 +481,125 @@ body {
             }
         }
     }
+    main {
+        h1{
+            text-align: center;
+            color: $color-secondary;
 
-    h1{
-        text-align: center;
-        color: #000000;
-
-        margin-top: 20px;
-
-        @media (max-width: 720px) {
-            font-size: 26px; // font size for viewports <= 720px
+            @media (max-width: 720px) {
+                font-size: 26px; // font size for viewports <= 720px
+            }
+    
+            @media (max-width: 480px) {
+                font-size: 20px; // font size for viewports <= 720px
+            }
+    
+            @media (max-width: 370px) {
+                font-size: 18px; // font size for viewports <= 370px
+            }
+    
         }
-
-        @media (max-width: 480px) {
-            font-size: 20px; // font size for viewports <= 720px
-        }
-
-        @media (max-width: 370px) {
-            font-size: 18px; // font size for viewports <= 370px
-        }
-
     }
 
-    main {
+        section{
+            width: 90%;
+            display: flex;
+            height: auto;
+            justify-content: center;
+            align-items:center;
+            text-align: center;
+            justify-items: center;
+            padding: 25px;
+            margin: auto;
+            vertical-align: middle;
+            background-color: $color-primary ;
+            border-radius: 20px;
+            border-radius: $boder-color;
+            border-width: 1px;
+                @media (max-width: 720px) {
+                    height: 350px; // font size for viewports <= 720px
+                }
+        
+                @media (max-width: 480px) {
+                    height: 275px; // font size for viewports <= 720px
+                }
+        
+                @media (max-width: 370px) {
+                    height: 200px; // font size for viewports <= 370px            
+                }
 
+            div{
+                width: 60%;
+                text-align: center;
+                vertical-align: middle;
+                display: flex-block;     
+            h2{
+                text-align: center;
+                color: #ffffff;
+                margin-top: 15px;
+                margin-bottom: 15px;
+                @media (max-width: 720px) {
+                    font-size: 24px; // font size for viewports <= 720px
+                }
+        
+                @media (max-width: 480px) {
+                    font-size: 18px; // font size for viewports <= 720px
+                }
+        
+                @media (max-width: 370px) {
+                    font-size: 16px; // font size for viewports <= 370px
+                }
+        
+            }h3{
+                text-align: center;
+                color: #ffffff;
+                margin-bottom: 15px;
+                @media (max-width: 720px) {
+                    font-size: 20px; // font size for viewports <= 720px
+                }
+        
+                @media (max-width: 480px) {
+                    font-size: 16px; // font size for viewports <= 720px
+                }
+        
+                @media (max-width: 370px) {
+                    font-size: 14px; // font size for viewports <= 370px
+                }
+        
+            }
+            button{
+                appearance: none;
+                background-color: $color-secondary;
+                border-radius: 8px;
+                color: #fff;
+                box-shadow: #6d757d 1px;
+                box-sizing: border-box;
+                font-size: 18px;
+                font-weight: 600;
+                line-height: 20px;
+                padding: 16px 16px;
+                position: relative;
+                text-align: center;
+                text-decoration: none;
+                vertical-align: middle;
+                @media (max-width: 720px) {
+                    font-size: 18px; // font size for viewports <= 720px
+                }
+        
+                @media (max-width: 480px) {
+                    font-size: 12px; // font size for viewports <= 720px
+                }
+        
+                @media (max-width: 370px) {
+                    font-size: 10px; // font size for viewports <= 370px
+                }
+                
+            }
+            .divimg{
+                padding: 25px;
+                height: 80%;
+            }
+        }
         .links {
             display: flex;
             flex-wrap: wrap;

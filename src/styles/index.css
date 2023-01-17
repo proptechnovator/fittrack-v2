@@ -9,9 +9,7 @@
 }
 body {
   line-height: 1.5;
-  background: linear-gradient(90deg, rgb(9, 9, 121) 0%, rgb(0, 212, 255) 50%, rgb(9, 9, 121) 100%);
-  background-size: 200% auto;
-  animation: background-animation 4s ease;
+  background-size: auto;
 }
 body #nav {
   display: flex;
@@ -39,10 +37,10 @@ body #nav #logo #heart {
 body #nav #logo a {
   font-size: 32px;
   line-height: 1.5;
-  color: #000000;
+  color: #ff6c2c;
 }
 body #nav #logo a:hover {
-  color: #ffffff;
+  color: #6d757d;
   background-color: transparent;
 }
 @media (max-width: 720px) {
@@ -221,7 +219,7 @@ body #meal-log #list .btn-danger, body #meal-log #list .btn-warning {
   width: 12.5%;
 }
 body #meal-log #list .btn-danger:hover, body #meal-log #list .btn-warning:hover {
-  color: #1cd4ff;
+  color: #ff6c2c;
 }
 body #meal-log #list .edit-box {
   display: flex;
@@ -253,7 +251,7 @@ body #meal-log #list .edit-box #new-edit, body #meal-log #list .edit-box #save-b
   }
 }
 body #meal-log #list .edit-box #save-btn:hover {
-  color: #1cd4ff;
+  color: #ff6c2c;
 }
 body #meal-log #save-btn, body #meal-log .btn-danger, body #meal-log .btn-warning {
   color: #000000;
@@ -284,7 +282,7 @@ body .btn-secondary {
   color: #000000;
 }
 body .btn-secondary:hover {
-  color: #1cd4ff;
+  color: #ff6c2c;
   background-color: #000000;
   color: #ffffff;
 }
@@ -378,7 +376,7 @@ body .add-form .input-hold input {
   }
 }
 body .add-form .input-hold input:hover {
-  border-color: #1cd4ff;
+  border-color: #ff6c2c;
   cursor: text;
 }
 body .add-form .input-hold ._label {
@@ -465,58 +463,170 @@ body .add-form .show-pw .sign-up {
   text-align: center;
 }
 body .add-form .show-pw .sign-up:hover {
-  color: #1cd4ff;
+  color: #ff6c2c;
 }
-body h1 {
+body main h1 {
   text-align: center;
-  color: #000000;
-  margin-top: 20px;
+  color: #00AAFF;
 }
 @media (max-width: 720px) {
-  body h1 {
+  body main h1 {
     font-size: 26px;
   }
 }
 @media (max-width: 480px) {
-  body h1 {
+  body main h1 {
     font-size: 20px;
   }
 }
 @media (max-width: 370px) {
-  body h1 {
+  body main h1 {
     font-size: 18px;
   }
 }
-body main .links {
+body section {
+  width: 90%;
+  display: flex;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  justify-items: center;
+  padding: 25px;
+  margin: auto;
+  vertical-align: middle;
+  background-color: #ff6c2c;
+  border-radius: 20px;
+  border-radius: grey;
+  border-width: 1px;
+}
+@media (max-width: 720px) {
+  body section {
+    height: 350px;
+  }
+}
+@media (max-width: 480px) {
+  body section {
+    height: 275px;
+  }
+}
+@media (max-width: 370px) {
+  body section {
+    height: 200px;
+  }
+}
+body section div {
+  width: 60%;
+  text-align: center;
+  vertical-align: middle;
+  display: flex-block;
+}
+body section div h2 {
+  text-align: center;
+  color: #ffffff;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+@media (max-width: 720px) {
+  body section div h2 {
+    font-size: 24px;
+  }
+}
+@media (max-width: 480px) {
+  body section div h2 {
+    font-size: 18px;
+  }
+}
+@media (max-width: 370px) {
+  body section div h2 {
+    font-size: 16px;
+  }
+}
+body section div h3 {
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+@media (max-width: 720px) {
+  body section div h3 {
+    font-size: 20px;
+  }
+}
+@media (max-width: 480px) {
+  body section div h3 {
+    font-size: 16px;
+  }
+}
+@media (max-width: 370px) {
+  body section div h3 {
+    font-size: 14px;
+  }
+}
+body section div button {
+  appearance: none;
+  background-color: #00AAFF;
+  border-radius: 8px;
+  color: #fff;
+  box-shadow: #6d757d 1px;
+  box-sizing: border-box;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 16px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+}
+@media (max-width: 720px) {
+  body section div button {
+    font-size: 18px;
+  }
+}
+@media (max-width: 480px) {
+  body section div button {
+    font-size: 12px;
+  }
+}
+@media (max-width: 370px) {
+  body section div button {
+    font-size: 10px;
+  }
+}
+body section div .divimg {
+  padding: 25px;
+  height: 80%;
+}
+body section .links {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
 }
-body main .links .link {
+body section .links .link {
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
   transition: all 200ms ease-in-out;
 }
-body main .links .link:hover {
+body section .links .link:hover {
   transform: scale(1.2);
 }
-body main .links h2 {
+body section .links h2 {
   text-align: center;
 }
 @media (max-width: 720px) {
-  body main .links h2 {
+  body section .links h2 {
     font-size: 18px;
   }
 }
 @media (max-width: 480px) {
-  body main .links h2 {
+  body section .links h2 {
     font-size: 14px;
   }
 }
 @media (max-width: 370px) {
-  body main .links h2 {
+  body section .links h2 {
     font-size: 10px;
   }
 }
@@ -620,7 +730,7 @@ body .load img {
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #1cd4ff;
+  background: #ff6c2c;
 }
 
 /*# sourceMappingURL=index.css.map */

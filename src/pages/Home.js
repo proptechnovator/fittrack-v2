@@ -19,7 +19,18 @@ const Home = () => {
 
     return (
         <main className='w-100 mt-3 px-2'>
-            <h1 className='fw-bold p-2'> Stay On Track With FitTrack!</h1>
+            <h1 className='fw-bold b-2'> Stay On Track With FitTrack!</h1> 
+           <section>
+                <div>
+                    <h2>Sweat, Smile and Repeat</h2>
+                    <h3>Track your Meal, Logs and Calculate your BMI</h3>
+                    <button action='./signup'>Create Your Free Account</button>   
+                </div>
+                <div className='divimage'>
+                    <img src='../hero-bodybuilder_50.png' alt='bodybuilder' />
+                </div>
+           </section> 
+            
             <IconUserNav/>
             
             <div className={ viewportWidth >= 720 ? 'add-form w-50 mt-4' : 'add-form w-100 mt-4'}>

@@ -1,7 +1,7 @@
 {
   "name": "fittrack-frontend",
   "version": "0.1.0",
-  "main":"index.js",
+  "main": "index.js",
   "engines": {
     "node": "18.x"
   },
