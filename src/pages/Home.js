@@ -25,7 +25,7 @@ const Home = () => {
                     <h2>Sweat, Smile and Repeat</h2>
                     <h3>Track your Meals, Workouts and Calculate your BMI</h3>
                     <a href='./signup'>
-                    <button className='btn-signup'>Create Your Free Account</button>
+                    <button className='btn-secondary btn-signup'>Create Your Free Account</button>
                     </a>   
                 </div>
                 <div className='divimage'>
@@ -35,8 +35,8 @@ const Home = () => {
            
             <IconUserNav/>
             
-            <div className={ viewportWidth >= 720 ? 'add-form w-50 mt-4' : 'add-form w-100 mt-4'}>
-                <div className='input-hold w-75 mt-3'>
+            <div className={ viewportWidth >= 720 ? 'add-form w-50 my-3' : 'add-form w-100 my-3'}>
+                <div className='input-hold w-75'>
                     <input 
                         className='w-100 input_' 
                         type='text'

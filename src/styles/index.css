@@ -1,4 +1,12 @@
 /* Define the animation */
+@-webkit-keyframes background-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
 @keyframes background-animation {
   0% {
     background-position: 0% 50%;
@@ -282,13 +290,16 @@ body #meal-log #save-btn, body #meal-log .btn-danger, body #meal-log .btn-warnin
 }
 body .btn-secondary {
   border: none;
-  background-color: #ffffff;
-  color: #00AAFF;
-}
-body .btn-secondary:hover {
-  color: #ff6c2c;
   background-color: #00AAFF;
   color: #ffffff;
+  border-radius: 8px;
+}
+body .btn-secondary:hover {
+  background-color: #ffffff;
+  color: #00AAFF;
+  border-color: #00AAFF;
+  border-style: solid;
+  border: 1px;
 }
 @media (max-width: 720px) {
   body .btn-secondary {
@@ -388,6 +399,18 @@ body .add-form .input-hold ._label {
     font-size: 10px;
   }
 }
+body .add-form .input-hold .input_:not(:-moz-placeholder-shown).input_:not(:focus) ~ ._label {
+  top: -0.6rem;
+  font-size: 0.8rem;
+  left: 0.6rem;
+  background-color: #ffffff;
+}
+body .add-form .input-hold .input_:not(:-ms-input-placeholder).input_:not(:focus) ~ ._label {
+  top: -0.6rem;
+  font-size: 0.8rem;
+  left: 0.6rem;
+  background-color: #ffffff;
+}
 body .add-form .input-hold .input_:focus ~ ._label,
 body .add-form .input-hold .input_:not(:placeholder-shown).input_:not(:focus) ~ ._label {
   top: -0.6rem;
@@ -396,20 +419,38 @@ body .add-form .input-hold .input_:not(:placeholder-shown).input_:not(:focus) ~ 
   background-color: #ffffff;
 }
 @media (max-width: 720px) {
+  body .add-form .input-hold .input_:not(:-moz-placeholder-shown).input_:not(:focus) ~ ._label {
+    font-size: 14px;
+  }
+  body .add-form .input-hold .input_:not(:-ms-input-placeholder).input_:not(:focus) ~ ._label {
+    font-size: 14px;
+  }
   body .add-form .input-hold .input_:focus ~ ._label,
-  body .add-form .input-hold .input_:not(:placeholder-shown).input_:not(:focus) ~ ._label {
+body .add-form .input-hold .input_:not(:placeholder-shown).input_:not(:focus) ~ ._label {
     font-size: 14px;
   }
 }
 @media (max-width: 480px) {
+  body .add-form .input-hold .input_:not(:-moz-placeholder-shown).input_:not(:focus) ~ ._label {
+    font-size: 12px;
+  }
+  body .add-form .input-hold .input_:not(:-ms-input-placeholder).input_:not(:focus) ~ ._label {
+    font-size: 12px;
+  }
   body .add-form .input-hold .input_:focus ~ ._label,
-  body .add-form .input-hold .input_:not(:placeholder-shown).input_:not(:focus) ~ ._label {
+body .add-form .input-hold .input_:not(:placeholder-shown).input_:not(:focus) ~ ._label {
     font-size: 12px;
   }
 }
 @media (max-width: 370px) {
+  body .add-form .input-hold .input_:not(:-moz-placeholder-shown).input_:not(:focus) ~ ._label {
+    font-size: 10px;
+  }
+  body .add-form .input-hold .input_:not(:-ms-input-placeholder).input_:not(:focus) ~ ._label {
+    font-size: 10px;
+  }
   body .add-form .input-hold .input_:focus ~ ._label,
-  body .add-form .input-hold .input_:not(:placeholder-shown).input_:not(:focus) ~ ._label {
+body .add-form .input-hold .input_:not(:placeholder-shown).input_:not(:focus) ~ ._label {
     font-size: 10px;
   }
 }
@@ -470,11 +511,10 @@ body main h1 {
 body section {
   width: 90%;
   display: flex;
-  height: auto;
-  justify-content: center;
+  height: 450px;
+  justify-content: space-evenly;
   align-items: center;
   text-align: center;
-  justify-items: center;
   padding: 25px;
   margin: auto;
   vertical-align: middle;
@@ -486,20 +526,23 @@ body section {
 @media (max-width: 720px) {
   body section {
     height: 350px;
+    padding: 20px;
   }
 }
 @media (max-width: 480px) {
   body section {
     height: 275px;
+    padding: 10px;
   }
 }
 @media (max-width: 370px) {
   body section {
     height: 200px;
+    padding: 5px;
   }
 }
 body section div {
-  width: 60%;
+  width: 50%;
   text-align: center;
   vertical-align: middle;
   display: flex-block;
@@ -512,17 +555,17 @@ body section div h2 {
 }
 @media (max-width: 720px) {
   body section div h2 {
-    font-size: 24px;
+    font-size: 20px;
   }
 }
-@media (max-width: 480px) {
-  body section div h2 {
-    font-size: 18px;
-  }
-}
-@media (max-width: 370px) {
+@media (max-width: 520px) {
   body section div h2 {
     font-size: 16px;
+  }
+}
+@media (max-width: 410px) {
+  body section div h2 {
+    font-size: 12px;
   }
 }
 body section div h3 {
@@ -532,70 +575,72 @@ body section div h3 {
 }
 @media (max-width: 720px) {
   body section div h3 {
-    font-size: 20px;
+    font-size: 18px;
   }
 }
-@media (max-width: 480px) {
-  body section div h3 {
-    font-size: 16px;
-  }
-}
-@media (max-width: 370px) {
+@media (max-width: 520px) {
   body section div h3 {
     font-size: 14px;
   }
 }
-body section div button {
-  appearance: none;
-  background-color: #00AAFF;
-  border-radius: 8px;
-  color: #fff;
-  box-shadow: #6d757d 1px;
-  box-sizing: border-box;
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 20px;
-  padding: 16px 16px;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  vertical-align: middle;
-}
-@media (max-width: 720px) {
-  body section div button {
-    font-size: 18px;
-  }
-}
-@media (max-width: 480px) {
-  body section div button {
-    font-size: 12px;
-  }
-}
-@media (max-width: 370px) {
-  body section div button {
+@media (max-width: 410px) {
+  body section div h3 {
     font-size: 10px;
   }
 }
-body section div .divimg {
-  padding: 25px;
-  height: 80%;
+body section div a {
+  text-decoration: none;
+}
+body section div a .btn-signup {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: #00AAFF;
+  border-radius: 8px;
+  border: #00AAFF;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 16px;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
 }
 @media (max-width: 720px) {
-  body section div .divimg {
-    height: 50%;
-    width: 50%;
+  body section div a .btn-signup {
+    font-size: 16px;
+    padding: 12px;
+  }
+}
+@media (max-width: 520px) {
+  body section div a .btn-signup {
+    font-size: 12px;
+    padding: 8px;
+  }
+}
+@media (max-width: 410px) {
+  body section div a .btn-signup {
+    font-size: 8px;
+    padding: 4px;
+  }
+}
+body section div img {
+  width: 270px;
+}
+@media (max-width: 720px) {
+  body section div img {
+    width: 200px;
   }
 }
 @media (max-width: 480px) {
-  body section div .divimg {
-    height: 40%;
-    width: 40%;
+  body section div img {
+    width: 150px;
   }
 }
 @media (max-width: 370px) {
-  body section div .divimg {
-    height: 20%;
-    width: 20%;
+  body section div img {
+    width: 100px;
   }
 }
 body section .links {
@@ -647,7 +692,12 @@ body .load img {
     width: 150px;
   }
 }
-@media (max-width: 360px) {
+@media (max-width: 520px) {
+  body .load img {
+    width: 120px;
+  }
+}
+@media (max-width: 410px) {
   body .load img {
     width: 100px;
   }
@@ -656,61 +706,77 @@ body .load img {
 .iconNav {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 100%;
+  height: auto !important;
+  justify-content: space-between !important;
   text-align: center;
   background-color: #ffffff;
-  margin: 25px;
 }
-@media (max-width: 720px) {
-  .iconNav {
-    margin: 20px;
-  }
-}
-@media (max-width: 360px) {
-  .iconNav {
-    margin: 15px;
-  }
-}
-.iconNav div {
-  display: inline-flex;
+.iconNav .icon-hold {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
   text-align: center;
-  margin: 10px;
+  transition: all 150ms ease-in;
 }
-.iconNav div img {
-  padding: 10px;
-  display: inline;
+.iconNav .icon-hold:hover {
+  transform: scale(1.2);
+}
+.iconNav .icon-hold img {
   border-color: #ff6c2c;
   border: 2px;
-  width: 150px;
-  height: 150px;
+  width: 140px;
+  height: 140px;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
-@media (max-width: 720px) {
-  .iconNav div img {
+@media (max-width: 750px) {
+  .iconNav .icon-hold img {
     width: 100px;
     height: 100px;
   }
 }
-@media (max-width: 360px) {
-  .iconNav div img {
-    width: 60px;
-    height: 60px;
+@media (max-width: 600px) {
+  .iconNav .icon-hold img {
+    width: 70px;
+    height: 70px;
   }
 }
-.iconNav div h2 {
+@media (max-width: 520px) {
+  .iconNav .icon-hold img {
+    width: 50px;
+    height: 50px;
+  }
+}
+@media (max-width: 370px) {
+  .iconNav .icon-hold img {
+    width: 40px;
+    height: 40px;
+  }
+}
+.iconNav .icon-hold h2 {
   text-align: center;
   color: #00AAFF;
   font-size: 26px;
 }
-@media (max-width: 720px) {
-  .iconNav div h2 {
+@media (max-width: 750px) {
+  .iconNav .icon-hold h2 {
     font-size: 22px;
   }
 }
-@media (max-width: 360px) {
-  .iconNav div h2 {
+@media (max-width: 600px) {
+  .iconNav .icon-hold h2 {
     font-size: 18px;
+  }
+}
+@media (max-width: 520px) {
+  .iconNav .icon-hold h2 {
+    font-size: 14px;
+  }
+}
+@media (max-width: 420px) {
+  .iconNav .icon-hold h2 {
+    font-size: 10px;
   }
 }
 
@@ -719,11 +785,12 @@ body .load img {
   justify-content: space-around;
   text-align: center;
   margin: auto;
-  background-color: rgb(236, 236, 236);
-  border-radius: 8PX;
+  background-color: rgb(248, 248, 248);
+  border-radius: 10PX;
   border: none;
   padding: 25px;
   width: 350px;
+  box-shadow: #f3f3f3;
 }
 @media (max-width: 720px) {
   .profile {
@@ -832,6 +899,10 @@ body .load img {
   border-radius: 50%;
 }
 
+.form h1 {
+  color: #00AAFF;
+}
+
 /* width */
 ::-webkit-scrollbar {
   width: 15px;
@@ -858,6 +929,4 @@ body .load img {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #ff6c2c;
-}
-
-/*# sourceMappingURL=index.css.map */
+}/*# sourceMappingURL=index.css.map */

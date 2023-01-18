@@ -488,118 +488,120 @@ body {
         }
     }
 
-        section{
-            width: 90%;
-            display: flex;
-            height: auto;
-            justify-content: center;
-            align-items:center;
+    section{
+        width: 90%;
+        display: flex;
+        height: 450px;
+        justify-content: space-evenly;
+        align-items:center;
+        text-align: center;
+        padding: 25px;
+        margin: auto;
+        vertical-align: middle;
+        background-color: $color-primary ;
+        border-radius: 20px;
+        border-radius: $boder-color;
+        border-width: 1px;
+            @media (max-width: 720px) {
+                height: 350px;
+                padding: 20px;
+            }
+    
+            @media (max-width: 480px) {
+                height: 275px;
+                padding: 10px;
+            }
+    
+            @media (max-width: 370px) {
+                height: 200px;       
+                padding: 5px;
+            }
+        div{
+            width: 50%;
             text-align: center;
-            justify-items: center;
-            padding: 25px;
-            margin: auto;
             vertical-align: middle;
-            background-color: $color-primary ;
-            border-radius: 20px;
-            border-radius: $boder-color;
-            border-width: 1px;
-                @media (max-width: 720px) {
-                    height: 350px; // font size for viewports <= 720px
-                }
-        
-                @media (max-width: 480px) {
-                    height: 275px; // font size for viewports <= 720px
-                }
-        
-                @media (max-width: 370px) {
-                    height: 200px; // font size for viewports <= 370px            
-                }
-
-            div{
-                width: 60%;
-                text-align: center;
-                vertical-align: middle;
-                display: flex-block;     
+            display: flex-block;  
             h2{
                 text-align: center;
                 color: #ffffff;
                 margin-top: 15px;
                 margin-bottom: 15px;
                 @media (max-width: 720px) {
-                    font-size: 24px; // font size for viewports <= 720px
+                    font-size: 20px; // font size for viewports <= 720px
                 }
         
-                @media (max-width: 480px) {
-                    font-size: 18px; // font size for viewports <= 720px
+                @media (max-width: 520px) {
+                    font-size: 16px; // font size for viewports <= 720px
                 }
         
-                @media (max-width: 370px) {
-                    font-size: 16px; // font size for viewports <= 370px
+                @media (max-width: 410px) {
+                    font-size: 12px; // font size for viewports <= 370px
                 }
-        
-            }h3{
+    
+            }
+            h3{
                 text-align: center;
                 color: #ffffff;
                 margin-bottom: 15px;
                 @media (max-width: 720px) {
-                    font-size: 20px; // font size for viewports <= 720px
+                    font-size: 18px; // font size for viewports <= 720px
                 }
         
-                @media (max-width: 480px) {
-                    font-size: 16px; // font size for viewports <= 720px
+                @media (max-width: 520px) {
+                    font-size: 14px; // font size for viewports <= 720px
                 }
         
-                @media (max-width: 370px) {
-                    font-size: 14px; // font size for viewports <= 370px
+                @media (max-width: 410px) {
+                    font-size: 10px; // font size for viewports <= 370px
                 }
         
             }
             a{
                 text-decoration: none;
-            .btn-signup{
-                appearance: none;
-                background-color: $color-secondary;
-                border-radius: 8px;
-                border:$color-secondary;
-                color: #fff;
-                font-size: 18px;
-                font-weight: 600;
-                line-height: 20px;
-                padding: 16px 16px;
-                position: relative;
-                text-align: center;
-                
-                vertical-align: middle;
-                @media (max-width: 720px) {
-                    font-size: 18px; // font size for viewports <= 720px
+                .btn-signup{
+                    appearance: none;
+                    background-color: $color-secondary;
+                    border-radius: 8px;
+                    border:$color-secondary;
+                    color: #fff;
+                    font-size: 18px;
+                    font-weight: 600;
+                    line-height: 20px;
+                    padding: 16px;
+                    position: relative;
+                    text-align: center;
+                    
+                    vertical-align: middle;
+                    @media (max-width: 720px) {
+                        font-size: 16px; // font size for viewports <= 720px
+                        padding: 12px;
+                    }
+            
+                    @media (max-width: 520px) {
+                        font-size: 12px;
+                        padding: 8px;
+                    }
+            
+                    @media (max-width: 410px) {
+                        font-size: 8px; // font size for viewports <= 370px
+                        padding: 4px;
+                    }
+                    
                 }
-        
-                @media (max-width: 480px) {
-                    font-size: 12px; // font size for viewports <= 720px
-                }
-        
-                @media (max-width: 370px) {
-                    font-size: 10px; // font size for viewports <= 370px
-                }
-                
             }
-        }
-            .divimg{
-                padding: 25px;
-                height: 80%;
+            img {
+                width: 270px;
+
                 @media (max-width: 720px) {
-                    height: 50%; // font size for viewports <= 720px
-                    width: 50%;
+                    width: 200px;
                 }
         
                 @media (max-width: 480px) {
-                    height: 40%; // font size for viewports <= 720px
-                    width: 40%;
+                    width: 150px;
                 }
         
                 @media (max-width: 370px) {
-                    height: 20%; // font size for viewports <= 370px
-                    width: 20%;
+                    width: 100px; 
                 }
             }
         }
@@ -607,30 +609,25 @@ body {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
-
             .link {
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 cursor: pointer;
                 transition: all 200ms ease-in-out;
-
                 &:hover {
                     transform: scale(1.2);
                 }
             }
-             
+         
             h2 {
                 text-align: center;
-
                 @media (max-width: 720px) {
                     font-size: 18px; // font size for viewports <= 720px
                 }
-
                 @media (max-width: 480px) {
                     font-size: 14px; // font size for viewports <= 480px
                 }
-
                 @media (max-width: 370px) {
                     font-size: 10px; // font size for viewports <= 370px
                 }
@@ -652,8 +649,12 @@ body {
             @media (max-width: 720px) {
                 width: 150px; //for viewports <= 720px
             }
+
+            @media (max-width: 520px) {
+                width: 120px; //for viewports <= 720px
+            }
     
-            @media (max-width: 360px) {
+            @media (max-width: 410px) {
                 width: 100px; // font size for viewports <= 370px
             }
         }
@@ -662,56 +663,76 @@ body {
 .iconNav{
     display: flex;
     align-items: center;
-    justify-content: center;
-    width:100%;
+    height: auto !important;
+    justify-content: space-between !important;
     text-align: center;
     background-color: #ffffff;
-    margin: 25px;
-    @media (max-width: 720px) {
-        margin: 20px; //for viewports <= 720px
 
-    }
-    @media (max-width: 360px) {
-        margin: 15px; // font size for viewports <= 370px
-    }
-   div{
-        display: inline-flex;
+    .icon-hold{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         align-items: center;
         text-align: center;
-        margin: 10px;
+        transition: all 150ms ease-in;
+
+        &:hover {
+            transform: scale(1.2);
+        }
+        
         img{
-            padding: 10px;
-            display: inline;
             border-color: #ff6c2c;
             border: 2px;
-            width: 150px;
-            height: 150px;
-            @media (max-width: 720px) {
+            width: 140px;
+            height: 140px;
+            object-fit: contain;
+            @media (max-width: 750px) {
                 width: 100px; //for viewports <= 720px
                 height: 100px;
             }
+
+            @media (max-width: 600px) {
+                width: 70px; //for viewports <= 720px
+                height: 70px;
+            }
+
+            @media (max-width: 520px) {
+                width: 50px; //for viewports <= 720px
+                height: 50px;
+            }
     
-            @media (max-width: 360px) {
-                width: 60px; // font size for viewports <= 370px
-                height: 60px;
+    
+            @media (max-width: 370px) {
+                width: 40px; // font size for viewports <= 370px
+                height: 40px;
             }
         }
         h2{
             text-align: center;
             color: $color-secondary;
             font-size: 26px;
-            @media (max-width: 720px) {
+            @media (max-width: 750px) {
                font-size: 22px; //for viewports <= 720px
                
             }
-    
-            @media (max-width: 360px) {
+
+            @media (max-width: 600px) {
                 font-size: 18px; // font size for viewports <= 370px
+        
+            }
+
+            @media (max-width: 520px) {
+                font-size: 14px; // font size for viewports <= 370px
+        
+            }
+    
+            @media (max-width: 420px) {
+                font-size: 10px; // font size for viewports <= 370px
         
             }
             
         };
-   }
+    }
 }
 .profile {
         display: flex;
