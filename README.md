@@ -1,12 +1,13 @@
 # Fitness Tracker 
 
 ## Inspiration
-Two things we like to do, and share in common. <br />
-Working out and Programming. 
-We came together build an app that we can personally use, and be proud to share with out friends!
+Compare yourself to who you were yesterday, not to who someone else is today -Jordan Peterson.<br />
+Our team consists of not only dedicated programmers but also fitness enthusiasts who strongly value being compassionate to clients' needs/wants in the fitness and developer industry while being a coach or leader for others in their fitness or program team. We constructed a fitness-tracking application for those attempting to monitor meal, workout weight, and progress following along with weight and size proportions. As fitness enjoyers, it's important that we keep a close eye on our progress to determine what we need to change or improve on to maximize progress. <br />
+Coming together is a beginning; keeping together is progress; working together is success. -Edward Everett Hale <br />
 
 ## Details
-User will be able to register and login into the Fitness Tracker. <br/>
+User will be able to register and login into the Fitness Tracker. 
+<br/>
 Once logged in they will be able to update the own personal data to track their progress on their weight and measurements. <br/>
 They will also able to log their workouts and meals to track their calorie consumption.<br/>
 They will be able to select different exercises to target specific muscle groups.<br/>
@@ -14,17 +15,17 @@ The interface will be resizable to view on different size screens. <br/>
 <br/>
 
 ## Technology
-* React - Frontend UI development
-* NodeJS  - Backend API development and Testing
-* Express - for middleware and routing
-* Bootstrap - CSS library for UI Styling
-* CSS - UI Styling
-* SASS - Pre-processer to format CSS for Readibility 
-* Sequelize - ORM to Generate and Migarte Models to Database
-* Postgres on AWS RDS - Database
+* 	![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+*   ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+*   ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
+*   ![Bootstrap](https://img.shields.io/badge/bootstrap-%23563D7C.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
+*   ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+*   ![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white) 
+*   ![Sequelize](https://img.shields.io/badge/Sequelize-52B0E7?style=for-the-badge&logo=Sequelize&logoColor=white)
+*   ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
+*   ![Heroku](https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white)
+*   ![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)
 * RapidAPI to access exercises
-* Heroku- Web Deployment
-* JWT Token Authorization - Security to authenticate user login
 * BCrypt - Security to Hash Password
 <br/>
 <br/>
