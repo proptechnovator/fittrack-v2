@@ -827,20 +827,18 @@ body .load img {
 }
 .profile img {
   width: 100px;
-  height: 100px;
+  height: auto;
   border-radius: 50%;
   -o-object-fit: contain;
      object-fit: contain;
 }
 @media (max-width: 720px) {
   .profile img {
-    height: 75px;
     width: 75x;
   }
 }
 @media (max-width: 360px) {
   .profile img {
-    height: 50px;
     height: 50px;
   }
 }

@@ -775,17 +775,15 @@ body {
         }
     img {
         width: 100px;
-        height: 100px;
+        height: auto;
         border-radius: 50%;
         object-fit: contain;
 
         @media (max-width: 720px) {
-            height: 75px; //for viewports <= 720px
             width: 75x;
         }
 
         @media (max-width: 360px) {
-            height: 50px; // for viewports <= 370px
             height: 50px;
 
         }
