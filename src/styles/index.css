@@ -795,13 +795,13 @@ body .load img {
 @media (max-width: 720px) {
   .profile {
     padding: 20px;
-    width: 350px;
+    width: 300px;
   }
 }
 @media (max-width: 480px) {
   .profile {
     padding: 15px;
-    width: 300px;
+    width: 250px;
   }
 }
 .profile div #greet {
