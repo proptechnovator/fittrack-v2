@@ -28,29 +28,38 @@ function WorkoutForm(props) {
     });
 
     //Handle form submission
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
 
-    // create a new workout objects
-    const newWorkout = {
-        workout_muscle_group: MuscleGroup,
-        workout_exercise: Exercise,
-        workout_sets: Sets,
-        workout_reps: Reps,
-        workout_weight: Weight,
-        workout_duration: Duration,
-        workout_user_id: props.user_id,
-        workout_date: date
-    };
-    //send the new workout object to the server with a Post request 
-    fetch(`https://fittrack-apiv3.herokuapp.com/workouts`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(newWorkout),
-    });
+        // create a new workout objects
+        const newWorkout = {
+            workout_muscle_group: MuscleGroup,
+            workout_exercise: Exercise,
+            workout_sets: Sets,
+            workout_reps: Reps,
+            workout_weight: Weight,
+            workout_duration: Duration,
+            workout_user_id: props.user_id,
+            workout_date: date
+        };
+        //send the new workout object to the server with a Post request 
+        fetch(`https://fittrack-apiv3.herokuapp.com/workouts`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(newWorkout),
+        });
 
-    // reload the page after
-    window.location.reload()
+        try {
+            //send the new workout object to the server with a Post request 
+            const response = await fetch(`https://fittrack-apiv3.herokuapp.com/workouts`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(newWorkout),
+            });
+            await response.json()
+        } catch (error) {
+            console.error(error);
+        }
     };
 
     return (
@@ -129,7 +138,7 @@ function WorkoutForm(props) {
                                 <label className="fw-bold _label" htmlFor="duration">Duration:</label>
                             </div>
                             <br />
-                            <button type="submit" className='btn btn-secondary fw-bold'>Add Workout</button>
+                            <button type="submit" data-bs-dismiss="modal" className='btn btn-secondary fw-bold'>Add Workout</button>
                         </form>
                     </div>
                 </div>

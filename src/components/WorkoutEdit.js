@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function WorkoutEdit({ workout }) {
+function WorkoutEdit({ workout, setDisplay }) {
     // Declare state variables to store the form data 
     const [MuscleGroup, setMuscleGroup] = useState(workout.workout_muscle_group);
     const [Exercise, setExercise] = useState(workout.workout_exercise);
@@ -10,7 +10,7 @@ function WorkoutEdit({ workout }) {
     const [Duration, setDuration] = useState(workout.workout_duration);
     
     //Handle form submission
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
 
     // create a new workout objects
@@ -23,15 +23,18 @@ function WorkoutEdit({ workout }) {
         workout_duration: Duration,
     };
 
-    //send the new workout object to the server with a Post request 
-    fetch(`https://fittrack-apiv3.herokuapp.com/workouts/${workout.workout_id}`, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(newWorkoutData),
-    });
-
-    // reload page after
-    window.location.reload()
+    try {
+        //send the new workout object to the server with a Post request 
+        const response = await fetch(`https://fittrack-apiv3.herokuapp.com/workouts/${workout.workout_id}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(newWorkoutData),
+        });
+        await response.json()
+        setDisplay(workout)
+    } catch (error) {
+        console.error(error);
+    }
 };
 
         return(

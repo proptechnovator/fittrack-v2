@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function MealEdit({ meal }) {
+function MealEdit({ meal, setDisplay }) {
 
     // Declare state variables to store the form data
     const [description, setDescription] = useState(meal.meal_description);
@@ -10,7 +10,7 @@ function MealEdit({ meal }) {
     const [carbs, setCarbs] = useState(meal.carbs);
 
     // Handle form submission
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
 
         // Create a new meal object
@@ -22,16 +22,18 @@ function MealEdit({ meal }) {
             carbs: carbs,
         };
 
-        // Send the new meal object to the server using a POST request
-
-        fetch(`https://fittrack-apiv3.herokuapp.com/meals/${meal.meal_id}`, {
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(newMealData),
-        });
-
-        // reload page after
-        window.location.reload()
+        try {
+            // Send the new meal object to the server using a POST request
+            const response = await fetch(`https://fittrack-apiv3.herokuapp.com/meals/${meal.meal_id}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(newMealData),
+            });
+            await response.json()
+            setDisplay(meal)
+        } catch (error) {
+            console.error(error);
+        }
     };
 
 

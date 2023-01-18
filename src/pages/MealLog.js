@@ -47,11 +47,10 @@ function MealLog() {
     // Meal delete request 
     async function deleteMeal(mealId) {
         try {
-            await fetch(`https://fittrack-apiv3.herokuapp.com/meals/${mealId}`, {
+            const response = await fetch(`https://fittrack-apiv3.herokuapp.com/meals/${mealId}`, {
                 method: 'DELETE',
             });
-            // After the DELETE request is completed, reload page
-            window.location.reload()
+            await response.json()
         } catch (error) {
             console.error(error);
         }
@@ -119,7 +118,7 @@ function MealLog() {
                         <li className='list-group-item w-100 text-nowrap px-1'>{meal.carbs} (g)</li>
                     </ul>
                     <button onClick={() => deleteMeal(meal.meal_id)} className='btn btn-danger fw-bold'>{viewportWidth > 560 ? 'Delete' : 'Del'}</button>
-                    {editingMealId === meal.meal_id && display ? <MealEdit meal={meal} /> : null}
+                    {editingMealId === meal.meal_id && display ? <MealEdit meal={meal} setDisplay={displayForm}/> : null}
                 </div>
             ))}
             <p className='fw-bold mt-3' id='total'>Total Calories: {totalCalories}</p>
