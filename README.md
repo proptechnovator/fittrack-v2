@@ -1,5 +1,8 @@
 # Fitness Tracker 
-
+## Visit our current version here 
+https://fittrack-frontend.herokuapp.com/ <br/>
+### API
+https://fittrack-apiv3.herokuapp.com/
 ## Inspiration
 Compare yourself to who you were yesterday, not to who someone else is today -Jordan Peterson.<br />
 Our team consists of not only dedicated programmers but also fitness enthusiasts who strongly value being compassionate to clients' needs/wants in the fitness and developer industry while being a coach or leader for others in their fitness or program team. We constructed a fitness-tracking application for those attempting to monitor meal, workout weight, and progress following along with weight and size proportions. As fitness enjoyers, it's important that we keep a close eye on our progress to determine what we need to change or improve on to maximize progress. <br />
