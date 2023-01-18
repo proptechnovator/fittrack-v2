@@ -801,7 +801,7 @@ body .load img {
 @media (max-width: 480px) {
   .profile {
     padding: 15px;
-    width: 250px;
+    width: 200px;
   }
 }
 .profile div #greet {
