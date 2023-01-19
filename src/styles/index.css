@@ -157,7 +157,7 @@ body #meal-log .titles {
   }
 }
 body #meal-log #total {
-  color: #ffffff;
+  color: #00AAFF;
 }
 body #meal-log input[type=date i], body #meal-log #total, body #meal-log #add {
   border-radius: 5px;
