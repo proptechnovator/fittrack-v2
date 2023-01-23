@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState, useCallback } from 'react';
 import MealEdit from '../components/MealEdit';
 import MealForm from '../components/MealForm';
 import { CurrentUser } from '../context/CurrentUser';
@@ -16,26 +16,28 @@ function MealLog() {
 
     // responsive variables
     const [viewportWidth, setViewPortWidth] = useState(window.innerWidth);
-    let timeout;
-
+    const handleResize = useCallback(() => {
+        
+        let timeout;
+        // Clear any existing timeout
+        clearTimeout(timeout);
+    
+        // Set a new timeout to run the function after a short delay
+        timeout = setTimeout(() => {
+            // Get the current viewport width
+            setViewPortWidth(window.innerWidth)
+        }, 250); // The function will run 250ms after the user finishes resizing the window
+    }, []);
+    
     // Add an event listener for the 'resize' event on the window object
     useEffect(() => {
         window.addEventListener('resize', handleResize);
         return () => {
             window.removeEventListener('resize', handleResize);
         };
-    }, []);
+    }, [handleResize]);
 
-    const handleResize = () => {
-        // Clear any existing timeout
-        clearTimeout(timeout);
-
-        // Set a new timeout to run the function after a short delay
-        timeout = setTimeout(() => {
-            // Get the current viewport width
-            setViewPortWidth(window.innerWidth)
-        }, 250); // The function will run 250ms after the user finishes resizing the window
-    };
+    
 
     async function fetchData() {
         if (currentUser) {

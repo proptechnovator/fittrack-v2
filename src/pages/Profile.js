@@ -1,11 +1,13 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import { CurrentUser } from '../context/CurrentUser';
 import LogoutProfile from '../components/LogoutProfile';
 import IconUserNav from '../components/IconUserNav';
 import UserDataForm from '../components/UserDataForm';
 
 const Profile = () => {
-    const {currentUser} =useContext(CurrentUser)   
+    const {currentUser} =useContext(CurrentUser)
+
+    useEffect (()=>{}, [currentUser])
     return (
         <main className='w-100 mt-3 px-2'>
             { currentUser?.user && currentUser?.userdata ? (
