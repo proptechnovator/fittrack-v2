@@ -19,17 +19,25 @@ function MealLog() {
     const [viewportWidth, setViewPortWidth] = useState(window.innerWidth);
     let timeout;
 
-    // Add an event listener for the 'resize' event on the window object
-    window.addEventListener('resize', () => {
-    // Clear any existing timeout
-    clearTimeout(timeout);
-
-    // Set a new timeout to run the function after a short delay
-    timeout = setTimeout(() => {
-        // Get the current viewport width
-        setViewPortWidth(window.innerWidth)
-    }, 250); // The function will run 250ms after the user finishes resizing the window
-    });
+    useEffect(() => {
+        window.addEventListener('resize', handleResize);
+    
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+    
+    const handleResize = () => {
+        // Clear any existing timeout
+        clearTimeout(timeout);
+    
+        // Set a new timeout to run the function after a short delay
+        timeout = setTimeout(() => {
+            // Get the current viewport width
+            setViewPortWidth(window.innerWidth)
+        }, 250); // The function will run 250ms after the user finishes resizing the window
+    };
+    
  
 
     useEffect(() => {
