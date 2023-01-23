@@ -11,7 +11,6 @@ function MealLog() {
     const [editingMealId, setEditingMealId] = useState(null);
     const [display, setDisplay] = useState(false)
     const [addDisplay, setAddDisplay] = useState(false)
-
     // user context
     const {currentUser} = useContext(CurrentUser)
 
@@ -19,38 +18,32 @@ function MealLog() {
     const [viewportWidth, setViewPortWidth] = useState(window.innerWidth);
     let timeout;
 
+    // Add an event listener for the 'resize' event on the window object
     useEffect(() => {
         window.addEventListener('resize', handleResize);
-    
         return () => {
             window.removeEventListener('resize', handleResize);
         };
     }, []);
-    
+
     const handleResize = () => {
         // Clear any existing timeout
         clearTimeout(timeout);
-    
+
         // Set a new timeout to run the function after a short delay
         timeout = setTimeout(() => {
             // Get the current viewport width
             setViewPortWidth(window.innerWidth)
         }, 250); // The function will run 250ms after the user finishes resizing the window
     };
-    
- 
 
-    useEffect(() => {
-        if(currentUser) {
-            // Fetch the meals data from the server and store it in the state
-            async function fetchData() {
-                const response = await fetch(`https://fittrack-apiv3.herokuapp.com/meals?meal_user_id=${currentUser.user.user_id}&meal_date=${selectedDate}`); // route subject to change depending on server route
-                const data = await response.json();
-                setMeals(data);
-            }
-            fetchData();
+    async function fetchData() {
+        if (currentUser) {
+            const response = await fetch(`https://fittrack-apiv3.herokuapp.com/meals?meal_user_id=${currentUser.user.user_id}&meal_date=${selectedDate}`); // route subject to change depending on server route
+            const data = await response.json();
+            setMeals(data);
         }
-    }, [selectedDate, currentUser]);
+    }
 
     // Meal delete request 
     async function deleteMeal(mealId) {
@@ -63,7 +56,6 @@ function MealLog() {
             console.error(error);
         }
     }
-      
 
     // Group the meals by date
     const groupedMeals = meals.reduce((acc, meal) => {
@@ -104,7 +96,10 @@ function MealLog() {
     return (
         <div id="meal-log" className='w-100 p-2 mt-3'>
             {/* Date picker to allow the user to select the date */}
-            { currentUser ? <input className="px-2 fw-bold" style={{color:'#00AAFF'}} type="date" value={selectedDate} onChange={(event) => setSelectedDate(event.target.value)} /> : null}
+            { currentUser ? <input className="px-2 fw-bold" style={{color:'#00AAFF'}} type="date" value={selectedDate} onChange={(event) => {
+                setSelectedDate(event.target.value)
+                fetchData()
+            }} /> : null}
             {/* display the meal entries */}
             <div className="w-100 mt-2" id="list-titles">
                 <ul className="list-group w-75 list-group-horizontal justify-content-center mx-auto">
