@@ -51,7 +51,6 @@ function MealLog() {
             const response = await fetch(`https://fittrack-apiv3.herokuapp.com/meals/${mealId}`, {
                 method: 'DELETE',
             });
-            await response.json()
             setEditMeal(true)
         } catch (error) {
             console.error(error);
