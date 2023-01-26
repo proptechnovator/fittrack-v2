@@ -59,7 +59,7 @@ function Login() {
         if (response.status === 200) {
             setCurrentUser(data.user);
             localStorage.setItem('token',data.token)
-            let getResponse = await fetch('http://localhost:5500/authentication/profile', {
+            let getResponse = await fetch('https://fittrack-apiv3.herokuapp.com/authentication/profile', {
                 credentials: 'include', 
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`,

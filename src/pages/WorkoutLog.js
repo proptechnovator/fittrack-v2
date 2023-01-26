@@ -20,7 +20,7 @@ function WorkoutLog() {
             if (!editWorkout) {
                 // Fetch the workout data from the server and store it in the state
                 async function fetchData() {
-                    const response = await fetch(`http://localhost:5500/workouts?workout_user_id=${currentUser.user.user_id}&workout_date=${selectedDate}`); // route subject to change depending on server route
+                    const response = await fetch(`http://fittrack-apiv3.herokuapp.com/workouts?workout_user_id=${currentUser.user.user_id}&workout_date=${selectedDate}`); // route subject to change depending on server route
                     const data = await response.json();
                     setworkout(data);
                     
