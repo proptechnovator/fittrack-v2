@@ -5,7 +5,9 @@ import IconUserNav from '../components/IconUserNav';
 import UserDataForm from '../components/UserDataForm';
 
 const Profile = () => {
-    const {currentUser} =useContext(CurrentUser)   
+    const {currentUser} =useContext(CurrentUser) 
+    console.log(currentUser)
+
     return (
         <main className='w-100 mt-3 px-2'>
             { currentUser?.user && currentUser?.userdata ? (

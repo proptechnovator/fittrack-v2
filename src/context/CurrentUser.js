@@ -16,9 +16,10 @@ function CurrentUserProvider({ children }){
             
             let user = await response.json()       
             setCurrentUser(user)
+            console.log('test')
         }
         getLoggedInUser()
-    }, [currentUser])
+    }, [setCurrentUser])
 
     return (
         <CurrentUser.Provider value={{ currentUser, setCurrentUser }}>

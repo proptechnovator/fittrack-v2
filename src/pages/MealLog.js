@@ -10,6 +10,7 @@ function MealLog() {
     const [editingMealId, setEditingMealId] = useState(null);
     const [display, setDisplay] = useState(false)
     const [addDisplay, setAddDisplay] = useState(false)
+    const [editMeal, setEditMeal] = useState(false)
 
     // user context
     const {currentUser} = useContext(CurrentUser)
@@ -33,15 +34,17 @@ function MealLog() {
 
     useEffect(() => {
         if(currentUser) {
-            // Fetch the meals data from the server and store it in the state
-            async function fetchData() {
-                const response = await fetch(`http://localhost:5500/meals?meal_user_id=${currentUser.user.user_id}&meal_date=${selectedDate}`); // route subject to change depending on server route
-                const data = await response.json();
-                setMeals(data);
-            }
-            fetchData();
+            if (!editMeal) {
+                // Fetch the meals data from the server and store it in the state
+                async function fetchData() {
+                    const response = await fetch(`http://localhost:5500/meals?meal_user_id=${currentUser.user.user_id}&meal_date=${selectedDate}`); // route subject to change depending on server route
+                    const data = await response.json();
+                    setMeals(data);
+                }
+                fetchData();
+            } else {setEditMeal(false)}
         }
-    }, [selectedDate, currentUser]);
+    }, [selectedDate, currentUser, editMeal]);
 
     // Meal delete request 
     async function deleteMeal(mealId) {
@@ -119,12 +122,12 @@ function MealLog() {
                         <li className='list-group-item w-100 text-nowrap px-1'>{meal.carbs} (g)</li>
                     </ul>
                     <button onClick={() => deleteMeal(meal.meal_id)} className='btn btn-danger fw-bold'>{viewportWidth > 560 ? 'Delete' : 'Del'}</button>
-                    {editingMealId === meal.meal_id && display ? <MealEdit meal={meal} setDisplay={displayForm}/> : null}
+                    {editingMealId === meal.meal_id && display ? <MealEdit meal={meal} setDisplay={displayForm} setEditMeal={setEditMeal}/> : null}
                 </div>
             ))}
             <p className='fw-bold mt-3' id='total'>Total Calories: {totalCalories}</p>
             { !addDisplay && currentUser ? <button className='btn btn-secondary mb-2 fw-bold' id='add' data-bs-toggle="modal" data-bs-target="#form-modal"> Add Meal </button>: currentUser ? <button onClick={() => displayAddForm()} className='btn btn-secondary mt-4'>-</button> : null}
-            { currentUser ? <MealForm user_id = {currentUser.user.user_id} selectedDate = {selectedDate}/> : null}
+            { currentUser ? <MealForm user_id = {currentUser.user.user_id} selectedDate = {selectedDate} setEditMeal = {setEditMeal}/> : null}
         </div>
     );
 }  

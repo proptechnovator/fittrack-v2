@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import {useNavigate} from 'react-router'
 
 function MealForm(props) {
     
@@ -11,8 +10,6 @@ function MealForm(props) {
     const [carbs, setCarbs] = useState(0);
     const date = new Date(props.selectedDate)
     date.setMinutes(30)
-
-    const navigate = useNavigate()
 
     // responsive variables
     const [viewportWidth, setViewPortWidth] = useState(window.innerWidth);
@@ -55,7 +52,7 @@ function MealForm(props) {
             });
             await response.json()
             if(response.status===200){
-                navigate('/meals')
+                props.setEditMeal(true)
             }
 
         } catch (error) {

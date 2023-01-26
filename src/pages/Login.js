@@ -57,10 +57,18 @@ function Login() {
         });
         const data = await response.json();
         if (response.status === 200) {
-            setCurrentUser(data.user);
+            setCurrentUser(data);
             localStorage.setItem('token',data.token)
-            // navigate to the home page if login was successful
-            navigate(`/profile`);
+            let getResponse = await fetch('http://localhost:5500/authentication/profile', {
+                credentials: 'include', 
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`,
+                }
+            })
+            
+            let user = await getResponse.json()       
+            setCurrentUser(user)
+            navigate('/profile')
 
         } else {
             // display an error message if login failed
