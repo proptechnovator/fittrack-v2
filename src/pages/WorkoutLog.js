@@ -36,8 +36,8 @@ function WorkoutLog() {
             const response = await fetch(`https://fittrack-apiv3.herokuapp.com/workouts/${workoutId}`, {
                 method: 'DELETE',
             });
-            
             await response.json()
+            setEditWorkout(true)
         } catch (error) {
             console.error(error);
         }

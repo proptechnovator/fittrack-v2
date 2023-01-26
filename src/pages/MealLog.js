@@ -52,6 +52,7 @@ function MealLog() {
                 method: 'DELETE',
             });
             await response.json()
+            setEditMeal(true)
         } catch (error) {
             console.error(error);
         }
