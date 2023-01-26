@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function WorkoutEdit({ workout, setDisplay }) {
+function WorkoutEdit({ workout, setDisplay, setEditWorkout }) {
     // Declare state variables to store the form data 
     const [MuscleGroup, setMuscleGroup] = useState(workout.workout_muscle_group);
     const [Exercise, setExercise] = useState(workout.workout_exercise);
@@ -32,6 +32,7 @@ function WorkoutEdit({ workout, setDisplay }) {
         });
         await response.json()
         setDisplay(workout)
+        setEditWorkout(true)
     } catch (error) {
         console.error(error);
     }

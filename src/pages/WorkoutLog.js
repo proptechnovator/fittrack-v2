@@ -10,22 +10,25 @@ function WorkoutLog() {
     const [editingWorkoutId, setEditingWorkoutId] = useState(null);
     const [display, setDisplay] = useState(false);
     const [addDisplay, setAddDisplay] = useState(false);
+    const [editWorkout, setEditWorkout] = useState(false)
 
      // user context
      const {currentUser} = useContext(CurrentUser);
 
      useEffect(() => {
         if(currentUser) {
-            // Fetch the workout data from the server and store it in the state
-            async function fetchData() {
-                const response = await fetch(`https://fittrack-apiv3.herokuapp.com/workouts?workout_user_id=${currentUser.user.user_id}&workout_date=${selectedDate}`); // route subject to change depending on server route
-                const data = await response.json();
-                setworkout(data);
-                
-            }
-            fetchData();
+            if (!editWorkout) {
+                // Fetch the workout data from the server and store it in the state
+                async function fetchData() {
+                    const response = await fetch(`http://localhost:5500/workouts?workout_user_id=${currentUser.user.user_id}&workout_date=${selectedDate}`); // route subject to change depending on server route
+                    const data = await response.json();
+                    setworkout(data);
+                    
+                }
+                fetchData();
+            } else {setEditWorkout(false)}
         }
-     },[selectedDate, currentUser]);
+     },[selectedDate, currentUser, editWorkout]);
 
      //Workout Delete request
      async function deleteWorkout(workoutId) {
@@ -98,11 +101,11 @@ function WorkoutLog() {
                         <li className='list-group-item w-100 text-nowrap px-1'>{workout.workout_duration}</li>
                     </ul>
                     <button onClick={() => deleteWorkout(workout.workout_id)} className='btn btn-danger fw-bold'>Delete</button>
-                    {editingWorkoutId === workout.workout_id && display ? <WorkoutEdit workout={workout} setDisplay={displayForm}/> : null}
+                    {editingWorkoutId === workout.workout_id && display ? <WorkoutEdit workout={workout} setDisplay={displayForm} setEditWorkout = {setEditWorkout} /> : null}
                 </div>
             ))}
             { !addDisplay && currentUser ? <button className='btn btn-secondary my-2 fw-bold' id='add' data-bs-toggle="modal" data-bs-target="#form-modal"> Add Workout </button>: currentUser ? <button onClick={() => displayAddForm()} className='btn btn-secondary mt-4'>-</button> : null}
-            { currentUser ? <WorkoutForm user_id = {currentUser.user.user_id} selectedDate = {selectedDate}/> : null}
+            { currentUser ? <WorkoutForm user_id = {currentUser.user.user_id} selectedDate = {selectedDate} setEditWorkout = {setEditWorkout} /> : null}
         </div>
     );
 }

@@ -6,22 +6,20 @@ export const CurrentUser = createContext()
 function CurrentUserProvider({ children }){
     const [currentUser, setCurrentUser] = useState(null)
     useEffect(() => {
-        if(!currentUser && localStorage.getItem('token')){
-            getLoggedInUser()
+        const getLoggedInUser = async () => {
+            let response = await fetch('https://fittrack-apiv3.herokuapp.com/authentication/profile', {
+                credentials: 'include', 
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`,
+                }
+            })
+        
+            let user = await response.json()       
+            setCurrentUser(user)
         }
-    }, [currentUser])
+        getLoggedInUser()
+    }, [setCurrentUser])
     
-    const getLoggedInUser = async () => {
-        let response = await fetch('https://fittrack-apiv3.herokuapp.com/authentication/profile', {
-            credentials: 'include', 
-            headers: {
-                'Authorization': `Bearer ${localStorage.getItem('token')}`,
-            }
-        })
-    
-        let user = await response.json()       
-        setCurrentUser(user)
-    }
     
     
 

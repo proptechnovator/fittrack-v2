@@ -57,6 +57,7 @@ function WorkoutForm(props) {
                 body: JSON.stringify(newWorkout),
             });
             await response.json()
+            props.setEditWorkout(true)
         } catch (error) {
             console.error(error);
         }

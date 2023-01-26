@@ -51,6 +51,7 @@ function MealForm(props) {
                 body: JSON.stringify(newMeal),
             });
             await response.json()
+            props.setEditMeal(true)
         } catch (error) {
             console.error(error);
         }

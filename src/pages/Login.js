@@ -59,6 +59,15 @@ function Login() {
         if (response.status === 200) {
             setCurrentUser(data.user);
             localStorage.setItem('token',data.token)
+            let getResponse = await fetch('http://localhost:5500/authentication/profile', {
+                credentials: 'include', 
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`,
+                }
+            })
+            
+            let user = await getResponse.json()       
+            setCurrentUser(user)
             // navigate to the home page if login was successful
             navigate(`/profile`);
 

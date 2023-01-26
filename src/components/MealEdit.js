@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function MealEdit({ meal, setDisplay }) {
+function MealEdit({ meal, setDisplay, setEditMeal }) {
 
     // Declare state variables to store the form data
     const [description, setDescription] = useState(meal.meal_description);
@@ -31,6 +31,7 @@ function MealEdit({ meal, setDisplay }) {
             });
             await response.json()
             setDisplay(meal)
+            setEditMeal(true)
         } catch (error) {
             console.error(error);
         }
