@@ -37,6 +37,7 @@ function WorkoutLog() {
                 method: 'DELETE',
             });
             await response.json()
+            setEditWorkout(true)
         } catch (error) {
             console.error(error);
         }

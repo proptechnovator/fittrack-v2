@@ -54,7 +54,7 @@ function MealLog() {
             });
 
             await response.json()
-            
+            setEditMeal(true)
         } catch (error) {
             console.error(error);
         }
